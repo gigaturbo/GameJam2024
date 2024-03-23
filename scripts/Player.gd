@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal hitByRessource(ressource)
 signal resourceEaten(ressource)
 
-@export var speed = 400 # in pix/sec
+@export var speed = 375 # in pix/sec
 
 var playerEvolution # TINY, LITTLE, BIG (= F0, F1, F2)
 var playerMoveState = "idle" # eat, eat_poison, idle, walk_down, walk_lateral, walk_up
@@ -71,7 +71,7 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
-	$AnimatedSprite2D.play()
+	$AnimatedSprite2D.play() # TODO : other animations
 	
 	
 	# Orientation

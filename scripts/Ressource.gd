@@ -23,10 +23,6 @@ var targetBody : Node2D = null
 
 func _ready():
 	$AnimatedSprite2D.hide()
-#	set_lock_rotation_enabled(true)
-#	set_contact_monitor(true)
-#	max_contacts_reported = 3
-	#$AnimatedSprite2D.position = Vector2(300,300) # TODO: remove
 	start()
 
 
@@ -105,14 +101,13 @@ func _process(delta):
 	if slimeState == SlimeState.ALIVE:
 		position += velocity * delta
 		velocity -= velocity.normalized() * brakingSpeed * delta
-	else:
-		$AnimatedSprite2D.set_modulate(Color(1,1,1, timerEaten.wait_time - timerEaten.time_left))
+	elif slimeState == SlimeState.EATEN:
 		var targetDirection = targetBody.global_position - global_position
-		
-		velocity = targetDirection.normalized() * maxSpeed
+		brakingSpeed = 0
+		$AnimatedSprite2D.scale = Vector2(1,1) * (1 - (timerEaten.wait_time - timerEaten.time_left))
+		velocity = targetDirection.normalized() * maxSpeed * 10
 		position += velocity * delta
 		if timerEaten.time_left <= 0 or targetDirection.length() < 25:
-			print( (position - targetBody.position).length())
 			targetBody.resourceEaten.emit(self)
 			self.queue_free()
 			
@@ -120,7 +115,6 @@ func _process(delta):
 func _on_timer_change_direction_timeout():
 	if slimeState == SlimeState.ALIVE:
 		randomImpulseMove(impulseSpeed)
-		
 		# velocity cap
 		if velocity.length() > maxSpeed:
 			velocity = velocity.normalized() * maxSpeed
@@ -135,10 +129,8 @@ func randomImpulseMove(anImpulseSpeed):
 
 # Notify player it has ben hit by resource, also start animating resource in EATEN mode
 func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_shape_index):	
-	
 	if is_instance_of(body, CharacterBody2D):
 		body.hitByRessource.emit(self)
-		print("start hit")
 		targetBody = body
 		slimeState = SlimeState.EATEN
 		timerEaten.start()
