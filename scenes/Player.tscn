@@ -1,26 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvqxplp2527yj"]
+[gd_scene load_steps=5 format=3 uid="uid://dvqxplp2527yj"]
 
-[ext_resource type="Texture2D" uid="uid://b81wc310q3qou" path="res://icon.svg" id="1_uxfyv"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwbqe"]
-radius = 78.0
-height = 164.0
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_kreaw"]
+[ext_resource type="Texture2D" uid="uid://djbn10gur4sg1" path="res://assets/image/player/slime_0.png" id="1_nugqk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgrv3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_uxfyv")
+"texture": ExtResource("1_nugqk")
 }],
 "loop": true,
-"name": &"default",
+"name": &"form1",
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwbqe"]
+radius = 131.0
+height = 262.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_rwbqe")
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_kreaw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_tgrv3")
+animation = &"form1"
+offset = Vector2(-20, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CapsuleShape2D_rwbqe")
