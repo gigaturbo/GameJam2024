@@ -15,7 +15,7 @@ func _process(delta):
 	if(mainState == mainStates.HOME):
 		mainState = mainStates.LEVEL1
 		if(true):
-			startLevel(1)
+			startLevel(2)
 	
 	
 	if(mainState == mainStates.LEVEL1 || mainState == mainStates.LEVEL2):
@@ -27,6 +27,7 @@ func startLevel(level):
 	$PlayTimer.start()
 
 
-func _on_player_point_made(newScore):
+func _on_player_point_made(newScore, balanceLevel, balanceLevelBis):
 	$CanvasLayer/HUD.setScore(newScore)
+	$CanvasLayer/HUD.setColorStats(balanceLevel)
 	pass # Replace with function body.

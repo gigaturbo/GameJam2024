@@ -28,7 +28,7 @@ func _process(delta):
 
 # Sets the color bar values
 func setColorStats(blue):
-	blueBar.value = clampf(blue, 0, 100)
+	blueBar.value = clampf(blue, -100, 100)
 
 # Add a value to the color bars 
 func addColorStat(blue):

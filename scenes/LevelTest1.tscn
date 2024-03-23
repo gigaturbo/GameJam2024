@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c5hnkftc4pxgk" path="res://scenes/Obstacles/House1.tscn" id="3_vtrjd"]
 [ext_resource type="Texture2D" uid="uid://db05v0bguptgk" path="res://assets/image/Map/Map Niveau 1.png" id="4_7dfih"]
 [ext_resource type="PackedScene" uid="uid://c53wuw83744jw" path="res://scenes/Obstacles/House2.tscn" id="4_fehci"]
-[ext_resource type="PackedScene" path="res://scenes/Obstacles/Light 1.tscn" id="5_iwe45"]
-[ext_resource type="PackedScene" path="res://scenes/Obstacles/Sign 1.tscn" id="6_wrdfw"]
+[ext_resource type="PackedScene" uid="uid://b7uttycxf7bdt" path="res://scenes/Obstacles/Light 1.tscn" id="5_iwe45"]
+[ext_resource type="PackedScene" uid="uid://c5oqeqdjtwlyr" path="res://scenes/Obstacles/Sign 1.tscn" id="6_wrdfw"]
 [ext_resource type="PackedScene" uid="uid://d4jaeu67y0lcf" path="res://scenes/Ressource.tscn" id="7_bjx5x"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y0xq8"]
