@@ -200,5 +200,4 @@ func _on_resource_eaten(ressource):
 		pointMade.emit(score, balanceLevel_2a, balanceLevel_2b)
 	
 	
-	print("+", gain, "! Score : ", score, " (CV: ", round(coefficientOfVariationResource*1000.0)*0.001, ", Multiplicateur = ", pointMultiplier, ")")
 

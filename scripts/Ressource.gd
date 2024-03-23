@@ -112,7 +112,6 @@ func _process(delta):
 		velocity = targetDirection.normalized() * maxSpeed
 		position += velocity * delta
 		if timerEaten.time_left <= 0 or targetDirection.length() < 25:
-			print( (position - targetBody.position).length())
 			targetBody.resourceEaten.emit(self)
 			self.queue_free()
 			
