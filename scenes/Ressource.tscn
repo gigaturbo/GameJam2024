@@ -1,65 +1,103 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4jaeu67y0lcf"]
+[gd_scene load_steps=6 format=3 uid="uid://d4jaeu67y0lcf"]
 
 [ext_resource type="Script" path="res://scripts/Ressource.gd" id="1_lhbhg"]
+[ext_resource type="Texture2D" uid="uid://lmrwpxgi2jne" path="res://assets/image/ressources/ressource_1.png" id="1_t140n"]
+[ext_resource type="Texture2D" uid="uid://cs2tnfsn76gjq" path="res://assets/image/ressources/resource_2.png" id="3_km1jt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3000y"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t140n")
+}],
 "loop": true,
 "name": &"A0_idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t140n")
+}],
 "loop": true,
 "name": &"A0_walk",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t140n")
+}],
 "loop": true,
 "name": &"A1_idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t140n")
+}],
 "loop": true,
 "name": &"A1_walk",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t140n")
+}],
 "loop": true,
 "name": &"A2_idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t140n")
+}],
 "loop": true,
 "name": &"A2_walk",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_km1jt")
+}],
 "loop": true,
 "name": &"B0_idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_km1jt")
+}],
 "loop": true,
 "name": &"B0_walk",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_km1jt")
+}],
 "loop": true,
 "name": &"B1_idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_km1jt")
+}],
 "loop": true,
 "name": &"B1_walk",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_km1jt")
+}],
 "loop": true,
 "name": &"B2_idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_km1jt")
+}],
 "loop": true,
 "name": &"B2_walk",
 "speed": 5.0
@@ -74,7 +112,7 @@ script = ExtResource("1_lhbhg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3000y")
-animation = &"B2_idle"
+animation = &"A0_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
