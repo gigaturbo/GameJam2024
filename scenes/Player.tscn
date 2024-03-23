@@ -437,7 +437,7 @@ script = ExtResource("1_kreaw")
 scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_tgrv3")
 animation = &"F1_walk_lateral"
-frame_progress = 0.861471
+frame_progress = 0.330109
 offset = Vector2(-20, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]

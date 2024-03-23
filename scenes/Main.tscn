@@ -32,3 +32,8 @@ autoplay = true
 
 [node name="HitSound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("6_pnyct")
+
+[node name="PlayTimer" type="Timer" parent="."]
+wait_time = 180.0
+
+[connection signal="pointMade" from="Player" to="." method="_on_player_point_made"]

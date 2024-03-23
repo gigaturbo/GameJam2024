@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 enum SlimeTypeEnum {BLUE_LEVEL_1, PINK_LEVEL_1, BLUE_H1_LEVEL_2, BLUE_H2_LEVEL_2, PINK_E1_LEVEL_2, PINK_E2_LEVEL_2}
 enum RandomSlimeLevel2Enum {OFF, RANDOM_BLUE, RANDOM_PINK, RANDOM_VARIANT1, RANDOM_VARIANT2}
@@ -134,3 +134,5 @@ func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_sha
 		targetBody = body
 		slimeState = SlimeState.EATEN
 		timerEaten.start()
+	else:
+		print("Resource touche something")
