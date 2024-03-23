@@ -63,3 +63,18 @@ value = 50.0
 [node name="RedProgress" type="ProgressBar" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VSplitContainer"]
 layout_mode = 2
 value = 75.0
+
+[node name="MarginContainer2" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 5.0
+offset_right = 896.0
+offset_bottom = 69.0
+
+[node name="LabelTimer" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 25
+text = "Time
+0s"
+horizontal_alignment = 1
