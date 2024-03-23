@@ -2,6 +2,7 @@ extends Area2D
 
 enum SlimeTypeEnum {BLUE_LEVEL_1, PINK_LEVEL_1, BLUE_H1_LEVEL_2, BLUE_H2_LEVEL_2, PINK_E1_LEVEL_2, PINK_E2_LEVEL_2}
 enum RandomSlimeLevel2Enum {OFF, RANDOM_BLUE, RANDOM_PINK, RANDOM_VARIANT1, RANDOM_VARIANT2}
+enum SlimeState {ALIVE, EATEN}
 
 @export var impulseSpeed = 50 # impulse speed in pix/sec
 @export var maxSpeed = 100 # in pix/sec
@@ -16,7 +17,9 @@ var state = "OK" # OK TOUCHED DEAD
 var velocity = Vector2.ZERO
 var speed = 0
 var spawned = false
-
+var slimeState = SlimeState.ALIVE
+var targetBody : Node2D = null
+@onready var timerEaten = $TimerEaten
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -24,38 +27,14 @@ func _ready():
 #	set_lock_rotation_enabled(true)
 #	set_contact_monitor(true)
 #	max_contacts_reported = 3
-	$AnimatedSprite2D.position = Vector2(300,300)
+	#$AnimatedSprite2D.position = Vector2(300,300) # TODO: remove
 	start()
 
 
-func getAnimationName(action):
-	var anim = ""
-	# TODO: set collisions boxes for 1-5
-	$CollisionShape2D_0.disabled = false
-	$CollisionShape2D_1.disabled = true
-	$CollisionShape2D_2.disabled = true
-	$CollisionShape2D_0.show()
-	$CollisionShape2D_1.hide()
-	$CollisionShape2D_2.hide()
-	match slimeType:
-		SlimeTypeEnum.BLUE_LEVEL_1:
-			anim = str(anim, "0")
-		SlimeTypeEnum.PINK_LEVEL_1:
-			anim = str(anim, "1")
-		SlimeTypeEnum.BLUE_H1_LEVEL_2:
-			anim = str(anim, "2")
-		SlimeTypeEnum.BLUE_H2_LEVEL_2:
-			anim = str(anim, "3")
-		SlimeTypeEnum.PINK_E1_LEVEL_2:
-			anim = str(anim, "4")
-		SlimeTypeEnum.PINK_E2_LEVEL_2:
-			anim = str(anim, "5")
-	
-	return str(anim, "_", action)
-	
-	
 func start():
 	spawned = true
+	slimeState = SlimeState.ALIVE
+	# Set slime sprite according to slimeType
 	if randomizeSlimeColorLevel1: # Simple random choice
 		match randi_range(0,1):
 			0:
@@ -94,21 +73,56 @@ func start():
 	$AnimatedSprite2D.show()
 	$TimerChangeDirection.start()
 	randomImpulseMove(impulseSpeed)
+	
 
-
+func getAnimationName(action):
+	var anim = ""
+	# TODO: set collisions boxes for 1-5
+	$CollisionShape2D_0.disabled = false
+	$CollisionShape2D_1.disabled = true
+	$CollisionShape2D_2.disabled = true
+	$CollisionShape2D_0.show()
+	$CollisionShape2D_1.hide()
+	$CollisionShape2D_2.hide()
+	match slimeType:
+		SlimeTypeEnum.BLUE_LEVEL_1:
+			anim = str(anim, "0")
+		SlimeTypeEnum.PINK_LEVEL_1:
+			anim = str(anim, "1")
+		SlimeTypeEnum.BLUE_H1_LEVEL_2:
+			anim = str(anim, "2")
+		SlimeTypeEnum.BLUE_H2_LEVEL_2:
+			anim = str(anim, "3")
+		SlimeTypeEnum.PINK_E1_LEVEL_2:
+			anim = str(anim, "4")
+		SlimeTypeEnum.PINK_E2_LEVEL_2:
+			anim = str(anim, "5")
+	
+	return str(anim, "_", action)
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position += velocity * delta
-	velocity -= velocity.normalized() * brakingSpeed * delta
-	pass
-
-
+	if slimeState == SlimeState.ALIVE:
+		position += velocity * delta
+		velocity -= velocity.normalized() * brakingSpeed * delta
+	else:
+		$AnimatedSprite2D.set_modulate(Color(1,1,1, timerEaten.wait_time - timerEaten.time_left))
+		velocity = (targetBody.position - position).normalized() * maxSpeed
+		position += velocity * delta
+		if timerEaten.time_left <= 0 or (position - targetBody.position).length() < 25:
+			print( (position - targetBody.position).length())
+			targetBody.resourceEaten.emit(self)
+			self.queue_free()
+			
+		
 func _on_timer_change_direction_timeout():
-	randomImpulseMove(impulseSpeed)
-	
-	# velocity cap
-	if velocity.length() > maxSpeed:
-		velocity = velocity.normalized() * maxSpeed
+	if slimeState == SlimeState.ALIVE:
+		randomImpulseMove(impulseSpeed)
+		
+		# velocity cap
+		if velocity.length() > maxSpeed:
+			velocity = velocity.normalized() * maxSpeed
 
 
 func randomImpulseMove(anImpulseSpeed):
@@ -118,6 +132,9 @@ func randomImpulseMove(anImpulseSpeed):
 	var impulse_vec = Vector2(x_impulse, y_impulse).normalized() * anImpulseSpeed
 	velocity = impulse_vec
 
-
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):	
+# Notify player it has ben hit by resource, also start animating resource in EATEN mode
+func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_shape_index):	
+	targetBody = body
+	slimeState = SlimeState.EATEN
+	timerEaten.start()
 	body.hitByRessource.emit(self)

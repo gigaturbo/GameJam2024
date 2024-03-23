@@ -190,3 +190,4 @@ scale = Vector2(0.25, 0.25)
 shape = SubResource("CapsuleShape2D_rwbqe")
 
 [connection signal="hitByRessource" from="." to="." method="_on_hit_by_ressource"]
+[connection signal="resourceEaten" from="." to="." method="_on_resource_eaten"]

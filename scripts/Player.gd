@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal hitByRessource(ressource)
+signal resourceEaten(ressource)
 
 @export var speed = 400 # in pix/sec
 
@@ -16,8 +17,6 @@ func _ready():
 	setPlayerEvolution("BIG")
 	setPlayerMoveState("idle")
 	$AnimatedSprite2D.show()
-
-
 
 
 func get_input():
@@ -80,9 +79,13 @@ func setPlayerEvolution(playerEvolution_):
 
 
 func _on_hit_by_ressource(ressource):
-	
 	var time = Time.get_time_dict_from_system()
 	$AnimatedSprite2D.set_modulate(Color(randf(),randf(),randf()))
 	print(ressource, " entered in Player")
 	print(time) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
+	pass # Replace with function body.
+
+
+func _on_resource_eaten(ressource):
+	# Put scoring logic here
 	pass # Replace with function body.
