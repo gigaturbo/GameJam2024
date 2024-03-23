@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5oqeqdjtwlyr"]
+
+[ext_resource type="Texture2D" uid="uid://npka0w4dgicm" path="res://assets/image/obstacles/Sign 1.png" id="1_af6lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ls7"]
+size = Vector2(15, 42)
+
+[node name="Sign 1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_af6lk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-28.5, 40)
+shape = SubResource("RectangleShape2D_m8ls7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(50.1, 40)
+shape = SubResource("RectangleShape2D_m8ls7")

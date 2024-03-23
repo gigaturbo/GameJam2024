@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7uttycxf7bdt"]
+
+[ext_resource type="Texture2D" uid="uid://c54pdmx1gjtrn" path="res://assets/image/obstacles/Light 1.png" id="1_n3rky"]
+[ext_resource type="Texture2D" uid="uid://swnjuh3itnrc" path="res://assets/image/light/2d_lights_and_shadows_neutral_point_light.webp" id="2_rus6n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3y3o"]
+size = Vector2(37, 64)
+
+[node name="Light 1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_n3rky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3.5, 89)
+shape = SubResource("RectangleShape2D_o3y3o")
+
+[node name="PointLight2D" type="PointLight2D" parent="StaticBody2D"]
+position = Vector2(-6, -82)
+color = Color(0.721569, 0.0980392, 0.964706, 1)
+energy = 0.75
+texture = ExtResource("2_rus6n")

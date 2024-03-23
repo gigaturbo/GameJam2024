@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dil6ohdjtpbt"]
 
 [ext_resource type="Texture2D" uid="uid://2otpoaxbbb3q" path="res://assets/image/obstacles/obstacle_0.png" id="1_8eod7"]
+[ext_resource type="Texture2D" uid="uid://cq5b58fxqtqvl" path="res://assets/image/obstacles/House 1.png" id="1_qbn88"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2kjnt"]
 animations = [{
@@ -13,17 +14,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t0eq"]
-size = Vector2(60, 148)
-
-[node name="Obstacle0" type="Node2D"]
+[node name="House 1" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true
 
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_qbn88")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+visible = false
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2kjnt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_8t0eq")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(257, 111, 122, 114, 5, 166, -233, 168, -244, -42, -88, -185, -66, -185, 96, -60, 258, -62)
