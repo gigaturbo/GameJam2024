@@ -7,7 +7,6 @@ signal resHit
 @export var brakingSpeed = 10 # in pix/sec/sec
 
 var state = "OK" # OK TOUCHED DEAD
-
 var velocity = Vector2.ZERO
 var speed = 0
 var spawned = false
@@ -50,9 +49,9 @@ func randomImpulseMove(anImpulseSpeed):
 
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	resHit.emit()
+	resHit.emit() # Emit a signal to the parent to play sounds
 	var time = Time.get_time_dict_from_system()
-	print(body, " entered")
-	print(time) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
+	#print(body, " entered")
+	#print(time) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
 	$AnimatedSprite2D.set_modulate(Color(randf(),randf(),randf()))
-	print(is_instance_of(body, CharacterBody2D))
+	#print(is_instance_of(body, CharacterBody2D))

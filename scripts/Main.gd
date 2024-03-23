@@ -14,7 +14,7 @@ func _process(delta):
 func _res_instanciated():
 	if len($LevelTest1.resources) > 0:
 		for r in $LevelTest1.resources:
-			
+			pass
 
 func _on_resource_hit():
 	print("hit")
