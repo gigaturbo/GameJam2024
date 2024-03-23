@@ -1,14 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4jaeu67y0lcf"]
+[gd_scene load_steps=12 format=3 uid="uid://d4jaeu67y0lcf"]
 
 [ext_resource type="Script" path="res://scripts/Ressource.gd" id="1_lhbhg"]
-[ext_resource type="Texture2D" uid="uid://lmrwpxgi2jne" path="res://assets/image/ressources/ressource_1.png" id="1_t140n"]
-[ext_resource type="Texture2D" uid="uid://cs2tnfsn76gjq" path="res://assets/image/ressources/resource_2.png" id="3_km1jt"]
+[ext_resource type="Texture2D" path="res://assets/image/ressources/ressource_1.png" id="1_t140n"]
+[ext_resource type="Texture2D" uid="uid://ckndlorx5rpyv" path="res://assets/image/ressources/resource_A0.png" id="3_2txxs"]
+[ext_resource type="Texture2D" path="res://assets/image/ressources/resource_2.png" id="3_km1jt"]
+[ext_resource type="Texture2D" uid="uid://buqn6rhrwjpeh" path="res://assets/image/ressources/resource_A1.png" id="4_kk3gq"]
+[ext_resource type="Texture2D" uid="uid://st612ktnd40i" path="res://assets/image/ressources/resource_A2.png" id="5_idcl0"]
+[ext_resource type="Texture2D" uid="uid://6chkpu5snrqq" path="res://assets/image/ressources/resource_B0.png" id="7_5lonr"]
+[ext_resource type="Texture2D" uid="uid://bxqu31fcknkrb" path="res://assets/image/ressources/resource_B1.png" id="8_iv4e6"]
+[ext_resource type="Texture2D" uid="uid://d4hx57o0encmo" path="res://assets/image/ressources/resource_B2.png" id="9_3nh7w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3000y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_t140n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2txxs")
 }],
 "loop": true,
 "name": &"A0_idle",
@@ -17,6 +26,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_t140n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2txxs")
 }],
 "loop": true,
 "name": &"A0_walk",
@@ -25,6 +37,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_t140n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kk3gq")
 }],
 "loop": true,
 "name": &"A1_idle",
@@ -33,6 +48,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_t140n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kk3gq")
 }],
 "loop": true,
 "name": &"A1_walk",
@@ -41,6 +59,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_t140n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_idcl0")
 }],
 "loop": true,
 "name": &"A2_idle",
@@ -49,6 +70,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_t140n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_idcl0")
 }],
 "loop": true,
 "name": &"A2_walk",
@@ -57,6 +81,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_km1jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5lonr")
 }],
 "loop": true,
 "name": &"B0_idle",
@@ -65,6 +92,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_km1jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5lonr")
 }],
 "loop": true,
 "name": &"B0_walk",
@@ -73,6 +103,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_km1jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iv4e6")
 }],
 "loop": true,
 "name": &"B1_idle",
@@ -81,6 +114,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_km1jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iv4e6")
 }],
 "loop": true,
 "name": &"B1_walk",
@@ -89,6 +125,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_km1jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3nh7w")
 }],
 "loop": true,
 "name": &"B2_idle",
@@ -97,6 +136,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_km1jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3nh7w")
 }],
 "loop": true,
 "name": &"B2_walk",
@@ -112,7 +154,7 @@ script = ExtResource("1_lhbhg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3000y")
-animation = &"A0_idle"
+animation = &"B2_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
