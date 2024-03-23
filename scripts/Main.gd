@@ -1,11 +1,32 @@
 extends Node
 
+enum mainStates {HOME, LEVEL1, LEVEL2, GAMEOVER}
+
+var mainState = mainStates.HOME
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Player.level = 1
 	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	
+	if(mainState == mainStates.HOME):
+		mainState = mainStates.LEVEL1
+		if(true):
+			startLevel(1)
+	
+	
+	if(mainState == mainStates.LEVEL1 || mainState == mainStates.LEVEL2):
+		$CanvasLayer/HUD.setTimer($PlayTimer.time_left)
 
+func startLevel(level):
+	print("level 1 start")
+	$Player.level = level
+	$PlayTimer.start()
+
+
+func _on_player_point_made(newScore):
+	$CanvasLayer/HUD.setScore(newScore)
+	pass # Replace with function body.

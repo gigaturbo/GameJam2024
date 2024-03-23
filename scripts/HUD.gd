@@ -6,7 +6,7 @@ var isPaused = true
 
 
 @onready var blueBar = $"MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VBoxContainer/BlueProgress"
-@onready var label = $"MarginContainer2/LabelTimer"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init()
@@ -14,21 +14,12 @@ func _ready():
 func init(timerValue= 3*60):
 	isPaused = true
 	setColorStats(0)
-	setTimerSeconds(timerValue)
 
 func setPaused(paused):
 	isPaused = paused
 
-	# Set the remaining timer label from `timerRemaining`
-func setTimerLabel():
-	label.text = str("Timer", "\n", int(timerRemaining/60),"'", int(timerRemaining - int(timerRemaining/60)*60), "''")
 
-func setTimerSeconds(s):
-	timerRemaining = s
-	setTimerLabel()
 
-func removeTimerSeconds(s):
-	setTimerSeconds(timerRemaining - s)	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,3 +34,11 @@ func setColorStats(blue):
 func addColorStat(blue):
 	setColorStats(blueBar.value + blue)
 	
+
+func setScore(score):
+	$MarginContainer3/LabelScore.text = "Score\n" + str(score)
+	
+	
+# timeleft in s
+func setTimer(timeleft):
+	$MarginContainer2/LabelTimer.text = "Time\n" + str(round(timeleft))

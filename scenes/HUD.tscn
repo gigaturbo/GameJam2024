@@ -107,11 +107,12 @@ offset_right = 896.0
 offset_bottom = 75.0
 
 [node name="LabelTimer" type="Label" parent="MarginContainer2"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 25
 text = "Time
-0s"
+0"
 horizontal_alignment = 1
 
 [node name="MarginContainer3" type="CenterContainer" parent="."]
@@ -120,6 +121,7 @@ offset_right = 448.0
 offset_bottom = 75.0
 
 [node name="LabelScore" type="Label" parent="MarginContainer3"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 25

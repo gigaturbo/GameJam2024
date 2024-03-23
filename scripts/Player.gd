@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal hitByRessource(ressource)
 signal resourceEaten(ressource)
+signal pointMade(newScore)
 
 @export var speed = 400 # in pix/sec
 
@@ -120,62 +121,64 @@ func setPlayerEvolution(playerEvolution_):
 
 
 func _on_hit_by_ressource(ressource):
-	
-	# Hit only if the resource is ALIVE
-	if(ressource.slimeState == ressource.SlimeState.ALIVE):
-		
-		$AnimatedSprite2D/PointLight2D/AnimationPlayer.stop()
-		$AnimatedSprite2D/PointLight2D/AnimationPlayer.play("ligth_eating")
-#		var time = Time.get_time_dict_from_system()
-#		print(ressource, " entered in Player")
-#		print(time) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
-#		$AnimatedSprite2D.set_modulate(Color(randf(),randf(),randf()))
-		
-		$AudioStreamPlayer.play()
-		
-		ressource.slimeState = ressource.SlimeState.EATEN
-		
-		resource_tot += 1
-		match ressource.slimeType:
-			ressource.SlimeTypeEnum.BLUE_LEVEL_1:
-				resource_counter_0 += 1
-			ressource.SlimeTypeEnum.PINK_LEVEL_1:
-				resource_counter_1 += 1
-			ressource.SlimeTypeEnum.BLUE_H1_LEVEL_2:
-				resource_counter_2 += 1
-			ressource.SlimeTypeEnum.BLUE_H2_LEVEL_2:
-				resource_counter_3 += 1
-			ressource.SlimeTypeEnum.PINK_E1_LEVEL_2:
-				resource_counter_4 += 1
-			ressource.SlimeTypeEnum.PINK_E2_LEVEL_2:
-				resource_counter_5 += 1
-				
-		
-		var meanResource = 1.0
-		var varianceResource = 0.0
-		if(level == 1):
-			meanResource = 0.5*(resource_counter_0 + resource_counter_1)
-			varianceResource = 0.5 * ((resource_counter_0 - meanResource)**2 + (resource_counter_1 - meanResource)**2)
-		elif(level == 2):
-			meanResource = 0.25*(resource_counter_2 + resource_counter_3 + resource_counter_4 + resource_counter_5)
-			varianceResource = 0.25 * ((resource_counter_2 - meanResource)**2 + (resource_counter_3 - meanResource)**2 + (resource_counter_4 - meanResource)**2 + (resource_counter_5 - meanResource)**2)
-			
-		var standDeviationResource = sqrt(varianceResource)
-		coefficientOfVariationResource = standDeviationResource / meanResource
-		
-		if(coefficientOfVariationResource <= CVresourceStep2):
-			pointMultiplier = 5
-		elif(coefficientOfVariationResource <= CVresourceStep1):
-			pointMultiplier = 3
-		else:
-			pointMultiplier = 1
-		
-		var gain = 10 * pointMultiplier
-		score += 10 * pointMultiplier
-		
-		print("+", gain, "! Score : ", score, " (CV: ", round(coefficientOfVariationResource*1000.0)*0.001, ", Multiplicateur = ", pointMultiplier, ")")
+	# do nothing on hit
+	pass
 
 
 func _on_resource_eaten(ressource):
-	# Put scoring logic here
-	pass # Replace with function body.
+	$AnimatedSprite2D/PointLight2D/AnimationPlayer.stop()
+	$AnimatedSprite2D/PointLight2D/AnimationPlayer.play("ligth_eating")
+	
+	$AudioStreamPlayer.play()
+	
+	ressource.slimeState = ressource.SlimeState.EATEN
+	
+	resource_tot += 1
+	match ressource.slimeType:
+		ressource.SlimeTypeEnum.BLUE_LEVEL_1:
+			resource_counter_0 += 1
+		ressource.SlimeTypeEnum.PINK_LEVEL_1:
+			resource_counter_1 += 1
+		ressource.SlimeTypeEnum.BLUE_H1_LEVEL_2:
+			resource_counter_2 += 1
+		ressource.SlimeTypeEnum.BLUE_H2_LEVEL_2:
+			resource_counter_3 += 1
+		ressource.SlimeTypeEnum.PINK_E1_LEVEL_2:
+			resource_counter_4 += 1
+		ressource.SlimeTypeEnum.PINK_E2_LEVEL_2:
+			resource_counter_5 += 1
+	
+	
+	
+	var meanResource = 1.0
+	var varianceResource = 0.0
+	if(level == 1):
+		meanResource = 0.5*(resource_counter_0 + resource_counter_1)
+		varianceResource = 0.5 * ((resource_counter_0 - meanResource)**2 + (resource_counter_1 - meanResource)**2)
+	elif(level == 2):
+		meanResource = 0.25*(resource_counter_2 + resource_counter_3 + resource_counter_4 + resource_counter_5)
+		varianceResource = 0.25 * ((resource_counter_2 - meanResource)**2 + (resource_counter_3 - meanResource)**2 + (resource_counter_4 - meanResource)**2 + (resource_counter_5 - meanResource)**2)
+		
+	var standDeviationResource = sqrt(varianceResource)
+	coefficientOfVariationResource = standDeviationResource / meanResource
+	
+	if(coefficientOfVariationResource <= CVresourceStep2):
+		pointMultiplier = 5
+	elif(coefficientOfVariationResource <= CVresourceStep1):
+		pointMultiplier = 3
+	else:
+		pointMultiplier = 1
+	
+	var gain = 10 * pointMultiplier
+	
+	if (level == 1):
+		if !(ressource.slimeType == ressource.SlimeTypeEnum.BLUE_LEVEL_1 || ressource.slimeType == ressource.SlimeTypeEnum.BLUE_LEVEL_1):
+			pointMultiplier = 1
+	
+	
+	score += 10 * pointMultiplier
+	
+	pointMade.emit(score)
+	
+	print("+", gain, "! Score : ", score, " (CV: ", round(coefficientOfVariationResource*1000.0)*0.001, ", Multiplicateur = ", pointMultiplier, ")")
+
