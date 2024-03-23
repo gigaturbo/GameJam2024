@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_8hsnn"]
 [ext_resource type="PackedScene" uid="uid://dvqxplp2527yj" path="res://scenes/Player.tscn" id="1_hr5du"]
-[ext_resource type="PackedScene" uid="uid://ddsoak3lso3q3" path="res://scenes/LevelTest2.tscn" id="2_o2sxr"]
+[ext_resource type="PackedScene" uid="uid://dkymkqynu0f5s" path="res://scenes/LevelTest1.tscn" id="2_oyoqd"]
 [ext_resource type="PackedScene" uid="uid://bpfyo43h74r54" path="res://scenes/HUD.tscn" id="3_naudc"]
 [ext_resource type="AudioStream" uid="uid://bxaxo7cf1mwem" path="res://assets/audio/Game_jam_0.1.mp3" id="4_24utw"]
 [ext_resource type="AudioStream" uid="uid://chcau3vn0jv0g" path="res://assets/audio/hit.wav" id="6_pnyct"]
@@ -10,7 +10,7 @@
 [node name="Node" type="Node"]
 script = ExtResource("1_8hsnn")
 
-[node name="LevelTest2" parent="." instance=ExtResource("2_o2sxr")]
+[node name="LevelTest1" parent="." instance=ExtResource("2_oyoqd")]
 
 [node name="Player" parent="." instance=ExtResource("1_hr5du")]
 position = Vector2(640, 360)

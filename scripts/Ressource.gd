@@ -112,9 +112,10 @@ func _process(delta):
 		position += velocity * delta
 		if timerEaten.time_left <= 0 or (position - targetBody.position).length() < 25:
 			print( (position - targetBody.position).length())
-			targetBody.resourceEaten.emit(self)
+			if is_instance_of(targetBody, CharacterBody2D):
+				targetBody.resourceEaten.emit(self)
 			self.queue_free()
-			
+
 		
 func _on_timer_change_direction_timeout():
 	if slimeState == SlimeState.ALIVE:
@@ -137,4 +138,5 @@ func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_sha
 	targetBody = body
 	slimeState = SlimeState.EATEN
 	timerEaten.start()
-	body.hitByRessource.emit(self)
+	if is_instance_of(body, CharacterBody2D):
+		body.hitByRessource.emit(self)
