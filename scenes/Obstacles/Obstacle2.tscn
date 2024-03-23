@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7uttycxf7bdt"]
+
+[ext_resource type="Texture2D" uid="uid://cvc6rji4r62vn" path="res://assets/image/obstacles/obstacle_3.png" id="1_vv6cs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_286nk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vv6cs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjr84"]
+size = Vector2(170, 68)
+
+[node name="Obstacle2" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_286nk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_rjr84")
