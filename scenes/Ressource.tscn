@@ -1,9 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://d4jaeu67y0lcf"]
 
 [ext_resource type="Script" path="res://scripts/Ressource.gd" id="1_lhbhg"]
-[ext_resource type="Texture2D" path="res://assets/image/ressources/ressource_1.png" id="1_t140n"]
 [ext_resource type="Texture2D" uid="uid://ckndlorx5rpyv" path="res://assets/image/ressources/resource_A0.png" id="3_2txxs"]
-[ext_resource type="Texture2D" path="res://assets/image/ressources/resource_2.png" id="3_km1jt"]
 [ext_resource type="Texture2D" uid="uid://buqn6rhrwjpeh" path="res://assets/image/ressources/resource_A1.png" id="4_kk3gq"]
 [ext_resource type="Texture2D" uid="uid://st612ktnd40i" path="res://assets/image/ressources/resource_A2.png" id="5_idcl0"]
 [ext_resource type="Texture2D" uid="uid://6chkpu5snrqq" path="res://assets/image/ressources/resource_B0.png" id="7_5lonr"]
@@ -14,9 +12,6 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_t140n")
-}, {
-"duration": 1.0,
 "texture": ExtResource("3_2txxs")
 }],
 "loop": true,
@@ -24,9 +19,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_t140n")
-}, {
 "duration": 1.0,
 "texture": ExtResource("3_2txxs")
 }],
@@ -36,9 +28,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_t140n")
-}, {
-"duration": 1.0,
 "texture": ExtResource("4_kk3gq")
 }],
 "loop": true,
@@ -46,9 +35,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_t140n")
-}, {
 "duration": 1.0,
 "texture": ExtResource("4_kk3gq")
 }],
@@ -58,9 +44,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_t140n")
-}, {
-"duration": 1.0,
 "texture": ExtResource("5_idcl0")
 }],
 "loop": true,
@@ -68,9 +51,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_t140n")
-}, {
 "duration": 1.0,
 "texture": ExtResource("5_idcl0")
 }],
@@ -80,9 +60,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_km1jt")
-}, {
-"duration": 1.0,
 "texture": ExtResource("7_5lonr")
 }],
 "loop": true,
@@ -90,9 +67,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_km1jt")
-}, {
 "duration": 1.0,
 "texture": ExtResource("7_5lonr")
 }],
@@ -102,9 +76,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_km1jt")
-}, {
-"duration": 1.0,
 "texture": ExtResource("8_iv4e6")
 }],
 "loop": true,
@@ -112,9 +83,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_km1jt")
-}, {
 "duration": 1.0,
 "texture": ExtResource("8_iv4e6")
 }],
@@ -124,9 +92,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_km1jt")
-}, {
-"duration": 1.0,
 "texture": ExtResource("9_3nh7w")
 }],
 "loop": true,
@@ -134,9 +99,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_km1jt")
-}, {
 "duration": 1.0,
 "texture": ExtResource("9_3nh7w")
 }],
@@ -146,20 +108,37 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcht1"]
-radius = 41.0
-height = 86.0
+radius = 87.0
+height = 304.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjom7"]
+radius = 87.0
+height = 194.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etqnh"]
+radius = 181.0
+height = 388.0
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_lhbhg")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3000y")
-animation = &"B2_walk"
+animation = &"A2_walk"
+frame_progress = 0.555241
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+[node name="CollisionShape2D_0" type="CollisionShape2D" parent="."]
+position = Vector2(4, 9)
 shape = SubResource("CapsuleShape2D_gcht1")
-metadata/_edit_group_ = true
+
+[node name="CollisionShape2D_1" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_jjom7")
+
+[node name="CollisionShape2D_2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_etqnh")
 
 [node name="TimerChangeDirection" type="Timer" parent="."]
 wait_time = 0.75

@@ -5,8 +5,8 @@ extends Area2D
 @export var brakingSpeed = 10 # in pix/sec/sec
 @export var slimeColor : int  = 0 # Two colors of slimes : 0 to 1
 @export var slimeHat : int = 0 # Two hats of slimes : 0 to 2
-@export var randomizeSlimeColor : bool = true
-@export var randomizeSlimeHat : bool = true
+@export var randomizeSlimeColor : bool = false
+@export var randomizeSlimeHat : bool = false
 
 var state = "OK" # OK TOUCHED DEAD
 var velocity = Vector2.ZERO
@@ -33,10 +33,28 @@ func getAnimationName(action):
 	match slimeHat:
 		0:
 			anim = str(anim, "0")
+			$CollisionShape2D_0.disabled = false
+			$CollisionShape2D_1.disabled = true
+			$CollisionShape2D_2.disabled = true
+			$CollisionShape2D_0.show()
+			$CollisionShape2D_1.hide()
+			$CollisionShape2D_2.hide()
 		1:
 			anim = str(anim, "1")
+			$CollisionShape2D_0.disabled = true
+			$CollisionShape2D_1.disabled = false
+			$CollisionShape2D_2.disabled = true
+			$CollisionShape2D_0.hide()
+			$CollisionShape2D_1.show()
+			$CollisionShape2D_2.hide()
 		2:
 			anim = str(anim, "2")
+			$CollisionShape2D_0.disabled = true
+			$CollisionShape2D_1.disabled = true
+			$CollisionShape2D_2.disabled = false
+			$CollisionShape2D_0.hide()
+			$CollisionShape2D_1.hide()
+			$CollisionShape2D_2.show()
 			
 	return str(anim, "_", action)
 	
@@ -48,8 +66,7 @@ func start():
 	if randomizeSlimeHat:
 		slimeHat = randi_range(0,2)
 
-	var anim = getAnimationName("idle")
-	
+	$AnimatedSprite2D.animation = getAnimationName("idle")
 	$AnimatedSprite2D.show()
 	$TimerChangeDirection.start()
 	randomImpulseMove(impulseSpeed)
