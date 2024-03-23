@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvqxplp2527yj"]
+[gd_scene load_steps=14 format=3 uid="uid://dvqxplp2527yj"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_kreaw"]
 [ext_resource type="Texture2D" uid="uid://djbn10gur4sg1" path="res://assets/image/player/slime_0.png" id="1_nugqk"]
@@ -153,6 +153,36 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_irr0k"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2gwex"]
+gradient = SubResource("Gradient_irr0k")
+width = 256
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_0r7wr"]
+resource_name = "ligth_eating"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [7.4, 0.25, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ew6p"]
+_data = {
+"ligth_eating": SubResource("Animation_0r7wr")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3tqmj"]
 radius = 68.0
 height = 160.0
@@ -171,8 +201,19 @@ script = ExtResource("1_kreaw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_tgrv3")
-animation = &"F0_idle"
+animation = &"F1_idle"
 offset = Vector2(-20, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-23.5294, -200)
+color = Color(1, 0.914062, 0, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_2gwex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/PointLight2D"]
+libraries = {
+"": SubResource("AnimationLibrary_8ew6p")
+}
 
 [node name="CollisionShape2D_F0" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

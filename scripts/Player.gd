@@ -11,6 +11,8 @@ var playerMoveState = "idle" # eat, eat_poison, idle, walk_down, walk_lateral, w
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var screenSize 
+
 
 var resource_counter_0 = 0
 var resource_counter_1 = 0
@@ -19,11 +21,15 @@ var resource_counter_3 = 0
 var resource_counter_4 = 0
 var resource_counter_5 = 0
 
+var resource_tot = 0
+
+var score = 0
+
 var level = 1
 
  # the balance bar
-var coefficientOfVariationResource = 0
-var pointMultiplier = 1 #
+var coefficientOfVariationResource = 0.0
+var pointMultiplier = 1.0 #
 
  # which percentage to which the balance bar reach a step
 const CVresourceStep1 = 0.2
@@ -35,6 +41,7 @@ func _ready():
 	setPlayerEvolution("LITTLE")
 	setPlayerMoveState("idle")
 	$AnimatedSprite2D.show()
+	screenSize = DisplayServer.window_get_size()
 
 
 
@@ -42,17 +49,28 @@ func _ready():
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	input_direction = input_direction.normalized()
-	velocity = input_direction * speed
+	
+	var mousePointingDirection = get_viewport().get_mouse_position() - screenSize*0.5
+	input_direction = mousePointingDirection.normalized() 
+	
+	# 0 to 1
+	var mouseIntensity = mousePointingDirection.length() / (screenSize.x*0.5) 
+	mouseIntensity = min(mouseIntensity * 1.3, 1.0)
+	
+	var targetVelocity = input_direction * speed
+	velocity = lerp(velocity, targetVelocity, mouseIntensity)
 
 # each frame
 func _physics_process(delta):
+	
+	
 	# Movement
 	get_input()
 	move_and_slide()
 	
 	# Orientation
-	if Input.get_vector("left", "right", "up", "down").x != 0:
-		$AnimatedSprite2D.set_flip_h(Input.get_vector("left", "right", "up", "down").x < 0)
+	if velocity.x != 0:
+		$AnimatedSprite2D.set_flip_h(velocity.x < 0)
 	
 	
 	
@@ -99,17 +117,22 @@ func setPlayerEvolution(playerEvolution_):
 
 
 func _on_hit_by_ressource(ressource):
-
-	# Hit only if the resource is in OK state
-	if(ressource.state == "OK"):
-		var time = Time.get_time_dict_from_system()
-		print(ressource, " entered in Player")
-		print(time) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
-		$AnimatedSprite2D.set_modulate(Color(randf(),randf(),randf()))
+	
+	# Hit only if the resource is ALIVE
+	if(ressource.slimeState == ressource.SlimeState.BEINGEATEN):
+		
+		$AnimatedSprite2D/PointLight2D/AnimationPlayer.stop()
+		$AnimatedSprite2D/PointLight2D/AnimationPlayer.play("ligth_eating")
+#		var time = Time.get_time_dict_from_system()
+#		print(ressource, " entered in Player")
+#		print(time) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
+#		$AnimatedSprite2D.set_modulate(Color(randf(),randf(),randf()))
 		
 		$AudioStreamPlayer.play()
 		
-		ressource.state = "TOUCHED"
+		ressource.slimeState = ressource.SlimeState.EATEN
+		
+		resource_tot += 1
 		match ressource.slimeType:
 			ressource.SlimeTypeEnum.BLUE_LEVEL_1:
 				resource_counter_0 += 1
@@ -123,29 +146,31 @@ func _on_hit_by_ressource(ressource):
 				resource_counter_4 += 1
 			ressource.SlimeTypeEnum.PINK_E2_LEVEL_2:
 				resource_counter_5 += 1
+				
 		
-		var meanResource = 1
-		var varianceResource = 0
+		var meanResource = 1.0
+		var varianceResource = 0.0
 		if(level == 1):
-			meanResource = resource_counter_0 + resource_counter_1
-			varianceResource = 1/2 * ((resource_counter_0 - meanResource)**2 + (resource_counter_1 - meanResource)**2)
+			meanResource = 0.5*(resource_counter_0 + resource_counter_1)
+			varianceResource = 0.5 * ((resource_counter_0 - meanResource)**2 + (resource_counter_1 - meanResource)**2)
 		elif(level == 2):
-			meanResource = resource_counter_2 + resource_counter_3 + resource_counter_4 + resource_counter_5
-			varianceResource = 1/4 * ((resource_counter_2 - meanResource)**2 + (resource_counter_3 - meanResource)**2 + (resource_counter_4 - meanResource)**2 + (resource_counter_5 - meanResource)**2)
+			meanResource = 0.25*(resource_counter_2 + resource_counter_3 + resource_counter_4 + resource_counter_5)
+			varianceResource = 0.25 * ((resource_counter_2 - meanResource)**2 + (resource_counter_3 - meanResource)**2 + (resource_counter_4 - meanResource)**2 + (resource_counter_5 - meanResource)**2)
 			
 		var standDeviationResource = sqrt(varianceResource)
 		coefficientOfVariationResource = standDeviationResource / meanResource
 		
-		if(coefficientOfVariationResource < CVresourceStep1):
-			pointMultiplier = 3
-		elif(coefficientOfVariationResource < CVresourceStep2):
+		if(coefficientOfVariationResource <= CVresourceStep2):
 			pointMultiplier = 5
+		elif(coefficientOfVariationResource <= CVresourceStep1):
+			pointMultiplier = 3
 		else:
 			pointMultiplier = 1
-	print("resource_counter_0 ", resource_counter_0)
-	print("resource_counter_1 ", resource_counter_1)
-	print("coefficientOfVariationResource ", pointMultiplier)
-	print("pointMultiplier ", pointMultiplier)
+		
+		var gain = 10 * pointMultiplier
+		score += 10 * pointMultiplier
+		
+		print("+", gain, "! Score : ", score, " (CV: ", round(coefficientOfVariationResource*1000.0)*0.001, ", Multiplicateur = ", pointMultiplier, ")")
 
 
 func _on_resource_eaten(ressource):
