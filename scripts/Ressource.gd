@@ -5,7 +5,7 @@ enum RandomSlimeLevel2Enum {OFF, RANDOM_BLUE, RANDOM_PINK, RANDOM_VARIANT1, RAND
 enum SlimeState {ALIVE, EATEN}
 
 @export var impulseSpeed = 50 # impulse speed in pix/sec
-@export var maxSpeed = 100 # in pix/sec
+@export var maxSpeed = 40 # in pix/sec
 @export var brakingSpeed = 10 # in pix/sec/sec
 
 @export_group("SLIME TYPE SETTINGS |!| Random level_2 prio. sur level_1 |!|")
@@ -107,9 +107,11 @@ func _process(delta):
 		velocity -= velocity.normalized() * brakingSpeed * delta
 	else:
 		$AnimatedSprite2D.set_modulate(Color(1,1,1, timerEaten.wait_time - timerEaten.time_left))
-		velocity = (targetBody.position - position).normalized() * maxSpeed
+		var targetDirection = targetBody.global_position - global_position
+		
+		velocity = targetDirection.normalized() * maxSpeed
 		position += velocity * delta
-		if timerEaten.time_left <= 0 or (position - targetBody.position).length() < 25:
+		if timerEaten.time_left <= 0 or targetDirection.length() < 25:
 			print( (position - targetBody.position).length())
 			targetBody.resourceEaten.emit(self)
 			self.queue_free()
@@ -133,7 +135,7 @@ func randomImpulseMove(anImpulseSpeed):
 
 # Notify player it has ben hit by resource, also start animating resource in EATEN mode
 func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_shape_index):	
-
+	
 	if is_instance_of(body, CharacterBody2D):
 		body.hitByRessource.emit(self)
 		print("start hit")

@@ -55,10 +55,13 @@ func get_input():
 	
 	# 0 to 1
 	var mouseIntensity = mousePointingDirection.length() / (screenSize.x*0.5) 
-	mouseIntensity = min(mouseIntensity * 1.3, 1.0)
+	mouseIntensity = min(mouseIntensity * (1.3), 1.0)
 	
 	var targetVelocity = input_direction * speed
 	velocity = lerp(velocity, targetVelocity, mouseIntensity)
+	
+	if(Input.is_mouse_button_pressed(1)):
+		velocity = velocity * 0.1
 
 # each frame
 func _physics_process(delta):
