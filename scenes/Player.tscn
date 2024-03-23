@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvqxplp2527yj"]
+[gd_scene load_steps=9 format=3 uid="uid://dvqxplp2527yj"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_kreaw"]
 [ext_resource type="Texture2D" uid="uid://djbn10gur4sg1" path="res://assets/image/player/slime_0.png" id="1_nugqk"]
+[ext_resource type="Texture2D" uid="uid://kqvoqhmmv6ji" path="res://assets/image/player/slime_1.png" id="3_wt0ux"]
+[ext_resource type="Texture2D" uid="uid://4dwiuts7udoo" path="res://assets/image/player/slime_2.png" id="4_u8nd1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgrv3"]
 animations = [{
@@ -10,24 +12,181 @@ animations = [{
 "texture": ExtResource("1_nugqk")
 }],
 "loop": true,
-"name": &"form1",
+"name": &"F0_eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nugqk")
+}],
+"loop": true,
+"name": &"F0_eat_poison",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nugqk")
+}],
+"loop": true,
+"name": &"F0_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nugqk")
+}],
+"loop": true,
+"name": &"F0_walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nugqk")
+}],
+"loop": true,
+"name": &"F0_walk_lateral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nugqk")
+}],
+"loop": true,
+"name": &"F0_walk_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wt0ux")
+}],
+"loop": true,
+"name": &"F1_eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wt0ux")
+}],
+"loop": true,
+"name": &"F1_eat_poison",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wt0ux")
+}],
+"loop": true,
+"name": &"F1_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wt0ux")
+}],
+"loop": true,
+"name": &"F1_walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wt0ux")
+}],
+"loop": true,
+"name": &"F1_walk_lateral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wt0ux")
+}],
+"loop": true,
+"name": &"F1_walk_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u8nd1")
+}],
+"loop": true,
+"name": &"F2_eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u8nd1")
+}],
+"loop": true,
+"name": &"F2_eat_poison",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u8nd1")
+}],
+"loop": true,
+"name": &"F2_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u8nd1")
+}],
+"loop": true,
+"name": &"F2_walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u8nd1")
+}],
+"loop": true,
+"name": &"F2_walk_lateral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u8nd1")
+}],
+"loop": true,
+"name": &"F2_walk_up",
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3tqmj"]
+radius = 68.0
+height = 160.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25l4k"]
+radius = 64.0
+height = 216.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwbqe"]
-radius = 100.0
-height = 200.0
+radius = 92.99
+height = 361.31
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_kreaw")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_tgrv3")
-animation = &"form1"
+animation = &"F0_idle"
 offset = Vector2(-20, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_F0" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CapsuleShape2D_3tqmj")
+
+[node name="CollisionShape2D_F1" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-2, 3)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CapsuleShape2D_25l4k")
+
+[node name="CollisionShape2D_F2" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 4)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("CapsuleShape2D_rwbqe")
+
+[connection signal="hitByRessource" from="." to="." method="_on_hit_by_ressource"]

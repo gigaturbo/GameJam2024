@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkymkqynu0f5s"]
+[gd_scene load_steps=9 format=3 uid="uid://dkymkqynu0f5s"]
 
 [ext_resource type="Script" path="res://scripts/LevelTest1.gd" id="1_6lv6g"]
-[ext_resource type="PackedScene" uid="uid://d4jaeu67y0lcf" path="res://scenes/Ressource.tscn" id="2_jtuam"]
+[ext_resource type="PackedScene" uid="uid://dil6ohdjtpbt" path="res://scenes/Obstacles/House1.tscn" id="3_vtrjd"]
+[ext_resource type="Texture2D" uid="uid://db05v0bguptgk" path="res://assets/image/Map/Map Niveau 1.png" id="4_7dfih"]
+[ext_resource type="PackedScene" uid="uid://ctshi8r6ntosl" path="res://scenes/Obstacles/House2.tscn" id="4_fehci"]
+[ext_resource type="PackedScene" uid="uid://b7uttycxf7bdt" path="res://scenes/Obstacles/Light 1.tscn" id="5_iwe45"]
+[ext_resource type="PackedScene" uid="uid://c5oqeqdjtwlyr" path="res://scenes/Obstacles/Sign 1.tscn" id="6_wrdfw"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y0xq8"]
 
@@ -10,10 +14,9 @@ noise = SubResource("FastNoiseLite_y0xq8")
 
 [node name="LevelTest1" type="Node2D"]
 script = ExtResource("1_6lv6g")
-resource = ExtResource("2_jtuam")
-MAX_RESOURCES = 17
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.196078, 0.552941, 0.196078, 1)
 offset_left = -2688.0
 offset_top = -1743.0
@@ -21,6 +24,25 @@ offset_right = 3077.0
 offset_bottom = 2019.0
 texture = SubResource("NoiseTexture2D_6cph1")
 
+[node name="MapNiveau1" type="Sprite2D" parent="."]
+position = Vector2(-54, 163)
+scale = Vector2(5, 5)
+texture = ExtResource("4_7dfih")
+
 [node name="TimerSpawn" type="Timer" parent="."]
+
+[node name="Obstacle" type="Node2D" parent="."]
+
+[node name="Sign 1" parent="Obstacle" instance=ExtResource("6_wrdfw")]
+position = Vector2(-1238, -455)
+
+[node name="House 2" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-1546, -592)
+
+[node name="House 1" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-2019, -542)
+
+[node name="Light 1" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-2393, -458)
 
 [connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]
