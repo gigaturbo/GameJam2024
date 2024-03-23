@@ -4,8 +4,9 @@ extends Control
 var timerRemaining
 var isPaused = true
 
-@onready var blueBar = $"MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VSplitContainer/BlueProgress"
-@onready var redBar = $"MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VSplitContainer/RedProgress"
+
+@onready var blueBar = $"MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VBoxContainer/BlueProgress"
+@onready var redBar = $"MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VBoxContainer/RedProgress"
 @onready var label = $"MarginContainer2/LabelTimer"
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,10 +33,8 @@ func removeTimerSeconds(s):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Update timer from the main scene
 	pass
-	#if not isPaused:
-	#	addColorStat(delta * 1, delta * 2)
-	#	removeTimerSeconds(delta)
 
 # Sets the color bar values
 func setColorStats(blue, red):

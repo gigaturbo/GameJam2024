@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpfyo43h74r54"]
+[gd_scene load_steps=6 format=3 uid="uid://bpfyo43h74r54"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_ct3h7"]
+[ext_resource type="Texture2D" uid="uid://csjlk8cbjkj7g" path="res://assets/image/HUD/blue.png" id="2_oihnv"]
 
 [sub_resource type="Theme" id="Theme_kyabe"]
 
@@ -23,8 +24,8 @@ offset_left = 896.0
 offset_right = 1279.0
 offset_bottom = 76.0
 theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
 theme_override_constants/margin_bottom = 5
 
 [node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
@@ -38,7 +39,7 @@ layout_mode = 2
 theme = SubResource("Theme_kyabe")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4s8lw")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer/Color Stats Container/Colors Labels"]
+[node name="VSplitContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/Color Stats Container/Colors Labels"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HSplitContainer/Color Stats Container/Colors Labels/VSplitContainer"]
@@ -53,16 +54,22 @@ text = "Rouge"
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_e1cix")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars"]
 layout_mode = 2
 
-[node name="BlueProgress" type="ProgressBar" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VSplitContainer"]
+[node name="BlueProgress" type="ProgressBar" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VBoxContainer"]
 layout_mode = 2
 value = 50.0
 
-[node name="RedProgress" type="ProgressBar" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VSplitContainer"]
+[node name="RedProgress" type="ProgressBar" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VBoxContainer"]
 layout_mode = 2
 value = 75.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+nine_patch_stretch = true
+texture_progress = ExtResource("2_oihnv")
 
 [node name="MarginContainer2" type="CenterContainer" parent="."]
 layout_mode = 0
