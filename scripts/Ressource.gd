@@ -108,19 +108,23 @@ func _process(delta):
 		velocity -= velocity.normalized() * brakingSpeed * delta
 	else:
 		$AnimatedSprite2D.set_modulate(Color(1,1,1, timerEaten.wait_time - timerEaten.time_left))
-		velocity = (targetBody.position - position).normalized() * maxSpeed
-		position += velocity * delta
-		if timerEaten.time_left <= 0 or (position - targetBody.position).length() < 25:
-			print( (position - targetBody.position).length())
-			if is_instance_of(targetBody, CharacterBody2D):
-				targetBody.resourceEaten.emit(self)
-			self.queue_free()
-
+		var distance = (self.position - targetBody.position)
 		
+		# Make resource go to player
+		self.velocity = -distance.normalized() * maxSpeed
+		self.position += velocity * delta
+		
+		# Remove Resource
+		#if is_instance_of(targetBody, CharacterBody2D):
+		print(targetBody.position)
+		if (timerEaten.time_left <= 0) or (distance.length() < 25):
+				targetBody.resourceEaten.emit(self)
+				self.queue_free()
+
+
 func _on_timer_change_direction_timeout():
 	if slimeState == SlimeState.ALIVE:
 		randomImpulseMove(impulseSpeed)
-		
 		# velocity cap
 		if velocity.length() > maxSpeed:
 			velocity = velocity.normalized() * maxSpeed
@@ -135,8 +139,9 @@ func randomImpulseMove(anImpulseSpeed):
 
 # Notify player it has ben hit by resource, also start animating resource in EATEN mode
 func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_shape_index):	
-	targetBody = body
-	slimeState = SlimeState.EATEN
-	timerEaten.start()
 	if is_instance_of(body, CharacterBody2D):
+		print("start hit")
+		targetBody = body
+		slimeState = SlimeState.EATEN
+		timerEaten.start()
 		body.hitByRessource.emit(self)
