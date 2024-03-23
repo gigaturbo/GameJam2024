@@ -35,7 +35,7 @@ position = Vector2(785, 302)
 scale = Vector2(0.2, 0.2)
 slimeHat = 2
 
-[node name="Area2D" parent="AllRes" instance=ExtResource("2_nstto")]
+[node name="Slime_3" parent="AllRes" instance=ExtResource("2_nstto")]
 position = Vector2(1162, 502)
 scale = Vector2(0.2, 0.2)
 slimeColor = 1
