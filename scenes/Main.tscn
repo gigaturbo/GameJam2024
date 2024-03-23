@@ -23,11 +23,6 @@ position_smoothing_speed = 10.0
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("3_naudc")]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Audio" type="Node" parent="."]
 
 [node name="Musique_mp3" type="AudioStreamPlayer" parent="Audio"]
