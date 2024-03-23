@@ -72,11 +72,12 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
+	$AnimatedSprite2D.play()
+	
+	
 	# Orientation
 	if velocity.x != 0:
 		$AnimatedSprite2D.set_flip_h(velocity.x < 0)
-	
-	
 	
 func setPlayerMoveState(moveState):
 	var animName = ""
