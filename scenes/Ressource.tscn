@@ -96,7 +96,7 @@ shape = SubResource("CapsuleShape2D_etqnh")
 wait_time = 0.75
 
 [node name="TimerEaten" type="Timer" parent="."]
-wait_time = 4.044
+wait_time = 0.5
 one_shot = true
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

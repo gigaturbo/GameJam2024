@@ -2,7 +2,7 @@ extends Area2D
 
 enum SlimeTypeEnum {BLUE_LEVEL_1, PINK_LEVEL_1, BLUE_H1_LEVEL_2, BLUE_H2_LEVEL_2, PINK_E1_LEVEL_2, PINK_E2_LEVEL_2}
 enum RandomSlimeLevel2Enum {OFF, RANDOM_BLUE, RANDOM_PINK, RANDOM_VARIANT1, RANDOM_VARIANT2}
-enum SlimeState {ALIVE, BEINGEATEN, EATEN}
+enum SlimeState {ALIVE, EATEN}
 
 @export var impulseSpeed = 50 # impulse speed in pix/sec
 @export var maxSpeed = 100 # in pix/sec
@@ -131,17 +131,12 @@ func randomImpulseMove(anImpulseSpeed):
 	var impulse_vec = Vector2(x_impulse, y_impulse).normalized() * anImpulseSpeed
 	velocity = impulse_vec
 
-# Notify player it has ben hit by resource, also start animating resource in BEINGEATEN mode
+# Notify player it has ben hit by resource, also start animating resource in EATEN mode
 func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_shape_index):	
-	targetBody = body
-	slimeState = SlimeState.BEINGEATEN
-	timerEaten.start()
-	body.hitByRessource.emit(self)
-=======
+
 	if is_instance_of(body, CharacterBody2D):
+		body.hitByRessource.emit(self)
 		print("start hit")
 		targetBody = body
 		slimeState = SlimeState.EATEN
 		timerEaten.start()
-		body.hitByRessource.emit(self)
->>>>>>> f60453f74306f401c3d8be1ea69843cc8cf6f693

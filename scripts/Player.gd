@@ -119,7 +119,7 @@ func setPlayerEvolution(playerEvolution_):
 func _on_hit_by_ressource(ressource):
 	
 	# Hit only if the resource is ALIVE
-	if(ressource.slimeState == ressource.SlimeState.BEINGEATEN):
+	if(ressource.slimeState == ressource.SlimeState.ALIVE):
 		
 		$AnimatedSprite2D/PointLight2D/AnimationPlayer.stop()
 		$AnimatedSprite2D/PointLight2D/AnimationPlayer.play("ligth_eating")
