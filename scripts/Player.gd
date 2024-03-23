@@ -15,6 +15,7 @@ var playerEvolution # TINY, LITTLE, BIG (= F0, F1, F2)
 var playerMoveState = "idle" # eat, eat_poison, idle, walk_down, walk_lateral, walk_up
 
 
+
 var screenSize 
 
 

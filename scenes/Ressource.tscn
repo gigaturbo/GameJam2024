@@ -60,43 +60,41 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcht1"]
-radius = 41.0
-height = 82.0
+radius = 30.2638
+height = 65.4356
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjom7"]
-radius = 42.0
-height = 112.0
+radius = 34.6749
+height = 76.7117
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etqnh"]
 radius = 36.0
-height = 104.0
+height = 73.6196
 
-[node name="Area2D" type="Area2D"]
+[node name="RigidBody" type="RigidBody2D"]
+scale = Vector2(0.815, 0.815)
+gravity_scale = 0.0
 script = ExtResource("1_lhbhg")
 slimeType = 3
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3000y")
 animation = &"0_idle"
 
 [node name="CollisionShape2D_0" type="CollisionShape2D" parent="."]
-position = Vector2(4, 9)
 shape = SubResource("CapsuleShape2D_gcht1")
 
 [node name="CollisionShape2D_1" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_jjom7")
 
 [node name="CollisionShape2D_2" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_etqnh")
 
 [node name="TimerChangeDirection" type="Timer" parent="."]
 wait_time = 0.75
 
 [node name="TimerEaten" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
