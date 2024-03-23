@@ -1,3 +1,65 @@
-[gd_scene format=3 uid="uid://bpfyo43h74r54"]
+[gd_scene load_steps=5 format=3 uid="uid://bpfyo43h74r54"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="1_ct3h7"]
+
+[sub_resource type="Theme" id="Theme_kyabe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4s8lw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1cix"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ct3h7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_right = 1279.0
+offset_bottom = 76.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Color Stats Container" type="HSplitContainer" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="Colors Labels" type="PanelContainer" parent="MarginContainer/HSplitContainer/Color Stats Container"]
+layout_mode = 2
+theme = SubResource("Theme_kyabe")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4s8lw")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer/Color Stats Container/Colors Labels"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/Color Stats Container/Colors Labels/VSplitContainer"]
+layout_mode = 2
+text = "Bleu"
+
+[node name="Label2" type="Label" parent="MarginContainer/HSplitContainer/Color Stats Container/Colors Labels/VSplitContainer"]
+layout_mode = 2
+text = "Rouge"
+
+[node name="Color Progress Bars" type="PanelContainer" parent="MarginContainer/HSplitContainer/Color Stats Container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e1cix")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars"]
+layout_mode = 2
+
+[node name="BlueProgress" type="ProgressBar" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VSplitContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="RedProgress" type="ProgressBar" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VSplitContainer"]
+layout_mode = 2
+value = 75.0
