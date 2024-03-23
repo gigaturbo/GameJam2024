@@ -1,26 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4jaeu67y0lcf"]
+[gd_scene load_steps=5 format=3 uid="uid://d4jaeu67y0lcf"]
 
-[ext_resource type="Texture2D" uid="uid://b81wc310q3qou" path="res://icon.svg" id="1_gucu5"]
+[ext_resource type="Script" path="res://scripts/Ressource.gd" id="1_lhbhg"]
+[ext_resource type="Texture2D" uid="uid://lmrwpxgi2jne" path="res://assets/image/ressources/ressource_1.png" id="1_t140n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pronx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_gucu5")
+"texture": ExtResource("1_t140n")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcht1"]
-radius = 76.49
-height = 152.98
+radius = 49.0
+height = 104.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2(779, 343)
+gravity_scale = 0.0
+script = ExtResource("1_lhbhg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_pronx")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_gcht1")
+
+[node name="TimerChangeDirection" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerChangeDirection" to="." method="_on_timer_change_direction_timeout"]
