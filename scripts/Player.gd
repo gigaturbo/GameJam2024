@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal hitByRessource(ressource)
+signal resourceEaten(ressource)
 
 @export var speed = 400 # in pix/sec
 
@@ -98,7 +99,7 @@ func setPlayerEvolution(playerEvolution_):
 
 
 func _on_hit_by_ressource(ressource):
-	
+
 	# Hit only if the resource is in OK state
 	if(ressource.state == "OK"):
 		var time = Time.get_time_dict_from_system()
@@ -145,3 +146,8 @@ func _on_hit_by_ressource(ressource):
 	print("resource_counter_1 ", resource_counter_1)
 	print("coefficientOfVariationResource ", pointMultiplier)
 	print("pointMultiplier ", pointMultiplier)
+
+
+func _on_resource_eaten(ressource):
+	# Put scoring logic here
+	pass # Replace with function body.

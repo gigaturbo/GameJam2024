@@ -193,3 +193,4 @@ shape = SubResource("CapsuleShape2D_rwbqe")
 stream = ExtResource("5_31068")
 
 [connection signal="hitByRessource" from="." to="." method="_on_hit_by_ressource"]
+[connection signal="resourceEaten" from="." to="." method="_on_resource_eaten"]
