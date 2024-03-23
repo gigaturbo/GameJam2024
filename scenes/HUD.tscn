@@ -73,10 +73,9 @@ texture_progress = ExtResource("2_oihnv")
 
 [node name="MarginContainer2" type="CenterContainer" parent="."]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 5.0
+offset_left = 448.0
 offset_right = 896.0
-offset_bottom = 69.0
+offset_bottom = 75.0
 
 [node name="LabelTimer" type="Label" parent="MarginContainer2"]
 layout_mode = 2
@@ -84,4 +83,17 @@ theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 25
 text = "Time
 0s"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 448.0
+offset_bottom = 75.0
+
+[node name="LabelScore" type="Label" parent="MarginContainer3"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 25
+text = "Score
+0"
 horizontal_alignment = 1
