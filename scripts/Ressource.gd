@@ -95,9 +95,5 @@ func randomImpulseMove(anImpulseSpeed):
 	velocity = impulse_vec
 
 
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	var time = Time.get_time_dict_from_system()
-	$AnimatedSprite2D.set_modulate(Color(randf(),randf(),randf()))
-	#print(body, " entered")
-	#print(time) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
-	#print(is_instance_of(body, CharacterBody2D))
+func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):	
+	body.hitByRessource.emit(self)
