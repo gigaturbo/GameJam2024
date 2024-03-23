@@ -6,7 +6,6 @@ var isPaused = true
 
 
 @onready var blueBar = $"MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VBoxContainer/BlueProgress"
-@onready var redBar = $"MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VBoxContainer/RedProgress"
 @onready var label = $"MarginContainer2/LabelTimer"
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +13,7 @@ func _ready():
 	
 func init(timerValue= 3*60):
 	isPaused = true
-	setColorStats(0, 0)
+	setColorStats(0)
 	setTimerSeconds(timerValue)
 
 func setPaused(paused):
@@ -37,11 +36,10 @@ func _process(delta):
 	pass
 
 # Sets the color bar values
-func setColorStats(blue, red):
+func setColorStats(blue):
 	blueBar.value = clampf(blue, 0, 100)
-	redBar.value = clampf(red, 0, 100)
 
 # Add a value to the color bars 
-func addColorStat(blue, red):
-	setColorStats(blueBar.value + blue, redBar.value + red)
+func addColorStat(blue):
+	setColorStats(blueBar.value + blue)
 	

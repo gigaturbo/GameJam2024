@@ -137,3 +137,11 @@ func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_sha
 	slimeState = SlimeState.BEINGEATEN
 	timerEaten.start()
 	body.hitByRessource.emit(self)
+=======
+	if is_instance_of(body, CharacterBody2D):
+		print("start hit")
+		targetBody = body
+		slimeState = SlimeState.EATEN
+		timerEaten.start()
+		body.hitByRessource.emit(self)
+>>>>>>> f60453f74306f401c3d8be1ea69843cc8cf6f693

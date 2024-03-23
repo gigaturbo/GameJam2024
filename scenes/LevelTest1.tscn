@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkymkqynu0f5s"]
+[gd_scene load_steps=10 format=3 uid="uid://dkymkqynu0f5s"]
 
 [ext_resource type="Script" path="res://scripts/LevelTest1.gd" id="1_6lv6g"]
-[ext_resource type="PackedScene" path="res://scenes/Obstacles/House1.tscn" id="3_vtrjd"]
+[ext_resource type="PackedScene" uid="uid://c5hnkftc4pxgk" path="res://scenes/Obstacles/House1.tscn" id="3_vtrjd"]
 [ext_resource type="Texture2D" uid="uid://db05v0bguptgk" path="res://assets/image/Map/Map Niveau 1.png" id="4_7dfih"]
 [ext_resource type="PackedScene" path="res://scenes/Obstacles/House2.tscn" id="4_fehci"]
 [ext_resource type="PackedScene" path="res://scenes/Obstacles/Light 1.tscn" id="5_iwe45"]
 [ext_resource type="PackedScene" path="res://scenes/Obstacles/Sign 1.tscn" id="6_wrdfw"]
+[ext_resource type="PackedScene" uid="uid://d4jaeu67y0lcf" path="res://scenes/Ressource.tscn" id="7_bjx5x"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y0xq8"]
 
@@ -25,24 +26,1033 @@ offset_bottom = 2019.0
 texture = SubResource("NoiseTexture2D_6cph1")
 
 [node name="MapNiveau1" type="Sprite2D" parent="."]
-position = Vector2(-54, 163)
+position = Vector2(1113, 573)
 scale = Vector2(5, 5)
 texture = ExtResource("4_7dfih")
 
-[node name="TimerSpawn" type="Timer" parent="."]
-
 [node name="Obstacle" type="Node2D" parent="."]
+position = Vector2(1167, 410)
 
 [node name="Sign 1" parent="Obstacle" instance=ExtResource("6_wrdfw")]
-position = Vector2(-1238, -455)
+position = Vector2(-946, -359)
+
+[node name="Sign 2" parent="Obstacle" instance=ExtResource("6_wrdfw")]
+position = Vector2(-2610, -588)
+
+[node name="Sign 3" parent="Obstacle" instance=ExtResource("6_wrdfw")]
+position = Vector2(730, -607)
+
+[node name="Sign 4" parent="Obstacle" instance=ExtResource("6_wrdfw")]
+position = Vector2(1410, 2123)
+
+[node name="Sign 5" parent="Obstacle" instance=ExtResource("6_wrdfw")]
+position = Vector2(-1059, -2906)
+
+[node name="Sign 6" parent="Obstacle" instance=ExtResource("6_wrdfw")]
+position = Vector2(-2292, -2478)
 
 [node name="House 2" parent="Obstacle" instance=ExtResource("4_fehci")]
-position = Vector2(-1546, -592)
+position = Vector2(-116, -766)
+
+[node name="House 3" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-117, -466)
+
+[node name="House 4" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-81, -53)
+
+[node name="House 5" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-74, 194)
+
+[node name="House 13" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2008, -72)
+
+[node name="House 34" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1818, 141)
+
+[node name="House 52" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-878, -2454)
+
+[node name="House 53" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(3202, -2134)
+
+[node name="House 54" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2818, -934)
+
+[node name="House 55" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(3175, -944)
+
+[node name="House 56" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(3204, -725)
+
+[node name="House 57" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2857, -715)
+
+[node name="House 58" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1001, 2922)
+
+[node name="House 59" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1358, 2912)
+
+[node name="House 60" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1387, 3131)
+
+[node name="House 61" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1040, 3141)
+
+[node name="House 62" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1742, 2901)
+
+[node name="House 63" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2099, 2891)
+
+[node name="House 64" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2128, 3110)
+
+[node name="House 65" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1781, 3120)
+
+[node name="House 66" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2476, 2937)
+
+[node name="House 67" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2833, 2927)
+
+[node name="House 68" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2862, 3146)
+
+[node name="House 69" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2515, 3156)
+
+[node name="House 70" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2576, 2410)
+
+[node name="House 71" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2933, 2400)
+
+[node name="House 72" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2962, 2619)
+
+[node name="House 73" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2615, 2629)
+
+[node name="House 74" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2847, 1890)
+
+[node name="House 75" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(3204, 1880)
+
+[node name="House 76" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(3233, 2099)
+
+[node name="House 77" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2886, 2109)
+
+[node name="House 78" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-2393, 2882)
+
+[node name="House 79" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-2036, 2872)
+
+[node name="House 80" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-2007, 3091)
+
+[node name="House 81" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-2354, 3101)
+
+[node name="House 82" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4090, 2916)
+
+[node name="House 83" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3733, 2906)
+
+[node name="House 84" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3704, 3125)
+
+[node name="House 85" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4051, 3135)
+
+[node name="House 102" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4950, 1088)
+
+[node name="House 103" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4593, 1078)
+
+[node name="House 104" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4564, 1297)
+
+[node name="House 105" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4911, 1307)
+
+[node name="House 106" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4994, -2004)
+
+[node name="House 107" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4637, -2014)
+
+[node name="House 108" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4608, -1795)
+
+[node name="House 109" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4955, -1785)
+
+[node name="House 110" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-5153, -1566)
+
+[node name="House 111" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4796, -1576)
+
+[node name="House 112" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4767, -1357)
+
+[node name="House 113" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-5114, -1347)
+
+[node name="House 114" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-5216, -1141)
+
+[node name="House 115" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4859, -1151)
+
+[node name="House 116" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4830, -932)
+
+[node name="House 117" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-5177, -922)
+
+[node name="House 118" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-5292, -722)
+
+[node name="House 119" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4935, -732)
+
+[node name="House 120" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4906, -513)
+
+[node name="House 121" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-5253, -503)
+
+[node name="House 122" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3427, -3508)
+
+[node name="House 123" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3070, -3518)
+
+[node name="House 124" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3041, -3299)
+
+[node name="House 125" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3388, -3289)
+
+[node name="House 98" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4944, 1507)
+
+[node name="House 99" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4587, 1497)
+
+[node name="House 100" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4558, 1716)
+
+[node name="House 101" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4905, 1726)
+
+[node name="House 94" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4780, 1988)
+
+[node name="House 95" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4423, 1978)
+
+[node name="House 96" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4394, 2197)
+
+[node name="House 97" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4741, 2207)
+
+[node name="House 90" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4565, 2424)
+
+[node name="House 91" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4208, 2414)
+
+[node name="House 92" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4179, 2633)
+
+[node name="House 93" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4526, 2643)
+
+[node name="House 86" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4842, 2939)
+
+[node name="House 87" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4485, 2929)
+
+[node name="House 88" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4456, 3148)
+
+[node name="House 89" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-4803, 3158)
+
+[node name="House 37" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1488, -2101)
+
+[node name="House 35" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2540, 658)
+
+[node name="House 36" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(2544, 908)
+
+[node name="House 14" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-1412, 975)
+
+[node name="House 20" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-477, 2749)
+
+[node name="House 21" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(104, 2294)
+
+[node name="House 22" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(500, 2294)
+
+[node name="House 23" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1138, -1693)
+
+[node name="House 24" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(509, -2079)
+
+[node name="House 25" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-2031, -3127)
+
+[node name="House 26" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(1057, -2893)
+
+[node name="House 15" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(52, -1089)
+
+[node name="House 16" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-2957, 1410)
+
+[node name="House 17" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-1327, -1868)
 
 [node name="House 1" parent="Obstacle" instance=ExtResource("3_vtrjd")]
-position = Vector2(-2019, -542)
+position = Vector2(-547, -734)
+
+[node name="House 27" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-2424, 504)
+
+[node name="House 28" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-3903, 79)
+
+[node name="House 51" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-3104, 108)
+
+[node name="House 50" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-3323, 336)
+
+[node name="House 49" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-3494, 550)
+
+[node name="House 48" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-3817, 645)
+
+[node name="House 38" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-3121, -929)
+
+[node name="House 47" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3384, -1701)
+
+[node name="House 46" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3276, -1435)
+
+[node name="House 45" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3155, -1213)
+
+[node name="House 39" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-3121, -929)
+
+[node name="House 44" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3887, -463)
+
+[node name="House 41" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-4216, -420)
+
+[node name="House 43" parent="Obstacle" instance=ExtResource("4_fehci")]
+position = Vector2(-3300, -640)
+
+[node name="House 40" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-3502, -446)
+
+[node name="House 42" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(139, -2907)
+
+[node name="House 29" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-2151, 2071)
+
+[node name="House 30" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(2418, -1639)
+
+[node name="House 31" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(733, 1539)
+
+[node name="House 33" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(1206, 1563)
+
+[node name="House 32" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(1320, 932)
+
+[node name="House 12" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-993, 443)
+
+[node name="House 11" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(936, 34)
+
+[node name="House 10" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(589, 245)
+
+[node name="House 9" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(185, 415)
+
+[node name="House 8" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-678, 366)
+
+[node name="House 7" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-280, 322)
+
+[node name="House 6" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-994, -667)
+
+[node name="House 19" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-2476, -1183)
+
+[node name="House 18" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-2284, -937)
+
+[node name="House 126" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-2674, -2682)
+
+[node name="House 127" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(2028, -2736)
+
+[node name="House 128" parent="Obstacle" instance=ExtResource("3_vtrjd")]
+position = Vector2(-578, 1995)
 
 [node name="Light 1" parent="Obstacle" instance=ExtResource("5_iwe45")]
-position = Vector2(-2393, -458)
+position = Vector2(-1320, -629)
 
-[connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]
+[node name="Light 2" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-2291, 303)
+
+[node name="Light 3" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-3006, -696)
+
+[node name="Light 4" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-2013, 1366)
+
+[node name="Light 5" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-3716, 1487)
+
+[node name="Light 6" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-95, 1480)
+
+[node name="Light 7" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(1990, 1412)
+
+[node name="Light 8" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(1998, -995)
+
+[node name="Light 9" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(3024, 183)
+
+[node name="Light 10" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-519, -1512)
+
+[node name="Light 11" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-2155, -1775)
+
+[node name="Light 12" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-4003, -1131)
+
+[node name="Light 13" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-3817, -2733)
+
+[node name="Light 14" parent="Obstacle" instance=ExtResource("5_iwe45")]
+position = Vector2(-952, 2754)
+
+[node name="Blue Slime" type="Node2D" parent="."]
+position = Vector2(1167, 410)
+
+[node name="Area2D" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1457, 109)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D2" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1262, -249)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D3" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1137, 177)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D4" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-942, -181)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D5" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1419, 330)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D6" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1224, -28)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D7" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2896, -337)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D8" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2701, -695)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D9" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2576, -269)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D10" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2381, -627)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D11" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2775, -148)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D12" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2697, -449)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D13" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4831, -2799)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D14" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4706, -2373)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D15" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4511, -2731)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D16" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4546, -2518)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D17" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4827, -2553)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D18" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1490, -3313)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D19" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1365, -2887)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D20" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1170, -3245)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D21" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1205, -3032)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D22" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1486, -3067)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D23" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(320, -603)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D24" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(445, -177)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D25" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(555, -807)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D28" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(931, -380)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D29" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(906, -801)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D30" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(547, -1061)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D26" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(605, -322)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D27" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(324, -357)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D31" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(491, 2772)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D32" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(862, 2555)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D35" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3086, 2866)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D36" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3001, -1661)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D37" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-784, -3072)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D33" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(232, 2750)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D34" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-57, 2792)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D38" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1362, -333)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D39" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(234, 827)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D40" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(2378, -2157)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D41" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(2882, -2757)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D42" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(786, -3365)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D43" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2646, -3149)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D44" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(985, 941)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D45" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1610, 2201)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D46" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(2174, 2554)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D47" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4058, -1643)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D48" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3738, -1502)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D49" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4436, -1393)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D50" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4458, -870)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D51" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3536, -1062)
+scale = Vector2(0.5, 0.5)
+
+[node name="Pink Slime" type="Node2D" parent="."]
+position = Vector2(1167, 410)
+
+[node name="Area2D" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-835, 764)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D2" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-910, 1119)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D3" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-567, 922)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D4" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2264, 1178)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D5" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1359, 1937)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D6" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3046, 2357)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D7" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3840, 1960)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D8" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3526, 1868)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D9" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1981, 2422)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D11" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1727, 2574)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D10" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1667, 2330)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D12" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1433, 2970)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D13" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1179, 3122)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D14" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1119, 2878)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D15" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1094, 2596)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D16" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-840, 2748)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D17" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-780, 2504)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D18" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(61, 1399)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D19" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(315, 1551)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D20" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(375, 1307)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D21" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1578, 1209)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D22" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1832, 1361)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D23" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1892, 1117)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D24" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1686, 1813)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D25" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1940, 1965)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D26" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(2000, 1721)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D27" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1672, 1550)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D28" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-126, 2002)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D31" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-333, 2389)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D32" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(2914, 957)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D33" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(3120, 770)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D34" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(2877, 544)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D35" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(2631, 349)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D36" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(2829, 86)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D37" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(3233, 372)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D38" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1837, -409)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D39" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(2169, -611)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D40" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1837, -1011)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D41" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1981, -1334)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D42" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1857, -3048)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D43" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(1583, -3482)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D44" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(118, -3185)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D45" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-354, -2201)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D46" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2682, -2004)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D47" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2351, -1962)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D48" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2662, -1730)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D49" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2390, -1673)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D50" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1966, -1557)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D51" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2192, -1396)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D52" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4040, -2587)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D53" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3640, -2742)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D54" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4096, -2871)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D55" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3984, -3121)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D56" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3856, -1841)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D57" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4291, -1956)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D58" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3876, -1285)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D59" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4228, -885)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D60" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4200, -1233)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D61" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3820, -973)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D62" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4552, -589)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D63" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3166, -196)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D64" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3450, 4)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D65" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-4594, 416)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D66" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-3103, 643)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D67" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2824, 390)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D68" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-2027, -197)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D69" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1482, -717)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D70" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-897, -917)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D71" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-407, -1027)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D72" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-742, -1272)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D73" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-177, -1457)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D74" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-387, -1279)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D29" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(198, 1865)
+scale = Vector2(0.5, 0.5)
+slimeType = 1
+
+[node name="Area2D30" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
+position = Vector2(-130, 1694)
+scale = Vector2(0.5, 0.5)
+slimeType = 1

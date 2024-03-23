@@ -22,31 +22,17 @@ texture = SubResource("NoiseTexture2D_6cph1")
 [node name="AllRes" type="Node2D" parent="."]
 
 [node name="Slime_0" parent="AllRes" instance=ExtResource("2_nstto")]
-position = Vector2(422, 168)
-scale = Vector2(0.2, 0.2)
-slimeType = 0
-randomizeSlimeColorLevel1 = true
-
-[node name="s" parent="AllRes" instance=ExtResource("2_nstto")]
-position = Vector2(117, 358)
-scale = Vector2(0.2, 0.2)
-slimeType = 0
-randomizeSlimeColorLevel1 = true
-
-[node name="Slime_2" parent="AllRes" instance=ExtResource("2_nstto")]
 position = Vector2(191, 172)
 scale = Vector2(0.2, 0.2)
-slimeType = 0
-randomizeSlimeColorLevel1 = true
+
+[node name="Slime_1" parent="AllRes" instance=ExtResource("2_nstto")]
+position = Vector2(465, 460)
+scale = Vector2(0.2, 0.2)
+
+[node name="Slime_2" parent="AllRes" instance=ExtResource("2_nstto")]
+position = Vector2(785, 302)
+scale = Vector2(0.2, 0.2)
 
 [node name="Slime_3" parent="AllRes" instance=ExtResource("2_nstto")]
-position = Vector2(371, 396)
+position = Vector2(1162, 502)
 scale = Vector2(0.2, 0.2)
-slimeType = 0
-randomizeSlimeColorLevel1 = true
-
-[node name="Slime_4" parent="AllRes" instance=ExtResource("2_nstto")]
-position = Vector2(528, 318)
-scale = Vector2(0.2, 0.2)
-slimeType = 0
-randomizeSlimeColorLevel1 = true
