@@ -1,11 +1,20 @@
 extends Node
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$LevelTest1.res_instanciated.connect()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _res_instanciated():
+	if len($LevelTest1.resources) > 0:
+		for r in $LevelTest1.resources:
+			
+
+func _on_resource_hit():
+	print("hit")

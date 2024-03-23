@@ -1,46 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtaxorkjqko3b"]
+[gd_scene load_steps=7 format=3 uid="uid://dtaxorkjqko3b"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_8hsnn"]
 [ext_resource type="PackedScene" uid="uid://dvqxplp2527yj" path="res://scenes/Player.tscn" id="1_hr5du"]
-[ext_resource type="PackedScene" uid="uid://d4jaeu67y0lcf" path="res://scenes/Ressource.tscn" id="2_q22ah"]
+[ext_resource type="PackedScene" uid="uid://dkymkqynu0f5s" path="res://scenes/LevelTest1.tscn" id="2_28i82"]
 [ext_resource type="PackedScene" uid="uid://bpfyo43h74r54" path="res://scenes/HUD.tscn" id="3_naudc"]
 [ext_resource type="AudioStream" uid="uid://bxaxo7cf1mwem" path="res://assets/audio/Game_jam_0.1.mp3" id="4_24utw"]
 [ext_resource type="AudioStream" uid="uid://chcau3vn0jv0g" path="res://assets/audio/hit.wav" id="6_pnyct"]
 
-[sub_resource type="Gradient" id="Gradient_a3eej"]
-offsets = PackedFloat32Array(0, 0.682403, 1)
-colors = PackedColorArray(0, 1, 0.0859375, 1, 0, 0.720158, 0.5057, 1, 0, 0.390625, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_y35bg"]
-gradient = SubResource("Gradient_a3eej")
-width = 1800
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_y0xq8"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d4aq1"]
-noise = SubResource("FastNoiseLite_y0xq8")
-
 [node name="Node" type="Node"]
 script = ExtResource("1_8hsnn")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-offset_left = -2741.0
-offset_top = -1765.0
-offset_right = 3084.0
-offset_bottom = 2004.0
-texture = SubResource("GradientTexture1D_y35bg")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-modulate = Color(0.196078, 0.552941, 0.196078, 1)
-offset_left = -2688.0
-offset_top = -1743.0
-offset_right = 3077.0
-offset_bottom = 2019.0
-texture = SubResource("NoiseTexture2D_d4aq1")
-
-[node name="Ressource" parent="." instance=ExtResource("2_q22ah")]
-position = Vector2(245, -141)
+[node name="LevelTest1" parent="." instance=ExtResource("2_28i82")]
 
 [node name="Player" parent="." instance=ExtResource("1_hr5du")]
 

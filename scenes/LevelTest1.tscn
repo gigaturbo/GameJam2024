@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkymkqynu0f5s"]
+
+[ext_resource type="Script" path="res://scripts/LevelTest1.gd" id="1_6lv6g"]
+[ext_resource type="PackedScene" uid="uid://d4jaeu67y0lcf" path="res://scenes/Ressource.tscn" id="2_jtuam"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y0xq8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6cph1"]
+noise = SubResource("FastNoiseLite_y0xq8")
+
+[node name="LevelTest1" type="Node2D"]
+script = ExtResource("1_6lv6g")
+resource = ExtResource("2_jtuam")
+MAX_RESOURCES = 17
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0.196078, 0.552941, 0.196078, 1)
+offset_left = -2688.0
+offset_top = -1743.0
+offset_right = 3077.0
+offset_bottom = 2019.0
+texture = SubResource("NoiseTexture2D_6cph1")
+
+[node name="TimerSpawn" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]
