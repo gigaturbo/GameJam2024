@@ -15,11 +15,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwbqe"]
-radius = 131.0
-height = 262.0
+radius = 100.0
+height = 200.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_kreaw")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)

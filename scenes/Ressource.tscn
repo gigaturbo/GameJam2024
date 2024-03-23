@@ -15,23 +15,25 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcht1"]
-radius = 49.0
-height = 104.0
+radius = 41.0
+height = 86.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
-position = Vector2(779, 343)
 gravity_scale = 0.0
 script = ExtResource("1_lhbhg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_pronx")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_gcht1")
+metadata/_edit_group_ = true
 
 [node name="TimerChangeDirection" type="Timer" parent="."]
+wait_time = 0.75
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TimerChangeDirection" to="." method="_on_timer_change_direction_timeout"]
