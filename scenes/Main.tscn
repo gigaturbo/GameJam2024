@@ -1,19 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtaxorkjqko3b"]
+[gd_scene load_steps=8 format=3 uid="uid://dtaxorkjqko3b"]
 
 [ext_resource type="PackedScene" uid="uid://dvqxplp2527yj" path="res://scenes/Player.tscn" id="1_hr5du"]
 [ext_resource type="PackedScene" uid="uid://d4jaeu67y0lcf" path="res://scenes/Ressource.tscn" id="2_q22ah"]
 [ext_resource type="PackedScene" uid="uid://bpfyo43h74r54" path="res://scenes/HUD.tscn" id="3_naudc"]
 
+[sub_resource type="Gradient" id="Gradient_a3eej"]
+offsets = PackedFloat32Array(0, 0.682403, 1)
+colors = PackedColorArray(0, 1, 0.0859375, 1, 0, 0.720158, 0.5057, 1, 0, 0.390625, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y35bg"]
+gradient = SubResource("Gradient_a3eej")
+width = 1800
+
+[sub_resource type="Gradient" id="Gradient_nk3sx"]
+offsets = PackedFloat32Array(0, 0.991416)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1g3et"]
+gradient = SubResource("Gradient_nk3sx")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
 [node name="Node" type="Node"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2741.0
+offset_top = -1765.0
+offset_right = 3084.0
+offset_bottom = 2004.0
+texture = SubResource("GradientTexture1D_y35bg")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0.576471, 0.0627451, 0.0627451, 0.647059)
+offset_left = -2688.0
+offset_top = -1743.0
+offset_right = 3077.0
+offset_bottom = 2019.0
+texture = SubResource("GradientTexture2D_1g3et")
 
 [node name="Ressource" parent="." instance=ExtResource("2_q22ah")]
 position = Vector2(245, -141)
 
 [node name="Player" parent="." instance=ExtResource("1_hr5du")]
 
-[node name="Control" parent="." instance=ExtResource("3_naudc")]
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(640, 360)
+transform = Transform2D(1, 0, 0, 1, 640, 360)
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("3_naudc")]
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
