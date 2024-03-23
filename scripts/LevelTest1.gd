@@ -1,7 +1,5 @@
 extends Node2D
 
-signal res_intanciated
-
 @export var resource : PackedScene
 @export var MAX_RESOURCES : int = 7
 var resources = []
@@ -25,5 +23,3 @@ func _on_timer_spawn_timeout():
 		res.position = Vector2(randi_range(0, 1280), randi_range(0, 720))
 		add_child(res)
 		resources.append(res)
-		res_intanciated.emit()
-	

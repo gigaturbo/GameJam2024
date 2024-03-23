@@ -1,17 +1,20 @@
 extends Area2D
 
-signal resHit
-
 @export var impulseSpeed = 50 # impulse speed in pix/sec
 @export var maxSpeed = 100 # in pix/sec
 @export var brakingSpeed = 10 # in pix/sec/sec
+@export var slimeColor : int  = 0 # Two colors of slimes : 0 to 1
+@export var slimeHat : int = 0 # Two hats of slimes : 0 to 2
+@export var randomizeSlimeColor : bool = true
+@export var randomizeSlimeHat : bool = true
 
 var state = "OK" # OK TOUCHED DEAD
 var velocity = Vector2.ZERO
 var speed = 0
 var spawned = false
-var listenedByLevel = false
+
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	$AnimatedSprite2D.hide()
 #	set_lock_rotation_enabled(true)
@@ -19,17 +22,45 @@ func _ready():
 #	max_contacts_reported = 3
 	start()
 
+
+func getAnimationName(action):
+	var anim = ""
+	match slimeColor:
+		0:
+			anim = str(anim, "A")
+		1:
+			anim = str(anim, "B")
+	match slimeHat:
+		0:
+			anim = str(anim, "0")
+		1:
+			anim = str(anim, "1")
+		2:
+			anim = str(anim, "2")
+			
+	return str(anim, "_", action)
+	
+
 func start():
 	spawned = true
+	if randomizeSlimeColor:
+		slimeColor = randi_range(0,1)
+	if randomizeSlimeHat:
+		slimeHat = randi_range(0,2)
+
+	var anim = getAnimationName("idle")
+	
 	$AnimatedSprite2D.show()
 	$TimerChangeDirection.start()
 	randomImpulseMove(impulseSpeed)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += velocity * delta
 	velocity -= velocity.normalized() * brakingSpeed * delta
 	pass
+
 
 func _on_timer_change_direction_timeout():
 	randomImpulseMove(impulseSpeed)
@@ -38,8 +69,8 @@ func _on_timer_change_direction_timeout():
 	if velocity.length() > maxSpeed:
 		velocity = velocity.normalized() * maxSpeed
 
-func randomImpulseMove(anImpulseSpeed):
 
+func randomImpulseMove(anImpulseSpeed):
 	# give me an impulse
 	var x_impulse = 0.5 - randf() # from -0.5 to 0.5, no unit
 	var y_impulse = 0.5 - randf() # from -0.5 to 0.5, no unit
@@ -47,11 +78,9 @@ func randomImpulseMove(anImpulseSpeed):
 	velocity = impulse_vec
 
 
-
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	resHit.emit() # Emit a signal to the parent to play sounds
 	var time = Time.get_time_dict_from_system()
+	$AnimatedSprite2D.set_modulate(Color(randf(),randf(),randf()))
 	#print(body, " entered")
 	#print(time) # {day:X, dst:False, hour:xx, minute:xx, month:xx, second:xx, weekday:x, year:xxxx}
-	$AnimatedSprite2D.set_modulate(Color(randf(),randf(),randf()))
 	#print(is_instance_of(body, CharacterBody2D))
