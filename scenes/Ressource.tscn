@@ -386,8 +386,8 @@ radius = 44.9571
 height = 121.914
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7c7s"]
-radius = 29.4478
-height = 58.8957
+radius = 66.79
+height = 133.58
 
 [node name="RigidBody" type="RigidBody2D"]
 collision_layer = 2
@@ -410,6 +410,7 @@ shape = SubResource("CapsuleShape2D_gcht1")
 wait_time = 0.75
 
 [node name="TimerEaten" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
