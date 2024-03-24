@@ -4,7 +4,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AudioStreamPlayer_intro.play()
-	$AudioStreamPlayer_intro.set_volume_db(-12)
 	pass # Replace with function body.
 
 

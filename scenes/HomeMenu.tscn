@@ -67,6 +67,7 @@ Un scientifique, Alan, a trouvé la solution révolutionnaire: fusionner des sla
 
 [node name="AudioStreamPlayer_intro" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hsj58")
+volume_db = -18.0
 
 [connection signal="pressed" from="HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

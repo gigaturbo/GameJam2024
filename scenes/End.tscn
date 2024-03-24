@@ -74,6 +74,7 @@ scroll_active = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xmatj")
+volume_db = -10.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="ready" from="Panel/LabelScore" to="." method="_on_label_score_ready"]

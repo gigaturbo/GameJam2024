@@ -1,5 +1,8 @@
 extends Node
 
+@export var volume_theme_1 = -10
+@export var volume_theme_2 = -7
+
 enum mainStates {HOME, LEVEL1, LEVEL2, GAMEOVER}
 
 var mainState = mainStates.HOME
@@ -76,8 +79,8 @@ func processMusic():
 	if angryMusic:
 		musicSwitchRelative = 1 - musicSwitchRelative
 	
-	var vol_theme_1 = lerp(-80, -10, (musicSwitchRelative)**0.05)
-	var vol_theme_2 = lerp(-80, -6, (1 - musicSwitchRelative)**0.05)
+	var vol_theme_1 = lerp(-80, volume_theme_1, (musicSwitchRelative)**0.05)
+	var vol_theme_2 = lerp(-80, volume_theme_2, (1 - musicSwitchRelative)**0.05)
 	
 	$Audio/AudioStreamPlayer_theme_1.set_volume_db(vol_theme_1)
 	$Audio/AudioStreamPlayer_theme_2.set_volume_db(vol_theme_2)
