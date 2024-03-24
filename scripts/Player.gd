@@ -24,12 +24,12 @@ const mouseIdleHighLimit = 0.5 # relative distance (0 to 1) of the mouse from ce
 const CVresourceStep1 = 0.2
 const CVresourceStep2 = 0.1
 
-const minRessourceToBeBig = 2
+const minRessourceToBeBig = 5
 
 # /END GAMEPLAY
 
 #  AFFICHAGE
-var zoomMultiplierWhenBig = 0.95
+var zoomMultiplierWhenBig = 0.75
 var shakeMultiplierWhenBig = 1.15
 var shakeSpeedMultiplierWhenBig = 7
 # / end AFFICHAGE
@@ -172,8 +172,14 @@ func setPlayerMoveState(moveState):
 func setPlayerEvolution(playerEvolution_):
 	
 	if playerEvolution != playerEvolution_ :
+			
 		if playerEvolution == "LITTLE" || playerEvolution == "BIG":
 			changeEvolution.emit(playerEvolution_, zoomMultiplierWhenBig, shakeMultiplierWhenBig, shakeSpeedMultiplierWhenBig)
+			
+			if playerEvolution_ == "LITTLE":
+				$PlayerSounds/sound_shrink.play()
+			if playerEvolution_ == "BIG":
+				$PlayerSounds/sound_grow.play()
 	
 	playerEvolution = playerEvolution_
 	match playerEvolution_:

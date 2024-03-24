@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://dvqxplp2527yj"]
+[gd_scene load_steps=118 format=3 uid="uid://dvqxplp2527yj"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_kreaw"]
 [ext_resource type="Texture2D" uid="uid://djbn10gur4sg1" path="res://assets/image/player/slime_0.png" id="1_nugqk"]
@@ -107,6 +107,8 @@
 [ext_resource type="AudioStream" uid="uid://ymthg1yk7kln" path="res://assets/audio_new/bruitages/player_small_eat.wav" id="76_xakp0"]
 [ext_resource type="AudioStream" uid="uid://dke5cg0y8hxt5" path="res://assets/audio_new/bruitages/player_big_eat.wav" id="77_hop6c"]
 [ext_resource type="AudioStream" uid="uid://c7iw2amgdylml" path="res://assets/audio_new/bruitages/player_big_step_2.wav" id="78_q3nhh"]
+[ext_resource type="AudioStream" uid="uid://bec4jkb5yiqb" path="res://assets/audio_new/bruitages/player_grow.wav" id="78_s2ga7"]
+[ext_resource type="AudioStream" uid="uid://crkure6y3nr68" path="res://assets/audio_new/bruitages/player_shrink.wav" id="79_7cd43"]
 [ext_resource type="AudioStream" uid="uid://cdse3hf8b6k2v" path="res://assets/audio_new/bruitages/player_big_step_3.wav" id="79_g7lld"]
 [ext_resource type="AudioStream" uid="uid://ckcpfeg7wxkia" path="res://assets/audio_new/bruitages/player_big_step_4.wav" id="80_7k8e8"]
 
@@ -527,12 +529,17 @@ stream = ExtResource("5_31068")
 
 [node name="sound_small_step" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource("74_cviyr")
+volume_db = -8.0
 
 [node name="sound_big_step" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource("75_crbuv")
+volume_db = -6.0
+pitch_scale = 1.2
 
 [node name="sound_small_eat" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource("76_xakp0")
+volume_db = -6.0
+pitch_scale = 1.3
 
 [node name="sound_big_eat" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource("77_hop6c")
@@ -542,17 +549,29 @@ stream = ExtResource("77_hop6c")
 [node name="sound_big_hit" type="AudioStreamPlayer" parent="PlayerSounds"]
 
 [node name="sound_grow" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource("78_s2ga7")
+volume_db = -16.0
+pitch_scale = 0.85
 
 [node name="sound_shrink" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource("79_7cd43")
+volume_db = -16.0
+pitch_scale = 0.75
 
 [node name="sound_big_step2" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource("78_q3nhh")
+volume_db = -6.0
+pitch_scale = 1.2
 
 [node name="sound_big_step3" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource("79_g7lld")
+volume_db = -6.0
+pitch_scale = 1.2
 
 [node name="sound_big_step4" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource("80_7k8e8")
+volume_db = -6.0
+pitch_scale = 1.2
 
 [node name="TimerAppear" type="Timer" parent="."]
 one_shot = true

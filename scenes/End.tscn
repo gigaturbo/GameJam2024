@@ -38,14 +38,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hjkwo")
 layout_mode = 0
 offset_left = 8.0
 offset_top = -7.0
-offset_right = 1056.0
+offset_right = 1067.0
 offset_bottom = 532.0
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 30
 bbcode_enabled = true
 text = "[center]
-[b][i]Féliciations! Globulus Prime a récupéré pleins de points d'intelligence ![/i][/b]
+[b][i]Félicitations! Globulus Prime a gagné en intelligence ![/i][/b]
 
 Le but du jeu SL[AI]ME est de transmettre de manière ludique les problématiques liés à l'[b]apprentissage fédéré[/b]: un paradigme d'apprentissage machine permettant d'entrainer des intelligences artificielles de manière décentralisée en \"fusionnant\" plusieurs modèles peu puissants. 
 
@@ -60,19 +60,8 @@ des IA \"empoisonnées\", repérer ces modèles permet de garantir un apprentiss
 [b]Pour améliorer votre score[/b], il faudra donc garder un équilibre dans vos fusions bleu/rose, minimiser le trajet entre deux fusions et éviter les slaimes empoisonnés.
 [/center]"
 
-[node name="LabelScore" type="RichTextLabel" parent="Panel"]
-layout_mode = 0
-offset_left = 619.0
-offset_top = 23.0
-offset_right = 718.0
-offset_bottom = 67.0
-theme_override_colors/default_color = Color(0, 0.847059, 0, 1)
-theme_override_font_sizes/bold_font_size = 30
-theme_override_font_sizes/bold_italics_font_size = 30
-bbcode_enabled = true
-scroll_active = false
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xmatj")
+volume_db = -10.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
