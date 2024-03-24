@@ -71,6 +71,8 @@
 [ext_resource type="Texture2D" uid="uid://co6tf75uhtduy" path="res://assets/image/player/big_walk/vflipped/frame_22.png" id="68_54xy2"]
 [ext_resource type="Texture2D" uid="uid://b6yqpq13kgoue" path="res://assets/image/player/big_walk/vflipped/frame_23.png" id="69_sx12t"]
 [ext_resource type="Texture2D" uid="uid://cfxw2pyowe3" path="res://assets/image/player/big_walk/vflipped/frame_24.png" id="70_c7and"]
+[ext_resource type="Texture2D" uid="uid://vnts8bhppach" path="res://assets/image/textures/forme_rond1.png" id="71_i8tx8"]
+[ext_resource type="Script" path="res://scripts/PointLight2D_eat.gd" id="72_p8bwt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgrv3"]
 animations = [{
@@ -312,15 +314,6 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_irr0k"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2gwex"]
-gradient = SubResource("Gradient_irr0k")
-width = 256
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
-metadata/_snap_enabled = true
-
 [sub_resource type="Animation" id="Animation_0r7wr"]
 resource_name = "ligth_eating"
 length = 3.0
@@ -368,13 +361,17 @@ animation = &"F2_walk_lateral"
 frame_progress = 0.196014
 offset = Vector2(-20, 0)
 
-[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
-position = Vector2(-23.5294, -200)
-color = Color(1, 0.423529, 0, 1)
-energy = 0.0
-texture = SubResource("GradientTexture2D_2gwex")
+[node name="CharacterEffects" type="CanvasGroup" parent="AnimatedSprite2D"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/PointLight2D"]
+[node name="PointLight2D_eat" type="PointLight2D" parent="AnimatedSprite2D/CharacterEffects"]
+position = Vector2(-536.114, -729.711)
+color = Color(1, 0.423529, 0, 1)
+energy = 15.0
+texture = ExtResource("71_i8tx8")
+texture_scale = 20.0
+script = ExtResource("72_p8bwt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/CharacterEffects/PointLight2D_eat"]
 libraries = {
 "": SubResource("AnimationLibrary_8ew6p")
 }
