@@ -24,7 +24,7 @@ const mouseIdleHighLimit = 0.5 # relative distance (0 to 1) of the mouse from ce
 const CVresourceStep1 = 0.2
 const CVresourceStep2 = 0.1
 
-const minRessourceToBeBig = 15
+const minRessourceToBeBig = 2
 
 # /END GAMEPLAY
 
@@ -180,6 +180,8 @@ func setPlayerEvolution(playerEvolution_):
 			$CollisionShape2D_F1.show()
 			$CollisionShape2D_F2.hide()
 			maxSpeed = speedLittle
+			$AnimatedSprite2D/CharacterEffects/PointLight2D_eat.position = Vector2(74.46, 193.594)
+			$AnimatedSprite2D/CharacterEffects/PointLight2D_eat.scale = Vector2(1.455, 1.65)
 		"BIG":
 			$CollisionShape2D_F0.disabled = true
 			$CollisionShape2D_F1.disabled = true
@@ -187,6 +189,8 @@ func setPlayerEvolution(playerEvolution_):
 			$CollisionShape2D_F0.hide()
 			$CollisionShape2D_F1.hide()
 			$CollisionShape2D_F2.show()
+			$AnimatedSprite2D/CharacterEffects/PointLight2D_eat.position = Vector2(89.352, -74.462)
+			$AnimatedSprite2D/CharacterEffects/PointLight2D_eat.scale = Vector2(0.914,1.967)
 			maxSpeed = speedBig
 	setPlayerMoveState(playerMoveState)
 
