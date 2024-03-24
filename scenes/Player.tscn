@@ -486,7 +486,7 @@ position = Vector2(-12.6582, -118.987)
 scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_tgrv3")
 animation = &"F1_appear"
-frame_progress = 0.0734262
+frame_progress = 0.931269
 offset = Vector2(-20, 0)
 
 [node name="CharacterEffects" type="CanvasGroup" parent="AnimatedSprite2D"]
