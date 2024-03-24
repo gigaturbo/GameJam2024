@@ -143,18 +143,14 @@ func _on_resource_eaten(ressource):
 	
 	resource_tot += 1
 	match ressource.slimeType:
-		ressource.SlimeTypeEnum.BLUE_LEVEL_1:
+		ressource.SlimeTypeEnum.NORMAL_BLUE:
 			resource_counter_0 += 1
-		ressource.SlimeTypeEnum.PINK_LEVEL_1:
+		ressource.SlimeTypeEnum.NORMAL_PINK:
 			resource_counter_1 += 1
-		ressource.SlimeTypeEnum.BLUE_H1_LEVEL_2:
-			resource_counter_2 += 1
-		ressource.SlimeTypeEnum.BLUE_H2_LEVEL_2:
-			resource_counter_3 += 1
-		ressource.SlimeTypeEnum.PINK_E1_LEVEL_2:
-			resource_counter_4 += 1
-		ressource.SlimeTypeEnum.PINK_E2_LEVEL_2:
-			resource_counter_5 += 1
+		ressource.SlimeTypeEnum.POISON_BLUE:
+			resource_counter_2 += 0 # TODO: CHANGE MALUS HERE /!\ /!\ /!\
+		ressource.SlimeTypeEnum.POISON_PINK:
+			resource_counter_3 += 0  # TODO: CHANGE MALUS HERE /!\ /!\ /!\
 	
 	
 	
@@ -180,7 +176,7 @@ func _on_resource_eaten(ressource):
 	var gain = 10 * pointMultiplier
 	
 	if (level == 1):
-		if !(ressource.slimeType == ressource.SlimeTypeEnum.BLUE_LEVEL_1 || ressource.slimeType == ressource.SlimeTypeEnum.BLUE_LEVEL_1):
+		if !(ressource.slimeType == ressource.SlimeTypeEnum.NORMAL_BLUE): # TODO: ???
 			pointMultiplier = 1
 			coefficientOfVariationResource = 0
 	

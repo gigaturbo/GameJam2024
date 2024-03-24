@@ -13,26 +13,33 @@ script = ExtResource("1_hwmce")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 modulate = Color(0.196078, 0.552941, 0.196078, 1)
-offset_left = -2738.0
-offset_top = -1878.0
-offset_right = 3027.0
-offset_bottom = 1884.0
+offset_left = -2300.0
+offset_top = -1763.0
+offset_right = 3465.0
+offset_bottom = 1999.0
 texture = SubResource("NoiseTexture2D_6cph1")
 
 [node name="AllRes" type="Node2D" parent="."]
 
-[node name="Slime_0" parent="AllRes" instance=ExtResource("2_nstto")]
-position = Vector2(191, 172)
-scale = Vector2(0.2, 0.2)
+[node name="RigidBody" parent="." instance=ExtResource("2_nstto")]
+position = Vector2(218, 245)
+slimeType = 0
+randomizeSlimeNormal = true
+randomizeSlimePoisonous = true
 
-[node name="Slime_1" parent="AllRes" instance=ExtResource("2_nstto")]
-position = Vector2(465, 460)
-scale = Vector2(0.2, 0.2)
+[node name="RigidBody2" parent="." instance=ExtResource("2_nstto")]
+position = Vector2(418, 263)
+slimeType = 1
+randomizeSlimeNormal = true
+randomizeSlimePoisonous = true
 
-[node name="Slime_2" parent="AllRes" instance=ExtResource("2_nstto")]
-position = Vector2(785, 302)
-scale = Vector2(0.2, 0.2)
+[node name="RigidBody3" parent="." instance=ExtResource("2_nstto")]
+position = Vector2(745, 432)
+slimeType = 2
+randomizeSlimeNormal = true
+randomizeSlimePoisonous = true
 
-[node name="Slime_3" parent="AllRes" instance=ExtResource("2_nstto")]
-position = Vector2(1162, 502)
-scale = Vector2(0.2, 0.2)
+[node name="RigidBody4" parent="." instance=ExtResource("2_nstto")]
+position = Vector2(1006, 436)
+randomizeSlimeNormal = true
+randomizeSlimePoisonous = true
