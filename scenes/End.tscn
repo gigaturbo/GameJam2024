@@ -1,9 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ero1q25ffs3g"]
+[gd_scene load_steps=5 format=3 uid="uid://ero1q25ffs3g"]
 
 [ext_resource type="Script" path="res://scripts/End.gd" id="1_25scq"]
-[ext_resource type="AudioStream" uid="uid://ccwkph62dhi73" path="res://assets/audio_new/musique/mp3/outro.wav.mp3" id="2_xmatj"]
 [ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_ducsc"]
-
+[ext_resource type="AudioStream" uid="uid://ccwkph62dhi73" path="res://assets/audio_new/musique/mp3/outro.wav.mp3" id="2_xmatj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjkwo"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 0.733333)
@@ -61,10 +60,6 @@ des IA \"empoisonnées\", repérer ces modèles permet de garantir un apprentiss
 [b]Pour améliorer votre score[/b], il faudra donc garder un équilibre dans vos fusions bleu/rose, minimiser le trajet entre deux fusions et éviter les slaimes empoisonnés.
 [/center]"
 
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_xmatj")
-
 [node name="LabelScore" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
 offset_left = 619.0
@@ -76,6 +71,9 @@ theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
 bbcode_enabled = true
 scroll_active = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xmatj")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="ready" from="Panel/LabelScore" to="." method="_on_label_score_ready"]
