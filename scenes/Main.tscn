@@ -51,7 +51,7 @@ wait_time = 0.75
 one_shot = true
 
 [node name="PlayTimer" type="Timer" parent="."]
-wait_time = 90.0
+wait_time = 60.0
 one_shot = true
 
 [connection signal="changeEvolution" from="Player" to="." method="_on_player_change_evolution"]

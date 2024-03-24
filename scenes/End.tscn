@@ -45,7 +45,7 @@ theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 30
 bbcode_enabled = true
 text = "[center]
-[b][i]Féliciations! Globulus Prime a récupéré              points d'intelligence ![/i][/b]
+[b][i]Féliciations! Globulus Prime a récupéré pleins de points d'intelligence ![/i][/b]
 
 Le but du jeu SL[AI]ME est de transmettre de manière ludique les problématiques liés à l'[b]apprentissage fédéré[/b]: un paradigme d'apprentissage machine permettant d'entrainer des intelligences artificielles de manière décentralisée en \"fusionnant\" plusieurs modèles peu puissants. 
 
@@ -76,4 +76,3 @@ scroll_active = false
 stream = ExtResource("2_xmatj")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="ready" from="Panel/LabelScore" to="." method="_on_label_score_ready"]
