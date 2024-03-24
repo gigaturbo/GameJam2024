@@ -483,206 +483,257 @@ position = Vector2(1167, 410)
 [node name="Area2D" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1457, 109)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D2" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1262, -249)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D3" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1137, 177)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D4" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-942, -181)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D5" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1419, 330)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D6" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1224, -28)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D7" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-2896, -337)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D8" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-2701, -695)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D9" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-2576, -269)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D10" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-2381, -627)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D11" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-2775, -148)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D12" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-2697, -449)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D13" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-4831, -2799)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D14" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-4706, -2373)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D15" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-4511, -2731)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D16" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-4546, -2518)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D17" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-4827, -2553)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D18" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1490, -3313)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D19" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1365, -2887)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D20" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1170, -3245)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D21" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1205, -3032)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D22" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-1486, -3067)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D23" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(320, -603)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D24" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(445, -177)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D25" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(555, -807)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D28" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(931, -380)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D29" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(906, -801)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D30" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(547, -1061)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D26" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(605, -322)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D27" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(324, -357)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D31" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(491, 2772)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D32" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(862, 2555)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D35" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-3086, 2866)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D36" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-3001, -1661)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D37" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-784, -3072)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D33" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(232, 2750)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D34" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-57, 2792)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D38" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(1362, -333)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D39" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(234, 827)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D40" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(2378, -2157)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D41" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(2882, -2757)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D42" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(786, -3365)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D43" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-2646, -3149)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D44" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(985, 941)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D45" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(1610, 2201)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D46" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(2174, 2554)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D47" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-4058, -1643)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D48" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-3738, -1502)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D49" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-4436, -1393)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D50" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-4458, -870)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Area2D51" parent="Blue Slime" instance=ExtResource("7_bjx5x")]
 position = Vector2(-3536, -1062)
 scale = Vector2(0.5, 0.5)
+slimeType = 0
 
 [node name="Pink Slime" type="Node2D" parent="."]
 position = Vector2(1167, 410)
