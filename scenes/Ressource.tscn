@@ -386,8 +386,8 @@ radius = 44.9571
 height = 121.914
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7c7s"]
-radius = 29.4478
-height = 58.8957
+radius = 96.0
+height = 192.0
 
 [node name="RigidBody" type="RigidBody2D"]
 collision_layer = 2
