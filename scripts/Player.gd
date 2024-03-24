@@ -10,7 +10,7 @@ signal hitByObstacle(obstacle)
 signal pointMade(newScore, balanceLevel, balanceLevelBis)
 
 # GAME PLAY
-@export var speedLittle = 700 # in pix/sec
+@export var speedLittle = 600 # in pix/sec
 @export var speedBig = 1200 # in pix/sec
 
 var maxSpeed = speedLittle
@@ -29,7 +29,7 @@ const minRessourceToBeBig = 2
 # /END GAMEPLAY
 
 #  AFFICHAGE
-var zoomMultiplierWhenBig = 0.85
+var zoomMultiplierWhenBig = 0.95
 var shakeMultiplierWhenBig = 1.15
 var shakeSpeedMultiplierWhenBig = 7
 # / end AFFICHAGE
