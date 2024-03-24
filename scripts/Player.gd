@@ -7,14 +7,24 @@ signal resourceEaten(ressource)
 # if level 2 : balanceLevel and balanceLevelBis used
 signal pointMade(newScore, balanceLevel, balanceLevelBis)
 
-@export var speed = 400 # in pix/sec
-var mouseIdleLowLimit = 0.05 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause 0 speed
-var mouseIdleHighLimit = 0.5 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause max speed
+# GAME PLAY
+@export var speed = 600 # in pix/sec
+const mouseIdleLowLimit = 0.05 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause 0 speed
+const mouseIdleHighLimit = 0.5 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause max speed
+
+
+# which percentage to which the balance bar reach a step
+const CVresourceStep1 = 0.2
+const CVresourceStep2 = 0.1
+
+const minRessourceToBeBig = 10
+
+# /END GAMEPLAY
+
+
 
 var playerEvolution # TINY, LITTLE, BIG (= F0, F1, F2)
 var playerMoveState = "idle" # eat, eat_poison, idle, walk_down, walk_lateral, walk_up
-
-
 
 var screenSize 
 
@@ -24,7 +34,7 @@ var resource_counter_1 = 0
 var resource_counter_2 = 0
 var resource_counter_3 = 0
 
-var resource_tot = 0
+var resource_counter_tot = 0
 
 var score = 0
 
@@ -34,9 +44,6 @@ var level = 1
 var coefficientOfVariationResource = 0.0
 var pointMultiplier = 1.0 #
 
- # which percentage to which the balance bar reach a step
-const CVresourceStep1 = 0.2
-const CVresourceStep2 = 0.1
 
 # called at start
 func _ready():
@@ -56,25 +63,33 @@ func get_input():
 	var mousePointingDirection = get_viewport().get_mouse_position() - screenSize*0.5
 	input_direction = mousePointingDirection.normalized() 
 	
-#	# Orientation
-	$AnimatedSprite2D.set_flip_h(mousePointingDirection.x < 0)
 	
 	# 0 to 1
 	var mouseIntensity = mousePointingDirection.length() / (screenSize.x*0.5) 
 	
 	var speedResultOfMouse = 0
+	
+	# animation
+	if(mouseIntensity <= mouseIdleLowLimit * 1.2):
+		setPlayerMoveState("idle")
+	else:
+		setPlayerMoveState("walk_lateral")
+		# Orientation
+		$AnimatedSprite2D.set_flip_h(mousePointingDirection.x < 0)
+		
+	# speed
 	if(mouseIntensity > mouseIdleLowLimit):
 		speedResultOfMouse = (mouseIntensity - mouseIdleLowLimit) / (mouseIdleHighLimit - mouseIdleLowLimit) # from 0 to 1
 	if(mouseIntensity > mouseIdleHighLimit):
 		speedResultOfMouse = 1
 	
-	var targetVelocity = input_direction * speed
-	velocity = lerp(Vector2(0,0), targetVelocity, speedResultOfMouse)
+	var maxVelocity = input_direction * speed
+	velocity = lerp(Vector2(0,0), maxVelocity, speedResultOfMouse)
+	
 	
 
 # each frame
 func _physics_process(delta):
-	
 	
 	# Movement
 	get_input()
@@ -139,16 +154,22 @@ func _on_resource_eaten(ressource):
 	
 	ressource.slimeState = ressource.SlimeState.EATEN
 	
-	resource_tot += 1
+	resource_counter_tot += 1
 	match ressource.slimeType:
 		ressource.SlimeTypeEnum.NORMAL_BLUE:
 			resource_counter_0 += 1
 		ressource.SlimeTypeEnum.NORMAL_PINK:
 			resource_counter_1 += 1
 		ressource.SlimeTypeEnum.POISON_BLUE:
-			resource_counter_2 += 0 # TODO: CHANGE MALUS HERE /!\ /!\ /!\
+			resource_counter_2 += 1 
+			# COMBO BREAKER
+			resource_counter_0 /= 2 
+			print("Poison blue !")
 		ressource.SlimeTypeEnum.POISON_PINK:
-			resource_counter_3 += 0  # TODO: CHANGE MALUS HERE /!\ /!\ /!\
+			resource_counter_3 += 1 
+			# COMBO BREAKER  
+			resource_counter_1 /= 2
+			print("Poison pink !")
 	
 	
 	
@@ -188,6 +209,11 @@ func _on_resource_eaten(ressource):
 	"\n", "Mean (Var) : ", meanResource, " (", varianceResource, ")",
 	"\n", "CV : ", coefficientOfVariationResource, " | Multi : x", pointMultiplier, " | Balance : ", round(balanceLevel * 100.0)*0.01)
 	
+	if(abs(balanceLevel) < CVresourceStep1 && resource_counter_tot >= minRessourceToBeBig):
+		setPlayerEvolution("BIG")
+	else:
+		setPlayerEvolution("LITTLE")
+		
 	
 #	var sign_level_2a = sign(resource_counter_3 - resource_counter_2)
 #	var sign_level_2b = sign(resource_counter_5 - resource_counter_4)

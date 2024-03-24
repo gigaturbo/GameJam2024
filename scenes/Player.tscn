@@ -378,7 +378,7 @@ script = ExtResource("1_kreaw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_tgrv3")
-animation = &"F0_idle"
+animation = &"F1_idle"
 offset = Vector2(-20, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
