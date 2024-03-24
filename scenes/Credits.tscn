@@ -14,10 +14,10 @@ theme_override_font_sizes/font_size = 30
 text = "Retour"
 
 [node name="GridContainer" type="GridContainer" parent="."]
-offset_left = 278.0
-offset_top = 159.0
-offset_right = 1034.0
-offset_bottom = 489.0
+offset_left = 140.0
+offset_top = 160.0
+offset_right = 1154.0
+offset_bottom = 490.0
 theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 50
 columns = 2
@@ -25,43 +25,43 @@ columns = 2
 [node name="LabelMarc" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Marc - Scientifique"
+text = "Marc Damie - Scientifique"
 horizontal_alignment = 1
 
 [node name="LabelCorentin" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Corentin - Game designer"
+text = "Corentin Bouchain - Game designer"
 horizontal_alignment = 1
 
 [node name="LabelAlice" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Alice - Graphiste"
+text = "Alice Delpla - Graphiste"
 horizontal_alignment = 1
 
 [node name="LabelAlycia" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Alycia - Graphiste"
+text = "Alycia Kene - Graphiste"
 horizontal_alignment = 1
 
 [node name="LabelCamille" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Camille - Développeur"
+text = "Camille Rouet - Développeur"
 horizontal_alignment = 1
 
 [node name="LabelBaptiste" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Baptiste - Développeur"
+text = "Baptiste Lac - Développeur"
 horizontal_alignment = 1
 
 [node name="LabelIlan" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Ilan - Sound Designer"
+text = "Ilan Crequer - Sound Designer"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
