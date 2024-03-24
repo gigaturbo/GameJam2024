@@ -58,6 +58,9 @@ func get_input():
 	var mousePointingDirection = get_viewport().get_mouse_position() - screenSize*0.5
 	input_direction = mousePointingDirection.normalized() 
 	
+#	# Orientation
+	$AnimatedSprite2D.set_flip_h(mousePointingDirection.x < 0)
+	
 	# 0 to 1
 	var mouseIntensity = mousePointingDirection.length() / (screenSize.x*0.5) 
 	
@@ -82,9 +85,6 @@ func _physics_process(delta):
 	$AnimatedSprite2D.play()
 	
 	
-	# Orientation
-	if velocity.x != 0:
-		$AnimatedSprite2D.set_flip_h(velocity.x < 0)
 	
 func setPlayerMoveState(moveState):
 	var animName = ""
