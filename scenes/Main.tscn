@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dvqxplp2527yj" path="res://scenes/Player.tscn" id="1_hr5du"]
 [ext_resource type="PackedScene" uid="uid://dkymkqynu0f5s" path="res://scenes/LevelTest1.tscn" id="2_oyoqd"]
 [ext_resource type="PackedScene" uid="uid://bpfyo43h74r54" path="res://scenes/HUD.tscn" id="3_naudc"]
-[ext_resource type="AudioStream" uid="uid://bxaxo7cf1mwem" path="res://assets/audio/Game_jam_0.1.mp3" id="4_24utw"]
+[ext_resource type="AudioStream" uid="uid://ce3ymttbllywg" path="res://assets/audio_new/musique/intro.wav" id="5_tyadv"]
 [ext_resource type="AudioStream" uid="uid://chcau3vn0jv0g" path="res://assets/audio/hit.wav" id="6_pnyct"]
 
 [node name="Node" type="Node"]
@@ -25,7 +25,7 @@ position_smoothing_enabled = true
 [node name="Audio" type="Node" parent="."]
 
 [node name="Musique_mp3" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("4_24utw")
+stream = ExtResource("5_tyadv")
 volume_db = -26.32
 autoplay = true
 
