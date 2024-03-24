@@ -187,7 +187,7 @@ func _on_resource_eaten(ressource):
 	$AnimatedSprite2D/CharacterEffects/PointLight2D_eat/AnimationPlayer.stop()
 	$AnimatedSprite2D/CharacterEffects/PointLight2D_eat/AnimationPlayer.play("ligth_eating")
 	
-	$AudioStreamPlayer.play()
+	#$AudioStreamPlayer.play()
 	
 	ressource.slimeState = ressource.SlimeState.EATEN # TODO: already set in Resource ?
 	
