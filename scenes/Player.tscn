@@ -365,7 +365,7 @@ position = Vector2(-12.6582, -118.987)
 scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_tgrv3")
 animation = &"F2_walk_lateral"
-frame_progress = 0.985426
+frame_progress = 0.196014
 offset = Vector2(-20, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]

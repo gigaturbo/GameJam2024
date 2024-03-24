@@ -57,19 +57,13 @@ func _ready():
 
 
 func get_input():
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	input_direction = input_direction.normalized()
-	
-	var mousePointingDirection = get_viewport().get_mouse_position() - screenSize*0.5
-	input_direction = mousePointingDirection.normalized() 
-	
-	
+	var input_direction = Input.get_vector("left", "right", "up", "down").normalized()
+	var mousePointingDirection = (get_viewport().get_mouse_position() - screenSize*0.5).normalized() 
 	# 0 to 1
 	var mouseIntensity = mousePointingDirection.length() / (screenSize.x*0.5) 
-	
 	var speedResultOfMouse = 0
 	
-	# animation
+	# set animation according to mousePosition
 	if(mouseIntensity <= mouseIdleLowLimit * 1.2):
 		setPlayerMoveState("idle")
 	else:
@@ -87,16 +81,13 @@ func get_input():
 	velocity = lerp(Vector2(0,0), maxVelocity, speedResultOfMouse)
 	
 	
-
 # each frame
 func _physics_process(delta):
 	
 	# Movement
 	get_input()
 	move_and_slide()
-	
 	$AnimatedSprite2D.play()
-	
 	
 	
 func setPlayerMoveState(moveState):
@@ -108,9 +99,9 @@ func setPlayerMoveState(moveState):
 			animName = "F1"
 		"BIG":
 			animName = "F2"
-	animName = str(animName, "_", moveState)
 	
-	$AnimatedSprite2D.animation = animName
+	$AnimatedSprite2D.animation = str(animName, "_", moveState)
+
 
 # evolution level = TINY LITTLE or BIG
 func setPlayerEvolution(playerEvolution_):
@@ -138,7 +129,6 @@ func setPlayerEvolution(playerEvolution_):
 			$CollisionShape2D_F1.hide()
 			$CollisionShape2D_F2.show()
 	setPlayerMoveState(playerMoveState)
-
 
 
 func _on_hit_by_ressource(ressource):
