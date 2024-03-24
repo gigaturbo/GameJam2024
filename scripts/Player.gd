@@ -59,8 +59,12 @@ func _ready():
 
 
 func get_input():
-	var input_direction = Input.get_vector("left", "right", "up", "down").normalized()
-	var mousePointingDirection = (get_viewport().get_mouse_position() - screenSize*0.5).normalized() 
+#	var input_direction = Input.get_vector("left", "right", "up", "down")
+#	input_direction = input_direction.normalized()
+
+	var mousePointingDirection = get_viewport().get_mouse_position() - screenSize*0.5
+	var input_direction = mousePointingDirection.normalized() 
+	
 	# 0 to 1
 	var mouseIntensity = mousePointingDirection.length() / (screenSize.x*0.5) 
 	var speedResultOfMouse = 0
@@ -72,12 +76,18 @@ func get_input():
 		setPlayerMoveState("walk_lateral")
 		# Orientation
 		$AnimatedSprite2D.set_flip_h(mousePointingDirection.x < 0)
-		if(mousePointingDirection.x < 0 && !isLookingLeft):
-			isLookingLeft = true
-			$AnimatedSprite2D/PointLight2D_eating.apply_scale(Vector2(-1.0, 1.0))
-		if(mousePointingDirection.x >= 0 && isLookingLeft):
-			$AnimatedSprite2D/PointLight2D_eating.apply_scale(Vector2(-1.0, 1.0))
-			isLookingLeft = false
+		if mousePointingDirection.x < 0:
+			$AnimatedSprite2D/CharacterEffects.scale.x = -abs($AnimatedSprite2D/CharacterEffects.scale.x)
+		else:
+			$AnimatedSprite2D/CharacterEffects.scale.x = abs($AnimatedSprite2D/CharacterEffects.scale.x)
+		print($AnimatedSprite2D/CharacterEffects.scale.x)
+		
+#		if(mousePointingDirection.x < 0 && !isLookingLeft):
+#			isLookingLeft = true
+#			$AnimatedSprite2D/CharacterEffects.apply_scale(Vector2(-1.0, 1.0))
+#		if(mousePointingDirection.x >= 0 && isLookingLeft):
+#			$AnimatedSprite2D/CharacterEffects.apply_scale(Vector2(-1.0, 1.0))
+#			isLookingLeft = false
 	# speed
 	if(mouseIntensity > mouseIdleLowLimit):
 		speedResultOfMouse = (mouseIntensity - mouseIdleLowLimit) / (mouseIdleHighLimit - mouseIdleLowLimit) # from 0 to 1
@@ -145,9 +155,8 @@ func _on_hit_by_ressource(ressource):
 
 func _on_resource_eaten(ressource):
 	
-	print("anim")
-	$AnimatedSprite2D/PointLight2D_eating/AnimationPlayer.stop()
-	$AnimatedSprite2D/PointLight2D_eating/AnimationPlayer.play("ligth_eating")
+	$AnimatedSprite2D/CharacterEffects/PointLight2D_eat/AnimationPlayer.stop()
+	$AnimatedSprite2D/CharacterEffects/PointLight2D_eat/AnimationPlayer.play("ligth_eating")
 	
 	$AudioStreamPlayer.play()
 	

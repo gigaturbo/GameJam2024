@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://rllw7icge34x"]
+[gd_scene load_steps=2 format=3 uid="uid://ero1q25ffs3g"]
 
 [ext_resource type="Script" path="res://scripts/End.gd" id="1_25scq"]
 
@@ -6,17 +6,36 @@
 script = ExtResource("1_25scq")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 267.0
-offset_top = 119.0
-offset_right = 1012.0
-offset_bottom = 577.0
-text = "EXPLICATIONS"
+offset_left = 123.0
+offset_top = 36.0
+offset_right = 1149.0
+offset_bottom = 575.0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 30
+bbcode_enabled = true
+text = "[center]
+[b][i]Féliciations! Globulus Prime a récupéré x points d'intelligence![/i][/b]
+
+Le but du jeu SL[AI]ME est de transmettre de manière ludique les problématiques liés à l'[b]apprentissage fédéré[/b]: un paradigme d'apprentissage machine permettant d'entrainer des intelligences artificielles de manière décentralisée en \"fusionnant\" plusieurs modèles peu puissants. 
+
+Par le biais de Globulus Prime, vous avez découvert les défis quotidiens des chercheurs en IA:
+
+1. [b]Besoin de diversité[/b]: la fusion des IA diversifiées produit des AI réellement puissantes et [b]généralistes[/b].
+2. [b]Temps limité[/b]: l'échange de modèles d'IA est couteux et il faut donc trouver  des combinaisons
+de modèles atteigant le plus rapidement possible la qualité voulue. 
+3. [b]Empoisonnement[/b]: certains acteurs peuvent tenter de nuire à l'apprentissage fédéré en fournissant
+des IA \"empoisonnées\", repérer ces modèles permet de garantir un apprentissage optimal.
+
+[b]Pour améliorer votre score[/b], il faudra donc garder un équilibre dans vos fusions bleu/rose, minimiser le trajet entre deux fusions et éviter les slaimes empoisonnés.
+[/center]"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 941.0
+offset_left = 869.0
 offset_top = 604.0
-offset_right = 1254.0
+offset_right = 1245.0
 offset_bottom = 695.0
-text = "Retour au menu principal"
+theme_override_font_sizes/font_size = 30
+text = "Menu principal"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
