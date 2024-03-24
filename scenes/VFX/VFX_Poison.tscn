@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj7erjvcsd52f"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1sdlw"]
+
+[sub_resource type="Curve" id="Curve_6qn75"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_q4agf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.203072, 0.738938), 0.0, 0.0, 0, 0, Vector2(0.620819, 0.738938), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_ymjy6"]
+
+[sub_resource type="Curve" id="Curve_wxmvd"]
+_data = [Vector2(0.00648464, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ock8f"]
+colors = PackedColorArray(0.944506, 0.867108, 0.317429, 1, 1, 1, 1, 1)
+
+[node name="Poison" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_1sdlw")
+position = Vector2(893.181, 658.564)
+amount = 7
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(2.08165e-12, -100)
+spread = 11.08
+gravity = Vector2(2.08165e-12, -10)
+initial_velocity_max = 5.0
+angular_velocity_curve = SubResource("Curve_6qn75")
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_q4agf")
+color = Color(0.517647, 0.290196, 0.917647, 1)
+color_ramp = SubResource("Gradient_ymjy6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-34.8937, -8.87915)
+rotation = 3.09272
+skew = 0.79587
+amount = 30
+lifetime = 0.7
+speed_scale = 1.3
+explosiveness = 0.59
+spread = 180.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 25.0
+initial_velocity_max = 75.0
+angular_velocity_max = 100.0
+orbit_velocity_max = 2.0
+scale_amount_min = 4.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_wxmvd")
+color_ramp = SubResource("Gradient_ock8f")
+anim_speed_max = 84.68
