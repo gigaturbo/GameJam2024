@@ -108,15 +108,11 @@ func randomImpulseMove(anImpulseSpeed):
 	var impulse_vec = Vector2(x_impulse, y_impulse).normalized() * anImpulseSpeed
 	velocity = impulse_vec
 
-# Notify player it has ben hit by resource, also start animating resource in EATEN mode
-func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_shape_index):	
-	pass
-
-
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if is_instance_of(body, CharacterBody2D):
 		body.hitByRessource.emit(self)
 		targetBody = body
 		slimeState = SlimeState.EATEN
+		$AnimatedSprite2D.animation = getAnimationName("eaten")
 		timerEaten.start()
