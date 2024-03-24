@@ -744,7 +744,7 @@ scale = Vector2(0.5, 0.5)
 slimeType = 1
 
 [node name="Area2D2" parent="Pink Slime" instance=ExtResource("7_bjx5x")]
-position = Vector2(-910, 1119)
+position = Vector2(-619, 124)
 scale = Vector2(0.5, 0.5)
 slimeType = 1
 

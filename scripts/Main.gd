@@ -30,4 +30,14 @@ func startLevel(level):
 func _on_player_point_made(newScore, balanceLevel, balanceLevelBis):
 	$CanvasLayer/HUD.setScore(newScore)
 	$CanvasLayer/HUD.setColorStats(balanceLevel*100)
-	pass # Replace with function body.
+
+
+
+func _on_player_change_evolution(playerEvolution, zoomMultiplier, shakeMultiplier, shakeSpeedMultiplierWhenBig):
+	if(playerEvolution == "LITTLE"):
+		$Player/Camera2D/TimerZoomSmoothing.start()
+		$Player/Camera2D.targetZoomX = $Player/Camera2D.refZoom.x
+		
+	if(playerEvolution == "BIG"):
+		$Player/Camera2D/TimerZoomSmoothing.start()
+		$Player/Camera2D.targetZoomX = $Player/Camera2D.refZoom.x * zoomMultiplier
