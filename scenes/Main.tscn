@@ -25,7 +25,7 @@ position_smoothing_enabled = true
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Musique_mp3" type="AudioStreamPlayer" parent="Audio"]
+[node name="Musique_1" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("5_tyadv")
 volume_db = -26.32
 autoplay = true
