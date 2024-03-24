@@ -33,6 +33,7 @@ var shakeMultiplierWhenBig = 1.15
 var shakeSpeedMultiplierWhenBig = 7
 # / end AFFICHAGE
 
+var current_trail: Trail
 
 var playerEvolution # TINY, LITTLE, BIG (= F0, F1, F2)
 var playerMoveState = "idle" # eat, eat_poison, idle, walk_down, walk_lateral, walk_up
@@ -107,7 +108,7 @@ func get_input():
 	
 	var maxVelocity = input_direction * maxSpeed
 	velocity = lerp(Vector2(0,0), maxVelocity, speedResultOfMouse)
-	
+	make_trail()
 	
 # each frame
 func _physics_process(delta):
@@ -132,7 +133,13 @@ func _physics_process(delta):
 				if sound.finished:
 					sound.play()
 	
-	
+func make_trail() -> void:
+	if current_trail:
+		current_trail.stop()
+	current_trail = Trail.create()
+	add_child(current_trail)
+
+
 func setPlayerMoveState(moveState):
 	var animName = ""
 	match playerEvolution:
