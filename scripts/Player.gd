@@ -174,13 +174,7 @@ func _on_resource_eaten(ressource):
 		pointMultiplier = 1
 	
 	var gain = 10 * pointMultiplier
-	
-	if (level == 1):
-		if !(ressource.slimeType == ressource.SlimeTypeEnum.NORMAL_BLUE): # TODO: ???
-			pointMultiplier = 1
-			coefficientOfVariationResource = 0
-	
-	
+		
 	score += 10 * pointMultiplier
 	
 	var sign_level_1 = sign(resource_counter_1 - resource_counter_0)
