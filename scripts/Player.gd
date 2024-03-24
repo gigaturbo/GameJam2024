@@ -53,6 +53,7 @@ func _ready():
 	setPlayerEvolution("LITTLE")
 	setPlayerMoveState("idle")
 	$AnimatedSprite2D.show()
+	$AnimatedSprite2D.play()
 	screenSize = DisplayServer.window_get_size()
 
 
@@ -104,7 +105,22 @@ func _physics_process(delta):
 	# Movement
 	get_input()
 	move_and_slide()
-	$AnimatedSprite2D.play()
+	
+	if velocity.length() > 0:
+		var sound
+		match playerEvolution:
+			"TINY":
+				sound = $PlayerSounds/sound_small_step
+				if sound.finished:
+					sound.play()
+			"LITTLE":
+				sound = $PlayerSounds/sound_small_step
+				if sound.finished:
+					sound.play()
+			"BIG":
+				sound = $PlayerSounds/sound_big_step
+				if sound.finished:
+					sound.play()
 	
 	
 func setPlayerMoveState(moveState):
@@ -149,7 +165,20 @@ func setPlayerEvolution(playerEvolution_):
 
 
 func _on_hit_by_ressource(ressource):
-	# do nothing on hit
+	if ressource.slimeState == ressource.SlimeState.ALIVE: # avoid double hit
+		var sound
+		match playerEvolution:
+			"TINY":
+				sound = $PlayerSounds/sound_small_eat
+				sound.play()
+			"LITTLE":
+				sound = $PlayerSounds/sound_small_eat
+				if sound.finished:
+					sound.play()
+			"BIG":
+				sound = $PlayerSounds/sound_big_eat
+				if sound.finished:
+					sound.play()
 	pass
 
 
@@ -158,9 +187,9 @@ func _on_resource_eaten(ressource):
 	$AnimatedSprite2D/CharacterEffects/PointLight2D_eat/AnimationPlayer.stop()
 	$AnimatedSprite2D/CharacterEffects/PointLight2D_eat/AnimationPlayer.play("ligth_eating")
 	
-	$AudioStreamPlayer.play()
+	#$AudioStreamPlayer.play()
 	
-	ressource.slimeState = ressource.SlimeState.EATEN
+	ressource.slimeState = ressource.SlimeState.EATEN # TODO: already set in Resource ?
 	
 	resource_counter_tot += 1
 	match ressource.slimeType:

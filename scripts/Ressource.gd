@@ -84,9 +84,10 @@ func _process(delta):
 	elif slimeState == SlimeState.EATEN:
 		var targetDirection = targetBody.global_position - global_position
 		brakingSpeed = 0
-		var animScale = (timerEaten.wait_time - (timerEaten.wait_time - timerEaten.time_left))/timerEaten.wait_time		
+		var animScale = (timerEaten.wait_time - (timerEaten.wait_time - timerEaten.time_left))/timerEaten.wait_time	# 1 ->0
+		animScale = (animScale/2.0) + 0.5 # 1 -> 0.5
 		self.scale = initScale * animScale
-		velocity = targetDirection.normalized() * maxSpeed 
+		velocity = targetDirection.normalized() * maxSpeed * 1.5
 		move_and_collide(velocity)
 		if timerEaten.time_left <= 0 or targetDirection.length() < 5:
 			targetBody.resourceEaten.emit(self)
