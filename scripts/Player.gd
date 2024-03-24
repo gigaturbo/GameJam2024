@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal hitByRessource(ressource)
 signal resourceEaten(ressource)
 signal changeEvolution(playerEvolution, zoomMultiplierWhenBig, shakeMultiplierWhenBig, shakeSpeedMultiplierWhenBig)
+signal hitByObstacle(obstacle)
 
 # if level 1 : balanceLevelBis is ignored
 # if level 2 : balanceLevel and balanceLevelBis used
@@ -116,20 +117,26 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
+	# Steps sound, 2 steps per 24 frames
 	if velocity.length() > 0:
+		
+		# Setting animation framerate from speed
+		$AnimatedSprite2D.speed_scale = (velocity.length()/maxSpeed) * 3
+		
+		# Playing sounds on steps 
 		var sound
 		match playerEvolution:
 			"TINY":
 				sound = $PlayerSounds/sound_small_step
-				if sound.finished:
+				if ($AnimatedSprite2D.frame == 3) or ($AnimatedSprite2D.frame == 18):
 					sound.play()
 			"LITTLE":
 				sound = $PlayerSounds/sound_small_step
-				if sound.finished:
+				if ($AnimatedSprite2D.frame == 3) or ($AnimatedSprite2D.frame == 18):
 					sound.play()
 			"BIG":
 				sound = $PlayerSounds/sound_big_step
-				if sound.finished:
+				if ($AnimatedSprite2D.frame == 6) or ($AnimatedSprite2D.frame == 18):
 					sound.play()
 	
 	
@@ -277,4 +284,5 @@ func _on_resource_eaten(ressource):
 #		pointMade.emit(score, balanceLevel_2a, balanceLevel_2b)
 	
 	
-
+func _on_hit_by_obstacle(obstacle):
+	pass # Replace with function body.

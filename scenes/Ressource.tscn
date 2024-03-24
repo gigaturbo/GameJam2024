@@ -343,7 +343,6 @@ position = Vector2(0, 11.0429)
 shape = SubResource("CapsuleShape2D_gcht1")
 
 [node name="TimerChangeDirection" type="Timer" parent="."]
-wait_time = 0.75
 
 [node name="TimerEaten" type="Timer" parent="."]
 wait_time = 0.5

@@ -361,8 +361,7 @@ script = ExtResource("1_kreaw")
 position = Vector2(-12.6582, -118.987)
 scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_tgrv3")
-animation = &"F2_walk_lateral"
-frame_progress = 0.219669
+animation = &"F1_walk_lateral"
 offset = Vector2(-20, 0)
 
 [node name="CharacterEffects" type="CanvasGroup" parent="AnimatedSprite2D"]
@@ -420,5 +419,6 @@ stream = ExtResource("77_hop6c")
 
 [node name="sound_shrink" type="AudioStreamPlayer" parent="PlayerSounds"]
 
+[connection signal="hitByObstacle" from="." to="." method="_on_hit_by_obstacle"]
 [connection signal="hitByRessource" from="." to="." method="_on_hit_by_ressource"]
 [connection signal="resourceEaten" from="." to="." method="_on_resource_eaten"]

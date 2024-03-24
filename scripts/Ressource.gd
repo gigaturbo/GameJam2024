@@ -48,10 +48,11 @@ func start():
 	if (slimeType == SlimeTypeEnum.POISON_BLUE) or (slimeType == SlimeTypeEnum.POISON_PINK):
 		isPoisonous = true 
 
+	# Add a bit of randomness in the direction changes
+	$TimerChangeDirection.wait_time = (randf() * 2.5) + 0.5 # 0.5 to 3
 	$AnimatedSprite2D.animation = getAnimationName("idle")
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()
-	$TimerChangeDirection.wait_time = (randf() * 1.5) + 0.5
 	$TimerChangeDirection.start()
 	randomImpulseMove(impulseSpeed)
 	
@@ -80,8 +81,10 @@ func _process(delta):
 	
 	if slimeState == SlimeState.ALIVE:
 		velocity -= velocity.normalized() * brakingSpeed * delta
+		$AnimatedSprite2D.speed_scale = (velocity.length()/maxSpeed) * 2.5 + 0.5
 		move_and_collide(velocity)
 	elif slimeState == SlimeState.EATEN:
+		$AnimatedSprite2D.speed_scale = 1
 		var targetDirection = targetBody.global_position - global_position
 		brakingSpeed = 0
 		var animScale = (timerEaten.wait_time - (timerEaten.wait_time - timerEaten.time_left))/timerEaten.wait_time	# 1 ->0
@@ -103,11 +106,13 @@ func _on_timer_change_direction_timeout():
 
 
 func randomImpulseMove(anImpulseSpeed):
-	# give me an impulse
-	var x_impulse = 0.5 - randf() # from -0.5 to 0.5, no unit
-	var y_impulse = 0.5 - randf() # from -0.5 to 0.5, no unit
-	var impulse_vec = Vector2(x_impulse, y_impulse).normalized() * anImpulseSpeed
-	velocity = impulse_vec
+	if randf()< 0.8: # 80% chance to move 
+		# Random impulse direction
+		var v = Vector2.from_angle(randf() * 2 * PI)
+		# Add randomness around "anImpulseSpeed" value, but not less than zero
+		self.velocity = v * max(anImpulseSpeed  + randfn(0, 0.5), 0)
+	else: # 20% to stay still
+		velocity = Vector2.ZERO
 
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
