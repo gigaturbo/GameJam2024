@@ -51,9 +51,11 @@ wait_time = 0.75
 one_shot = true
 
 [node name="PlayTimer" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 90.0
+one_shot = true
 
 [connection signal="changeEvolution" from="Player" to="." method="_on_player_change_evolution"]
 [connection signal="changeEvolution" from="Player" to="Player/Camera2D/Node2D" method="_on_player_change_evolution"]
 [connection signal="pointMade" from="Player" to="." method="_on_player_point_made"]
 [connection signal="timeout" from="Player/Camera2D/TimerZoomSmoothing" to="Player/Camera2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="PlayTimer" to="." method="_on_play_timer_timeout"]

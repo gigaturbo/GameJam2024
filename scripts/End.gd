@@ -20,4 +20,4 @@ func _on_button_pressed():
 
 
 func _on_label_score_ready():
-	$"Panel/LabelScore".text = "[center][b][i]" + str(10000) + "[/i][/b][/center]"
+	$"Panel/LabelScore".text = "[center][b][i]" + str("pleins de") + "[/i][/b][/center]"

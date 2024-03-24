@@ -58,6 +58,10 @@ var pointMultiplier = 1.0 #
 
 var isLookingLeft = false
 
+@onready var bigPlayerStepSounds = [$PlayerSounds/sound_big_step, 
+									$PlayerSounds/sound_big_step2,
+									$PlayerSounds/sound_big_step3,
+									$PlayerSounds/sound_big_step4]
 
 # called at start
 func _ready():
@@ -67,8 +71,6 @@ func _ready():
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()
 	screenSize = DisplayServer.window_get_size()
-
-
 
 
 func get_input():
@@ -135,7 +137,7 @@ func _physics_process(delta):
 				if ($AnimatedSprite2D.frame == 3) or ($AnimatedSprite2D.frame == 18):
 					sound.play()
 			"BIG":
-				sound = $PlayerSounds/sound_big_step
+				sound = bigPlayerStepSounds[randi_range(0,len(bigPlayerStepSounds)-1)]
 				if ($AnimatedSprite2D.frame == 6) or ($AnimatedSprite2D.frame == 18):
 					sound.play()
 	
@@ -287,6 +289,3 @@ func _on_resource_eaten(ressource):
 #		var balanceLevel_2b = sign_level_2b * coefficientOfVariationResource
 #		pointMade.emit(score, balanceLevel_2a, balanceLevel_2b)
 	
-	
-func _on_hit_by_obstacle(obstacle):
-	pass # Replace with function body.
