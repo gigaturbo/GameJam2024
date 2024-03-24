@@ -18,6 +18,7 @@ var spawned = false
 var slimeState = SlimeState.ALIVE
 var targetBody : Node2D = null
 var isPoisonous = false
+@onready var initScale = self.global_scale * 1.0
 @onready var timerEaten = $TimerEaten
 # Called when the node enters the scene tree for the first time.
 
@@ -49,6 +50,7 @@ func start():
 
 	$AnimatedSprite2D.animation = getAnimationName("idle")
 	$AnimatedSprite2D.show()
+	$AnimatedSprite2D.play()
 	$TimerChangeDirection.wait_time = (randf() * 1.5) + 0.5
 	$TimerChangeDirection.start()
 	randomImpulseMove(impulseSpeed)
@@ -60,13 +62,6 @@ func start():
 
 func getAnimationName(action):
 	var anim = ""
-	# TODO: set collisions boxes for 1-5
-	$CollisionShape2D_0.disabled = false
-	$CollisionShape2D_1.disabled = true
-	$CollisionShape2D_2.disabled = true
-	$CollisionShape2D_0.show()
-	$CollisionShape2D_1.hide()
-	$CollisionShape2D_2.hide()
 	match slimeType:
 		SlimeTypeEnum.NORMAL_BLUE:
 			anim = str(anim, "0")
@@ -89,10 +84,11 @@ func _process(delta):
 	elif slimeState == SlimeState.EATEN:
 		var targetDirection = targetBody.global_position - global_position
 		brakingSpeed = 0
-		$AnimatedSprite2D.scale = Vector2(1,1) * (1 - (timerEaten.wait_time - timerEaten.time_left))
-		velocity = targetDirection.normalized() * maxSpeed * 3
+		var animScale = (timerEaten.wait_time - (timerEaten.wait_time - timerEaten.time_left))/timerEaten.wait_time		
+		self.scale = initScale * animScale
+		velocity = targetDirection.normalized() * maxSpeed 
 		move_and_collide(velocity)
-		if timerEaten.time_left <= 0 or targetDirection.length() < 25:
+		if timerEaten.time_left <= 0 or targetDirection.length() < 5:
 			targetBody.resourceEaten.emit(self)
 			self.queue_free()
 			
