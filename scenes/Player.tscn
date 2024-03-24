@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dvqxplp2527yj"]
+[gd_scene load_steps=80 format=3 uid="uid://dvqxplp2527yj"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_kreaw"]
 [ext_resource type="Texture2D" uid="uid://djbn10gur4sg1" path="res://assets/image/player/slime_0.png" id="1_nugqk"]
@@ -72,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://b6yqpq13kgoue" path="res://assets/image/player/big_walk/vflipped/frame_23.png" id="69_sx12t"]
 [ext_resource type="Texture2D" uid="uid://cfxw2pyowe3" path="res://assets/image/player/big_walk/vflipped/frame_24.png" id="70_c7and"]
 [ext_resource type="Texture2D" uid="uid://vnts8bhppach" path="res://assets/image/textures/forme_rond1.png" id="71_i8tx8"]
+[ext_resource type="Script" path="res://scripts/PointLight2D_eat.gd" id="72_q4nx7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgrv3"]
 animations = [{
@@ -368,6 +369,7 @@ color = Color(1, 0.423529, 0, 1)
 energy = 15.0
 texture = ExtResource("71_i8tx8")
 texture_scale = 20.0
+script = ExtResource("72_q4nx7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/CharacterEffects/PointLight2D_eat"]
 libraries = {
