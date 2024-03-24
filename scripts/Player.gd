@@ -8,7 +8,7 @@ signal resourceEaten(ressource)
 signal pointMade(newScore, balanceLevel, balanceLevelBis)
 
 # GAME PLAY
-@export var speed = 600 # in pix/sec
+@export var speed = 1000 # in pix/sec
 const mouseIdleLowLimit = 0.05 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause 0 speed
 const mouseIdleHighLimit = 0.5 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause max speed
 
