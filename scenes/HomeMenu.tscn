@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2ywp7hgxgdre"]
+[gd_scene load_steps=4 format=3 uid="uid://c2ywp7hgxgdre"]
 
 [ext_resource type="Script" path="res://scripts/HomeMenu.gd" id="1_lfsv4"]
+[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_epnnq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nswj"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 0.733333)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lfsv4")
+
+[node name="BackgroundHome" type="Sprite2D" parent="."]
+position = Vector2(637.5, 357)
+scale = Vector2(0.670313, 0.67037)
+texture = ExtResource("2_epnnq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_top = 591.0
@@ -26,6 +39,13 @@ text = "Crédits"
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Quitter"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 62.0
+offset_top = 266.0
+offset_right = 1227.0
+offset_bottom = 545.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3nswj")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
 offset_left = 70.0

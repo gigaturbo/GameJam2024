@@ -1,9 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://ero1q25ffs3g"]
+[gd_scene load_steps=3 format=3 uid="uid://ero1q25ffs3g"]
 
 [ext_resource type="Script" path="res://scripts/End.gd" id="1_25scq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjkwo"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 0.733333)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
 [node name="End" type="Node2D"]
 script = ExtResource("1_25scq")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 869.0
+offset_top = 604.0
+offset_right = 1245.0
+offset_bottom = 695.0
+theme_override_font_sizes/font_size = 30
+text = "Menu principal"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 106.0
+offset_top = 46.0
+offset_right = 1154.0
+offset_bottom = 549.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hjkwo")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 123.0
@@ -29,13 +51,5 @@ des IA \"empoisonnées\", repérer ces modèles permet de garantir un apprentiss
 
 [b]Pour améliorer votre score[/b], il faudra donc garder un équilibre dans vos fusions bleu/rose, minimiser le trajet entre deux fusions et éviter les slaimes empoisonnés.
 [/center]"
-
-[node name="Button" type="Button" parent="."]
-offset_left = 869.0
-offset_top = 604.0
-offset_right = 1245.0
-offset_bottom = 695.0
-theme_override_font_sizes/font_size = 30
-text = "Menu principal"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
