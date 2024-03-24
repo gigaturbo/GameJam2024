@@ -20,10 +20,15 @@ position = Vector2(640, 360)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 script = ExtResource("4_nl5ry")
 
 [node name="Node2D" type="Node2D" parent="Player/Camera2D"]
 script = ExtResource("6_nnsdh")
+
+[node name="TimerZoomSmoothing" type="Timer" parent="Player/Camera2D"]
+wait_time = 0.5
+one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -42,4 +47,7 @@ stream = ExtResource("6_pnyct")
 [node name="PlayTimer" type="Timer" parent="."]
 wait_time = 180.0
 
+[connection signal="changeEvolution" from="Player" to="." method="_on_player_change_evolution"]
+[connection signal="changeEvolution" from="Player" to="Player/Camera2D/Node2D" method="_on_player_change_evolution"]
 [connection signal="pointMade" from="Player" to="." method="_on_player_point_made"]
+[connection signal="timeout" from="Player/Camera2D/TimerZoomSmoothing" to="Player/Camera2D" method="_on_timer_timeout"]

@@ -2,25 +2,36 @@ extends CharacterBody2D
 
 signal hitByRessource(ressource)
 signal resourceEaten(ressource)
+signal changeEvolution(playerEvolution, zoomMultiplierWhenBig, shakeMultiplierWhenBig, shakeSpeedMultiplierWhenBig)
 
 # if level 1 : balanceLevelBis is ignored
 # if level 2 : balanceLevel and balanceLevelBis used
 signal pointMade(newScore, balanceLevel, balanceLevelBis)
 
 # GAME PLAY
-@export var speed = 1000 # in pix/sec
-const mouseIdleLowLimit = 0.05 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause 0 speed
-const mouseIdleHighLimit = 0.5 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause max speed
+@export var speedLittle = 700 # in pix/sec
+@export var speedBig = 1200 # in pix/sec
+
+var maxSpeed = speedLittle
+
+
+const mouseIdleLowLimit = 0.05 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause 0 maxSpeed
+const mouseIdleHighLimit = 0.5 # relative distance (0 to 1) of the mouse from center to lateral border. This distant cause max maxSpeed
 
 
 # which percentage to which the balance bar reach a step
 const CVresourceStep1 = 0.2
 const CVresourceStep2 = 0.1
 
-const minRessourceToBeBig = 10
+const minRessourceToBeBig = 2
 
 # /END GAMEPLAY
 
+#  AFFICHAGE
+var zoomMultiplierWhenBig = 0.85
+var shakeMultiplierWhenBig = 1.15
+var shakeSpeedMultiplierWhenBig = 7
+# / end AFFICHAGE
 
 
 var playerEvolution # TINY, LITTLE, BIG (= F0, F1, F2)
@@ -81,7 +92,6 @@ func get_input():
 			$AnimatedSprite2D/CharacterEffects.scale.x = -abs($AnimatedSprite2D/CharacterEffects.scale.x)
 		else:
 			$AnimatedSprite2D/CharacterEffects.scale.x = abs($AnimatedSprite2D/CharacterEffects.scale.x)
-		print($AnimatedSprite2D/CharacterEffects.scale.x)
 		
 #		if(mousePointingDirection.x < 0 && !isLookingLeft):
 #			isLookingLeft = true
@@ -89,13 +99,13 @@ func get_input():
 #		if(mousePointingDirection.x >= 0 && isLookingLeft):
 #			$AnimatedSprite2D/CharacterEffects.apply_scale(Vector2(-1.0, 1.0))
 #			isLookingLeft = false
-	# speed
+	# maxSpeed
 	if(mouseIntensity > mouseIdleLowLimit):
 		speedResultOfMouse = (mouseIntensity - mouseIdleLowLimit) / (mouseIdleHighLimit - mouseIdleLowLimit) # from 0 to 1
 	if(mouseIntensity > mouseIdleHighLimit):
 		speedResultOfMouse = 1
 	
-	var maxVelocity = input_direction * speed
+	var maxVelocity = input_direction * maxSpeed
 	velocity = lerp(Vector2(0,0), maxVelocity, speedResultOfMouse)
 	
 	
@@ -138,6 +148,11 @@ func setPlayerMoveState(moveState):
 
 # evolution level = TINY LITTLE or BIG
 func setPlayerEvolution(playerEvolution_):
+	
+	if playerEvolution != playerEvolution_ :
+		if playerEvolution == "LITTLE" || playerEvolution == "BIG":
+			changeEvolution.emit(playerEvolution_, zoomMultiplierWhenBig, shakeMultiplierWhenBig, shakeSpeedMultiplierWhenBig)
+	
 	playerEvolution = playerEvolution_
 	match playerEvolution_:
 		"TINY":
@@ -147,6 +162,7 @@ func setPlayerEvolution(playerEvolution_):
 			$CollisionShape2D_F0.show()
 			$CollisionShape2D_F1.hide()
 			$CollisionShape2D_F2.hide()
+			maxSpeed = 0
 		"LITTLE":
 			$CollisionShape2D_F0.disabled = true
 			$CollisionShape2D_F1.disabled = false
@@ -154,6 +170,7 @@ func setPlayerEvolution(playerEvolution_):
 			$CollisionShape2D_F0.hide()
 			$CollisionShape2D_F1.show()
 			$CollisionShape2D_F2.hide()
+			maxSpeed = speedLittle
 		"BIG":
 			$CollisionShape2D_F0.disabled = true
 			$CollisionShape2D_F1.disabled = true
@@ -161,6 +178,7 @@ func setPlayerEvolution(playerEvolution_):
 			$CollisionShape2D_F0.hide()
 			$CollisionShape2D_F1.hide()
 			$CollisionShape2D_F2.show()
+			maxSpeed = speedBig
 	setPlayerMoveState(playerMoveState)
 
 
@@ -187,7 +205,6 @@ func _on_resource_eaten(ressource):
 	$AnimatedSprite2D/CharacterEffects/PointLight2D_eat/AnimationPlayer.stop()
 	$AnimatedSprite2D/CharacterEffects/PointLight2D_eat/AnimationPlayer.play("ligth_eating")
 	
-	#$AudioStreamPlayer.play()
 	
 	ressource.slimeState = ressource.SlimeState.EATEN # TODO: already set in Resource ?
 	

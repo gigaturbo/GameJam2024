@@ -23,7 +23,7 @@ func setPaused(paused):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# Update timer from the main scene
+	# Update timer from the ma avec CPU particlesonin scene
 	pass
 
 # Sets the color bar values
