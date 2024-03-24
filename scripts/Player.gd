@@ -58,6 +58,8 @@ var pointMultiplier = 1.0 #
 
 var isLookingLeft = false
 
+var isApprearing = true
+
 @onready var bigPlayerStepSounds = [$PlayerSounds/sound_big_step, 
 									$PlayerSounds/sound_big_step2,
 									$PlayerSounds/sound_big_step3,
@@ -67,10 +69,20 @@ var isLookingLeft = false
 func _ready():
 	$AnimatedSprite2D.hide()
 	setPlayerEvolution("LITTLE")
-	setPlayerMoveState("idle")
+	
+	
+	$AnimatedSprite2D.animation = "F1_appear"
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()
 	screenSize = DisplayServer.window_get_size()
+
+	$TimerAppear.start()
+
+
+
+func _on_timer_appear_timeout():
+	setPlayerMoveState("idle")
+	isApprearing = false
 
 
 func get_input():
@@ -116,30 +128,31 @@ func get_input():
 func _physics_process(delta):
 	
 	# Movement
-	get_input()
-	move_and_slide()
-	
-	# Steps sound, 2 steps per 24 frames
-	if velocity.length() > 0:
+	if not isApprearing :
+		get_input()
+		move_and_slide()
 		
-		# Setting animation framerate from speed
-		$AnimatedSprite2D.speed_scale = (velocity.length()/maxSpeed) * 3
-		
-		# Playing sounds on steps 
-		var sound
-		match playerEvolution:
-			"TINY":
-				sound = $PlayerSounds/sound_small_step
-				if ($AnimatedSprite2D.frame == 3) or ($AnimatedSprite2D.frame == 18):
-					sound.play()
-			"LITTLE":
-				sound = $PlayerSounds/sound_small_step
-				if ($AnimatedSprite2D.frame == 3) or ($AnimatedSprite2D.frame == 18):
-					sound.play()
-			"BIG":
-				sound = bigPlayerStepSounds[randi_range(0,len(bigPlayerStepSounds)-1)]
-				if ($AnimatedSprite2D.frame == 6) or ($AnimatedSprite2D.frame == 18):
-					sound.play()
+		# Steps sound, 2 steps per 24 frames
+		if velocity.length() > 0:
+			
+			# Setting animation framerate from speed
+			$AnimatedSprite2D.speed_scale = (velocity.length()/maxSpeed) * 3
+			
+			# Playing sounds on steps 
+			var sound
+			match playerEvolution:
+				"TINY":
+					sound = $PlayerSounds/sound_small_step
+					if ($AnimatedSprite2D.frame == 3) or ($AnimatedSprite2D.frame == 18):
+						sound.play()
+				"LITTLE":
+					sound = $PlayerSounds/sound_small_step
+					if ($AnimatedSprite2D.frame == 3) or ($AnimatedSprite2D.frame == 18):
+						sound.play()
+				"BIG":
+					sound = bigPlayerStepSounds[randi_range(0,len(bigPlayerStepSounds)-1)]
+					if ($AnimatedSprite2D.frame == 6) or ($AnimatedSprite2D.frame == 18):
+						sound.play()
 	
 	
 func setPlayerMoveState(moveState):
