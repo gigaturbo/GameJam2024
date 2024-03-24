@@ -23,8 +23,6 @@ var resource_counter_0 = 0
 var resource_counter_1 = 0
 var resource_counter_2 = 0
 var resource_counter_3 = 0
-var resource_counter_4 = 0
-var resource_counter_5 = 0
 
 var resource_tot = 0
 
@@ -159,9 +157,10 @@ func _on_resource_eaten(ressource):
 	if(level == 1):
 		meanResource = 0.5*(resource_counter_0 + resource_counter_1)
 		varianceResource = 0.5 * ((resource_counter_0 - meanResource)**2 + (resource_counter_1 - meanResource)**2)
-	elif(level == 2):
-		meanResource = 0.25*(resource_counter_2 + resource_counter_3 + resource_counter_4 + resource_counter_5)
-		varianceResource = 0.25 * ((resource_counter_2 - meanResource)**2 + (resource_counter_3 - meanResource)**2 + (resource_counter_4 - meanResource)**2 + (resource_counter_5 - meanResource)**2)
+	
+#	if(level == 2):
+#		meanResource = 0.25*(resource_counter_2 + resource_counter_3 + resource_counter_4 + resource_counter_5)
+#		varianceResource = 0.25 * ((resource_counter_2 - meanResource)**2 + (resource_counter_3 - meanResource)**2 + (resource_counter_4 - meanResource)**2 + (resource_counter_5 - meanResource)**2)
 		
 	var standDeviationResource = sqrt(varianceResource)
 	coefficientOfVariationResource = standDeviationResource / meanResource
@@ -177,18 +176,26 @@ func _on_resource_eaten(ressource):
 		
 	score += 10 * pointMultiplier
 	
-	var sign_level_1 = sign(resource_counter_1 - resource_counter_0)
-	var sign_level_2a = sign(resource_counter_3 - resource_counter_2)
-	var sign_level_2b = sign(resource_counter_5 - resource_counter_4)
+	var sign_level_1 = sign(resource_counter_0 - resource_counter_1)
+	var balanceLevel = 0
 	
 	if(level == 1):
-		var balanceLevel = sign_level_1 * coefficientOfVariationResource
+		balanceLevel = sign_level_1 * coefficientOfVariationResource
 		pointMade.emit(score, balanceLevel, balanceLevel)
+	
+	print("Score gain : ", gain,
+	"\n", "Res : ", resource_counter_0, ", ", resource_counter_1,
+	"\n", "Mean (Var) : ", meanResource, " (", varianceResource, ")",
+	"\n", "CV : ", coefficientOfVariationResource, " | Multi : x", pointMultiplier, " | Balance : ", round(balanceLevel * 100.0)*0.01)
+	
+	
+#	var sign_level_2a = sign(resource_counter_3 - resource_counter_2)
+#	var sign_level_2b = sign(resource_counter_5 - resource_counter_4)
 		
-	if(level == 2):
-		var balanceLevel_2a = sign_level_2a * coefficientOfVariationResource
-		var balanceLevel_2b = sign_level_2b * coefficientOfVariationResource
-		pointMade.emit(score, balanceLevel_2a, balanceLevel_2b)
+#	if(level == 2):
+#		var balanceLevel_2a = sign_level_2a * coefficientOfVariationResource
+#		var balanceLevel_2b = sign_level_2b * coefficientOfVariationResource
+#		pointMade.emit(score, balanceLevel_2a, balanceLevel_2b)
 	
 	
 

@@ -60,7 +60,7 @@ func start():
 
 func getAnimationName(action):
 	var anim = ""
-	# TODO: set collisions boxes for 1-5
+	# TODO: set colgittgithlisions boxes for 1-5
 	$CollisionShape2D_0.disabled = false
 	$CollisionShape2D_1.disabled = true
 	$CollisionShape2D_2.disabled = true

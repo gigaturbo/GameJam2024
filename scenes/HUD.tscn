@@ -76,8 +76,9 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_4s8lw")
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HSplitContainer/Color Stats Container/Colors Labels/VSplitContainer"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-text = "Équilibre"
+text = "Balance"
 
 [node name="Color Progress Bars" type="PanelContainer" parent="MarginContainer/HSplitContainer/Color Stats Container"]
 layout_mode = 2
