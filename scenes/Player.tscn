@@ -419,5 +419,6 @@ stream = ExtResource("77_hop6c")
 
 [node name="sound_shrink" type="AudioStreamPlayer" parent="PlayerSounds"]
 
+[connection signal="hitByObstacle" from="." to="." method="_on_hit_by_obstacle"]
 [connection signal="hitByRessource" from="." to="." method="_on_hit_by_ressource"]
 [connection signal="resourceEaten" from="." to="." method="_on_resource_eaten"]

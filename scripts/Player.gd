@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal hitByRessource(ressource)
 signal resourceEaten(ressource)
 signal changeEvolution(playerEvolution, zoomMultiplierWhenBig, shakeMultiplierWhenBig, shakeSpeedMultiplierWhenBig)
+signal hitByObstacle(obstacle)
 
 # if level 1 : balanceLevelBis is ignored
 # if level 2 : balanceLevel and balanceLevelBis used
@@ -283,4 +284,5 @@ func _on_resource_eaten(ressource):
 #		pointMade.emit(score, balanceLevel_2a, balanceLevel_2b)
 	
 	
-
+func _on_hit_by_obstacle(obstacle):
+	pass # Replace with function body.
