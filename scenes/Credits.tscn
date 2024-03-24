@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc8cva03jy7kk"]
+
+[ext_resource type="Script" path="res://scenes/Credits.gd" id="1_fioyw"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_fioyw")
+
+[node name="ReturnButton" type="Button" parent="."]
+offset_left = 956.0
+offset_top = 609.0
+offset_right = 1252.0
+offset_bottom = 700.0
+text = "Retour"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 276.0
+offset_top = 77.0
+offset_right = 1035.0
+offset_bottom = 557.0
+text = "Plein de gens"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

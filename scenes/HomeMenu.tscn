@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://c2ywp7hgxgdre"]
+[gd_scene load_steps=2 format=3 uid="uid://c2ywp7hgxgdre"]
+
+[ext_resource type="Script" path="res://scripts/HomeMenu.gd" id="1_lfsv4"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_lfsv4")
+
+[node name="LaunchButton" type="Button" parent="."]
+offset_left = 549.0
+offset_top = 178.0
+offset_right = 756.0
+offset_bottom = 231.0
+text = "Lancer une partie"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 553.0
+offset_top = 398.0
+offset_right = 759.0
+offset_bottom = 450.0
+text = "Quitter"
+
+[node name="CreditsButton" type="Button" parent="."]
+offset_left = 551.0
+offset_top = 287.0
+offset_right = 756.0
+offset_bottom = 340.0
+text = "Crédits"
+
+[connection signal="pressed" from="LaunchButton" to="." method="_on_launch_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
