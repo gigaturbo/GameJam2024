@@ -40,9 +40,9 @@ theme_override_font_sizes/normal_font_size = 25
 theme_override_font_sizes/bold_font_size = 25
 theme_override_font_sizes/italics_font_size = 25
 bbcode_enabled = true
-text = "[center][b]Paris 2098[/b]. Le monde est désormais peuplé de [i]sl[ai]mes[/i]: des créatures gélatineuses intelligentes. Ces merveilles issues de la recherche en [b]intelligence artficielle[/b] souffre malheureusement d'une faiblesse majeure... leur intelligence limitée.
+text = "[center][b]Paris 2098[/b]. Le monde est désormais peuplé de [i]sl[ai]mes[/i]: des créatures gélatineuses intelligentes. Ces merveilles de la recherche en [b]intelligence artficielle[/b] sont toujours au centre de l'attention des chercheurs voulant améliorer sans cesse leurs capacités intellectuelles.
 
-Un scientifique, Alan, a trouvé la solution: fusionner des slaimes pour en produire des meilleurs. Alan envoie donc son meilleur spécimen [b]Globulus Prime[/b] à la quête d'autres slaimes avec lesquels fusionner...[/center]"
+Un scientifique, Alan, a trouvé la solution révolutionnaire: fusionner des slaimes pour en produire des meilleurs. Alan envoie donc son meilleur spécimen [b]Globulus Prime[/b] à la quête d'autres slaimes avec lesquels fusionner...[/center]"
 
 [connection signal="pressed" from="HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
