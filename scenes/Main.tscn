@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtaxorkjqko3b"]
+[gd_scene load_steps=9 format=3 uid="uid://dtaxorkjqko3b"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_8hsnn"]
 [ext_resource type="PackedScene" uid="uid://dvqxplp2527yj" path="res://scenes/Player.tscn" id="1_hr5du"]
 [ext_resource type="PackedScene" uid="uid://dkymkqynu0f5s" path="res://scenes/LevelTest1.tscn" id="2_oyoqd"]
 [ext_resource type="PackedScene" uid="uid://bpfyo43h74r54" path="res://scenes/HUD.tscn" id="3_naudc"]
-[ext_resource type="AudioStream" uid="uid://ce3ymttbllywg" path="res://assets/audio_new/musique/intro.wav" id="5_tyadv"]
+[ext_resource type="AudioStream" uid="uid://bxaxo7cf1mwem" path="res://assets/audio/Game_jam_0.1.mp3" id="4_24utw"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="4_nl5ry"]
+[ext_resource type="Script" path="res://scripts/Node2DCamera.gd" id="6_nnsdh"]
 [ext_resource type="AudioStream" uid="uid://chcau3vn0jv0g" path="res://assets/audio/hit.wav" id="6_pnyct"]
 
 [node name="Node" type="Node"]
@@ -18,6 +20,10 @@ position = Vector2(640, 360)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
+script = ExtResource("4_nl5ry")
+
+[node name="Node2D" type="Node2D" parent="Player/Camera2D"]
+script = ExtResource("6_nnsdh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -25,8 +31,8 @@ position_smoothing_enabled = true
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Musique_1" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("5_tyadv")
+[node name="Musique_mp3" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_24utw")
 volume_db = -26.32
 autoplay = true
 
