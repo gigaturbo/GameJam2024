@@ -1107,3 +1107,28 @@ slimeType = 1
 position = Vector2(-130, 1694)
 scale = Vector2(0.5, 0.5)
 slimeType = 1
+
+[node name="Blue Slime Poisoned" type="Node" parent="."]
+
+[node name="RigidBody" parent="Blue Slime Poisoned" instance=ExtResource("7_bjx5x")]
+position = Vector2(-17, -865)
+slimeType = 2
+
+[node name="RigidBody2" parent="Blue Slime Poisoned" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1680, -164)
+slimeType = 2
+
+[node name="RigidBody3" parent="Blue Slime Poisoned" instance=ExtResource("7_bjx5x")]
+position = Vector2(-798, 1290)
+slimeType = 2
+
+[node name="Pink Slime Poisoned" type="Node" parent="."]
+
+[node name="RigidBody" parent="Pink Slime Poisoned" instance=ExtResource("7_bjx5x")]
+position = Vector2(-581, -510)
+
+[node name="RigidBody2" parent="Pink Slime Poisoned" instance=ExtResource("7_bjx5x")]
+position = Vector2(-600, 950)
+
+[node name="RigidBody3" parent="Pink Slime Poisoned" instance=ExtResource("7_bjx5x")]
+position = Vector2(-1561, 515)
