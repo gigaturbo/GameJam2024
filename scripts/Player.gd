@@ -64,6 +64,7 @@ func _ready():
 	setPlayerEvolution("LITTLE")
 	setPlayerMoveState("idle")
 	$AnimatedSprite2D.show()
+	$AnimatedSprite2D.play()
 	screenSize = DisplayServer.window_get_size()
 
 
