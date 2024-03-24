@@ -256,8 +256,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_3000y")
-animation = &"3_idle"
-frame_progress = 0.868751
+animation = &"1_idle"
 
 [node name="CollisionShape2D_0" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11.0429)

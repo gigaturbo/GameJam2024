@@ -44,6 +44,8 @@ var level = 1
 var coefficientOfVariationResource = 0.0
 var pointMultiplier = 1.0 #
 
+var isLookingLeft = false
+
 
 # called at start
 func _ready():
@@ -76,7 +78,12 @@ func get_input():
 		setPlayerMoveState("walk_lateral")
 		# Orientation
 		$AnimatedSprite2D.set_flip_h(mousePointingDirection.x < 0)
-		
+		if(mousePointingDirection.x < 0 && !isLookingLeft):
+			isLookingLeft = true
+			$AnimatedSprite2D/PointLight2D_eating.apply_scale(Vector2(-1.0, 1.0))
+		if(mousePointingDirection.x >= 0 && isLookingLeft):
+			$AnimatedSprite2D/PointLight2D_eating.apply_scale(Vector2(-1.0, 1.0))
+			isLookingLeft = false
 	# speed
 	if(mouseIntensity > mouseIdleLowLimit):
 		speedResultOfMouse = (mouseIntensity - mouseIdleLowLimit) / (mouseIdleHighLimit - mouseIdleLowLimit) # from 0 to 1
@@ -147,8 +154,10 @@ func _on_hit_by_ressource(ressource):
 
 
 func _on_resource_eaten(ressource):
-	$AnimatedSprite2D/PointLight2D/AnimationPlayer.stop()
-	$AnimatedSprite2D/PointLight2D/AnimationPlayer.play("ligth_eating")
+	
+	print("anim")
+	$AnimatedSprite2D/PointLight2D_eating/AnimationPlayer.stop()
+	$AnimatedSprite2D/PointLight2D_eating/AnimationPlayer.play("ligth_eating")
 	
 	$AudioStreamPlayer.play()
 	
@@ -164,12 +173,10 @@ func _on_resource_eaten(ressource):
 			resource_counter_2 += 1 
 			# COMBO BREAKER
 			resource_counter_0 /= 2 
-			print("Poison blue !")
 		ressource.SlimeTypeEnum.POISON_PINK:
 			resource_counter_3 += 1 
 			# COMBO BREAKER  
 			resource_counter_1 /= 2
-			print("Poison pink !")
 	
 	
 	
@@ -197,6 +204,7 @@ func _on_resource_eaten(ressource):
 		
 	score += 10 * pointMultiplier
 	
+	# positive when more blue
 	var sign_level_1 = sign(resource_counter_0 - resource_counter_1)
 	var balanceLevel = 0
 	
@@ -204,10 +212,10 @@ func _on_resource_eaten(ressource):
 		balanceLevel = sign_level_1 * coefficientOfVariationResource
 		pointMade.emit(score, balanceLevel, balanceLevel)
 	
-	print("Score gain : ", gain,
-	"\n", "Res : ", resource_counter_0, ", ", resource_counter_1,
-	"\n", "Mean (Var) : ", meanResource, " (", varianceResource, ")",
-	"\n", "CV : ", coefficientOfVariationResource, " | Multi : x", pointMultiplier, " | Balance : ", round(balanceLevel * 100.0)*0.01)
+#	print("Score gain : ", gain,
+#	"\n", "Res : ", resource_counter_0, ", ", resource_counter_1,
+#	"\n", "Mean (Var) : ", meanResource, " (", varianceResource, ")",
+#	"\n", "CV : ", coefficientOfVariationResource, " | Multi : x", pointMultiplier, " | Balance : ", round(balanceLevel * 100.0)*0.01)
 	
 	if(abs(balanceLevel) < CVresourceStep1 && resource_counter_tot >= minRessourceToBeBig):
 		setPlayerEvolution("BIG")

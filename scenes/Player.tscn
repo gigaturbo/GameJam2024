@@ -44,6 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://dk8jyq2fwwflo" path="res://assets/image/player/small_walk/frame_38.png" id="41_abwiy"]
 [ext_resource type="Texture2D" uid="uid://bjwbakll1vapb" path="res://assets/image/player/small_walk/frame_39.png" id="42_ncy34"]
 [ext_resource type="Texture2D" uid="uid://bfkquduoqlfnr" path="res://assets/image/player/small_walk/frame_40.png" id="43_ysqbl"]
+[ext_resource type="Texture2D" uid="uid://vnts8bhppach" path="res://assets/image/textures/forme_rond1.png" id="44_db7tw"]
+[ext_resource type="Script" path="res://scenes/PointLight2D_eating.gd" id="45_qq84r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgrv3"]
 animations = [{
@@ -327,18 +329,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_irr0k"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2gwex"]
-gradient = SubResource("Gradient_irr0k")
-width = 256
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
-metadata/_snap_enabled = true
-
 [sub_resource type="Animation" id="Animation_0r7wr"]
 resource_name = "ligth_eating"
-length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -381,13 +373,14 @@ sprite_frames = SubResource("SpriteFrames_tgrv3")
 animation = &"F1_idle"
 offset = Vector2(-20, 0)
 
-[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
-position = Vector2(-23.5294, -200)
+[node name="PointLight2D_eating" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -431.869)
 color = Color(1, 0.423529, 0, 1)
 energy = 0.0
-texture = SubResource("GradientTexture2D_2gwex")
+texture = ExtResource("44_db7tw")
+script = ExtResource("45_qq84r")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/PointLight2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/PointLight2D_eating"]
 libraries = {
 "": SubResource("AnimationLibrary_8ew6p")
 }
