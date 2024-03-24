@@ -3,6 +3,7 @@ extends Node
 enum mainStates {HOME, LEVEL1, LEVEL2, GAMEOVER}
 
 var mainState = mainStates.HOME
+var EndScene = preload("res://scenes/End.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -81,3 +82,7 @@ func processMusic():
 	$Audio/AudioStreamPlayer_theme_1.set_volume_db(vol_theme_1)
 	$Audio/AudioStreamPlayer_theme_2.set_volume_db(vol_theme_2)
 	
+
+
+func _on_play_timer_timeout():
+	get_tree().change_scene_to_packed(EndScene)
