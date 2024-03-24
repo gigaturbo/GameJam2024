@@ -4,9 +4,9 @@ enum SlimeTypeEnum {BLUE_LEVEL_1, PINK_LEVEL_1, BLUE_H1_LEVEL_2, BLUE_H2_LEVEL_2
 enum RandomSlimeLevel2Enum {OFF, RANDOM_BLUE, RANDOM_PINK, RANDOM_VARIANT1, RANDOM_VARIANT2}
 enum SlimeState {ALIVE, EATEN}
 
-@export var impulseSpeed = 50 # impulse speed in pix/sec
-@export var maxSpeed = 40 # in pix/sec
-@export var brakingSpeed = 10 # in pix/sec/sec
+@export var impulseSpeed = 5 # impulse speed in pix/sec
+@export var maxSpeed = 7 # in pix/sec
+@export var brakingSpeed = 4 # in pix/sec/sec
 
 @export_group("SLIME TYPE SETTINGS |!| Random level_2 prio. sur level_1 |!|")
 @export var slimeType : SlimeTypeEnum
@@ -66,9 +66,14 @@ func start():
 
 	$AnimatedSprite2D.animation = getAnimationName("idle")
 	$AnimatedSprite2D.show()
+	$TimerChangeDirection.wait_time = (randf() * 1.5) + 0.5
 	$TimerChangeDirection.start()
 	randomImpulseMove(impulseSpeed)
 	
+	# velocity cap
+	if velocity.length() > maxSpeed:
+		velocity = velocity.normalized() * maxSpeed
+
 
 func getAnimationName(action):
 	var anim = ""
@@ -98,9 +103,10 @@ func getAnimationName(action):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	if slimeState == SlimeState.ALIVE:
-		position += velocity * delta
 		velocity -= velocity.normalized() * brakingSpeed * delta
+		move_and_collide(velocity)
 	elif slimeState == SlimeState.EATEN:
 		var targetDirection = targetBody.global_position - global_position
 		brakingSpeed = 0
@@ -136,3 +142,4 @@ func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_sha
 		timerEaten.start()
 	else:
 		print("Resource touche something")
+
