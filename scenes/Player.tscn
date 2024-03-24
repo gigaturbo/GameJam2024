@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dvqxplp2527yj"]
+[gd_scene load_steps=84 format=3 uid="uid://dvqxplp2527yj"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_kreaw"]
 [ext_resource type="Texture2D" uid="uid://djbn10gur4sg1" path="res://assets/image/player/slime_0.png" id="1_nugqk"]
@@ -73,6 +73,10 @@
 [ext_resource type="Texture2D" uid="uid://cfxw2pyowe3" path="res://assets/image/player/big_walk/vflipped/frame_24.png" id="70_c7and"]
 [ext_resource type="Texture2D" uid="uid://vnts8bhppach" path="res://assets/image/textures/forme_rond1.png" id="71_i8tx8"]
 [ext_resource type="Script" path="res://scripts/PointLight2D_eat.gd" id="72_q4nx7"]
+[ext_resource type="AudioStream" uid="uid://b3m127xb8h3it" path="res://assets/audio_new/bruitages/player_small_step_1.wav" id="74_cviyr"]
+[ext_resource type="AudioStream" uid="uid://cnis54ya3c8yt" path="res://assets/audio_new/bruitages/player_big_step_1.wav" id="75_crbuv"]
+[ext_resource type="AudioStream" uid="uid://ymthg1yk7kln" path="res://assets/audio_new/bruitages/player_small_eat.wav" id="76_xakp0"]
+[ext_resource type="AudioStream" uid="uid://dke5cg0y8hxt5" path="res://assets/audio_new/bruitages/player_big_eat.wav" id="77_hop6c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgrv3"]
 animations = [{
@@ -397,12 +401,16 @@ stream = ExtResource("5_31068")
 [node name="PlayerSounds" type="Node" parent="."]
 
 [node name="sound_small_step" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource("74_cviyr")
 
 [node name="sound_big_step" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource("75_crbuv")
 
 [node name="sound_small_eat" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource("76_xakp0")
 
 [node name="sound_big_eat" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource("77_hop6c")
 
 [node name="sound_small_hit" type="AudioStreamPlayer" parent="PlayerSounds"]
 
