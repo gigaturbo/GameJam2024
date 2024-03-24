@@ -111,8 +111,8 @@ func _process(delta):
 		var targetDirection = targetBody.global_position - global_position
 		brakingSpeed = 0
 		$AnimatedSprite2D.scale = Vector2(1,1) * (1 - (timerEaten.wait_time - timerEaten.time_left))
-		velocity = targetDirection.normalized() * maxSpeed * 10
-		position += velocity * delta
+		velocity = targetDirection.normalized() * maxSpeed * 3
+		move_and_collide(velocity)
 		if timerEaten.time_left <= 0 or targetDirection.length() < 25:
 			targetBody.resourceEaten.emit(self)
 			self.queue_free()
@@ -135,6 +135,11 @@ func randomImpulseMove(anImpulseSpeed):
 
 # Notify player it has ben hit by resource, also start animating resource in EATEN mode
 func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_shape_index):	
+	pass
+
+
+
+func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if is_instance_of(body, CharacterBody2D):
 		body.hitByRessource.emit(self)
 		targetBody = body
@@ -142,4 +147,3 @@ func _on_body_shape_entered(body_rid, body : Node2D, body_shape_index, local_sha
 		timerEaten.start()
 	else:
 		print("Resource touche something")
-

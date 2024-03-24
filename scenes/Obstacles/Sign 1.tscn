@@ -8,6 +8,7 @@ size = Vector2(15, 42)
 [node name="Sign 1" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 7
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]

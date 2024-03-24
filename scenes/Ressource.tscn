@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4jaeu67y0lcf"]
+[gd_scene load_steps=13 format=3 uid="uid://d4jaeu67y0lcf"]
 
 [ext_resource type="Script" path="res://scripts/Ressource.gd" id="1_lhbhg"]
 [ext_resource type="Texture2D" uid="uid://c2hjwdkwlls7t" path="res://assets/image/ressources/0_idle.png" id="2_88e3t"]
@@ -71,8 +71,13 @@ height = 76.7117
 radius = 36.0
 height = 73.6196
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_43wrl"]
+radius = 96.0275
+
 [node name="RigidBody" type="RigidBody2D"]
 scale = Vector2(0.815, 0.815)
+collision_layer = 2
+collision_mask = 3
 gravity_scale = 0.0
 script = ExtResource("1_lhbhg")
 slimeType = 3
@@ -97,6 +102,14 @@ wait_time = 0.75
 wait_time = 0.5
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_43wrl")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="timeout" from="TimerChangeDirection" to="." method="_on_timer_change_direction_timeout"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
