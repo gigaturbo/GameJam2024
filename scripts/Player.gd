@@ -24,7 +24,7 @@ const mouseIdleHighLimit = 0.5 # relative distance (0 to 1) of the mouse from ce
 const CVresourceStep1 = 0.2
 const CVresourceStep2 = 0.1
 
-const minRessourceToBeBig = 2
+const minRessourceToBeBig = 15
 
 # /END GAMEPLAY
 

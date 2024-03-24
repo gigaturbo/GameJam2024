@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtaxorkjqko3b"]
+[gd_scene load_steps=10 format=3 uid="uid://dtaxorkjqko3b"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_8hsnn"]
 [ext_resource type="PackedScene" uid="uid://dvqxplp2527yj" path="res://scenes/Player.tscn" id="1_hr5du"]
 [ext_resource type="PackedScene" uid="uid://dkymkqynu0f5s" path="res://scenes/LevelTest1.tscn" id="2_oyoqd"]
 [ext_resource type="PackedScene" uid="uid://bpfyo43h74r54" path="res://scenes/HUD.tscn" id="3_naudc"]
-[ext_resource type="AudioStream" uid="uid://bxaxo7cf1mwem" path="res://assets/audio/Game_jam_0.1.mp3" id="4_24utw"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="4_nl5ry"]
 [ext_resource type="Script" path="res://scripts/Node2DCamera.gd" id="6_nnsdh"]
 [ext_resource type="AudioStream" uid="uid://chcau3vn0jv0g" path="res://assets/audio/hit.wav" id="6_pnyct"]
+[ext_resource type="AudioStream" uid="uid://c8vqm861t5kfp" path="res://assets/audio_new/musique/mp3/theme_1.wav.mp3" id="8_te4is"]
+[ext_resource type="AudioStream" uid="uid://db4s6u5aeiuo2" path="res://assets/audio_new/musique/mp3/theme_2.wav.mp3" id="9_sqt6e"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_8hsnn")
@@ -36,13 +37,18 @@ one_shot = true
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Musique_mp3" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("4_24utw")
-volume_db = -26.32
-autoplay = true
-
 [node name="HitSound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("6_pnyct")
+
+[node name="AudioStreamPlayer_theme_1" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_te4is")
+
+[node name="AudioStreamPlayer_theme_2" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("9_sqt6e")
+
+[node name="TimerSwitchMusic" type="Timer" parent="Audio"]
+wait_time = 0.75
+one_shot = true
 
 [node name="PlayTimer" type="Timer" parent="."]
 wait_time = 180.0
