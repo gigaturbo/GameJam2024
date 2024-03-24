@@ -8,6 +8,7 @@ var mainState = mainStates.HOME
 func _ready():
 	pass
 
+var angryMusic = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -17,6 +18,7 @@ func _process(delta):
 		if(true):
 			startLevel(1)
 	
+	processMusic()
 	
 	if(mainState == mainStates.LEVEL1 || mainState == mainStates.LEVEL2):
 		$CanvasLayer/HUD.setTimer($PlayTimer.time_left)
@@ -25,6 +27,8 @@ func startLevel(level):
 	print("level 1 start")
 	$Player.level = level
 	$PlayTimer.start()
+	$Audio/AudioStreamPlayer_theme_1.play()
+	$Audio/AudioStreamPlayer_theme_2.play()
 
 
 func _on_player_point_made(newScore, balanceLevel, balanceLevelBis):
@@ -34,6 +38,10 @@ func _on_player_point_made(newScore, balanceLevel, balanceLevelBis):
 
 
 func _on_player_change_evolution(playerEvolution, zoomMultiplier, shakeMultiplier, shakeSpeedMultiplierWhenBig):
+	
+	angryMusic = !angryMusic
+	$Audio/TimerSwitchMusic.start()
+		
 	if(playerEvolution == "LITTLE"):
 		$Player/Camera2D/TimerZoomSmoothing.start()
 		$Player/Camera2D.targetZoomX = $Player/Camera2D.refZoom.x
@@ -41,3 +49,35 @@ func _on_player_change_evolution(playerEvolution, zoomMultiplier, shakeMultiplie
 	if(playerEvolution == "BIG"):
 		$Player/Camera2D/TimerZoomSmoothing.start()
 		$Player/Camera2D.targetZoomX = $Player/Camera2D.refZoom.x * zoomMultiplier
+
+func _input(event):
+
+	if event.is_action_pressed("switchMusic"):
+		
+		angryMusic = !angryMusic
+		$Audio/TimerSwitchMusic.start()
+		
+#		if angryMusic:
+#			angryMusic = false
+#
+#			$Audio/AudioStreamPlayer_theme_1.set_volume_db(0)
+#			$Audio/AudioStreamPlayer_theme_2.set_volume_db(-60)
+#		else:
+#			angryMusic = true
+#			$Audio/AudioStreamPlayer_theme_1.set_volume_db(-60)
+#			$Audio/AudioStreamPlayer_theme_2.set_volume_db(0)
+
+
+func processMusic():
+	# 0 to 1
+	var musicSwitchRelative = 1.0 - $Audio/TimerSwitchMusic.time_left / $Audio/TimerSwitchMusic.wait_time
+	
+	if angryMusic:
+		musicSwitchRelative = 1 - musicSwitchRelative
+	
+	var vol_theme_1 = lerp(-80, -10, (musicSwitchRelative)**0.05)
+	var vol_theme_2 = lerp(-80, -6, (1 - musicSwitchRelative)**0.05)
+	
+	$Audio/AudioStreamPlayer_theme_1.set_volume_db(vol_theme_1)
+	$Audio/AudioStreamPlayer_theme_2.set_volume_db(vol_theme_2)
+	

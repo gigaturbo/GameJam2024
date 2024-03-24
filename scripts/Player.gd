@@ -10,7 +10,7 @@ signal hitByObstacle(obstacle)
 signal pointMade(newScore, balanceLevel, balanceLevelBis)
 
 # GAME PLAY
-@export var speedLittle = 700 # in pix/sec
+@export var speedLittle = 600 # in pix/sec
 @export var speedBig = 1200 # in pix/sec
 
 var maxSpeed = speedLittle
@@ -24,12 +24,12 @@ const mouseIdleHighLimit = 0.5 # relative distance (0 to 1) of the mouse from ce
 const CVresourceStep1 = 0.2
 const CVresourceStep2 = 0.1
 
-const minRessourceToBeBig = 2
+const minRessourceToBeBig = 15
 
 # /END GAMEPLAY
 
 #  AFFICHAGE
-var zoomMultiplierWhenBig = 0.85
+var zoomMultiplierWhenBig = 0.95
 var shakeMultiplierWhenBig = 1.15
 var shakeSpeedMultiplierWhenBig = 7
 # / end AFFICHAGE

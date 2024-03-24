@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpfyo43h74r54"]
+[gd_scene load_steps=10 format=3 uid="uid://bpfyo43h74r54"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_ct3h7"]
+[ext_resource type="LabelSettings" uid="uid://b7jckoblk12tm" path="res://settings/HUD_labelsettings.tres" id="2_bd2pf"]
 
 [sub_resource type="Theme" id="Theme_kyabe"]
 
@@ -52,10 +53,10 @@ script = ExtResource("1_ct3h7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = 897.0
-offset_top = 11.0
-offset_right = 1280.0
-offset_bottom = 52.0
+offset_left = 889.0
+offset_top = 6.0
+offset_right = 1272.0
+offset_bottom = 57.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 9
@@ -66,6 +67,7 @@ layout_mode = 2
 
 [node name="Color Stats Container" type="HSplitContainer" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
+dragger_visibility = 1
 
 [node name="Colors Labels" type="PanelContainer" parent="MarginContainer/HSplitContainer/Color Stats Container"]
 layout_mode = 2
@@ -76,9 +78,9 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_4s8lw")
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HSplitContainer/Color Stats Container/Colors Labels/VSplitContainer"]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 text = "Balance"
+label_settings = ExtResource("2_bd2pf")
 
 [node name="Color Progress Bars" type="PanelContainer" parent="MarginContainer/HSplitContainer/Color Stats Container"]
 layout_mode = 2
@@ -93,10 +95,10 @@ size_flags_vertical = 3
 theme_override_styles/background = SubResource("StyleBoxFlat_1ilst")
 theme_override_styles/fill = SubResource("StyleBoxFlat_lkg08")
 min_value = -100.0
-value = -12.0
 show_percentage = false
 
 [node name="Polygon2D" type="Polygon2D" parent="MarginContainer/HSplitContainer/Color Stats Container/Color Progress Bars/VBoxContainer/BlueProgress"]
+position = Vector2(-12, 5)
 texture = SubResource("GradientTexture2D_rywdo")
 texture_scale = Vector2(4, 4)
 polygon = PackedVector2Array(147, 1, 141, 13, 147, 26, 153, 13)
@@ -108,12 +110,12 @@ offset_right = 896.0
 offset_bottom = 75.0
 
 [node name="LabelTimer" type="Label" parent="MarginContainer2"]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 25
 text = "Time
 0"
+label_settings = ExtResource("2_bd2pf")
 horizontal_alignment = 1
 
 [node name="MarginContainer3" type="CenterContainer" parent="."]
@@ -122,10 +124,10 @@ offset_right = 448.0
 offset_bottom = 75.0
 
 [node name="LabelScore" type="Label" parent="MarginContainer3"]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 25
 text = "Score
 0"
+label_settings = ExtResource("2_bd2pf")
 horizontal_alignment = 1
