@@ -23,21 +23,21 @@ text = "Menu principal"
 [node name="Panel" type="Panel" parent="."]
 offset_left = 106.0
 offset_top = 46.0
-offset_right = 1154.0
+offset_right = 1176.0
 offset_bottom = 549.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hjkwo")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 123.0
-offset_top = 36.0
-offset_right = 1149.0
-offset_bottom = 575.0
+[node name="TexteFin" type="RichTextLabel" parent="Panel"]
+offset_left = 8.0
+offset_top = -7.0
+offset_right = 1056.0
+offset_bottom = 532.0
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 30
 bbcode_enabled = true
 text = "[center]
-[b][i]Féliciations! Globulus Prime a récupéré x points d'intelligence![/i][/b]
+[b][i]Féliciations! Globulus Prime a récupéré              points d'intelligence ![/i][/b]
 
 Le but du jeu SL[AI]ME est de transmettre de manière ludique les problématiques liés à l'[b]apprentissage fédéré[/b]: un paradigme d'apprentissage machine permettant d'entrainer des intelligences artificielles de manière décentralisée en \"fusionnant\" plusieurs modèles peu puissants. 
 
@@ -52,4 +52,17 @@ des IA \"empoisonnées\", repérer ces modèles permet de garantir un apprentiss
 [b]Pour améliorer votre score[/b], il faudra donc garder un équilibre dans vos fusions bleu/rose, minimiser le trajet entre deux fusions et éviter les slaimes empoisonnés.
 [/center]"
 
+[node name="LabelScore" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 23.0
+offset_right = 718.0
+offset_bottom = 67.0
+theme_override_colors/default_color = Color(0, 0.847059, 0, 1)
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+bbcode_enabled = true
+scroll_active = false
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="ready" from="Panel/LabelScore" to="." method="_on_label_score_ready"]
