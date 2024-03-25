@@ -86,8 +86,6 @@ func _on_timer_appear_timeout():
 
 
 func get_input():
-#	var input_direction = Input.get_vector("left", "right", "up", "down")
-#	input_direction = input_direction.normalized()
 
 	var mousePointingDirection = get_viewport().get_mouse_position() - screenSize*0.5
 	var input_direction = mousePointingDirection.normalized() 
@@ -108,12 +106,6 @@ func get_input():
 		else:
 			$AnimatedSprite2D/CharacterEffects.scale.x = abs($AnimatedSprite2D/CharacterEffects.scale.x)
 		
-#		if(mousePointingDirection.x < 0 && !isLookingLeft):
-#			isLookingLeft = true
-#			$AnimatedSprite2D/CharacterEffects.apply_scale(Vector2(-1.0, 1.0))
-#		if(mousePointingDirection.x >= 0 && isLookingLeft):
-#			$AnimatedSprite2D/CharacterEffects.apply_scale(Vector2(-1.0, 1.0))
-#			isLookingLeft = false
 	# maxSpeed
 	if(mouseIntensity > mouseIdleLowLimit):
 		speedResultOfMouse = (mouseIntensity - mouseIdleLowLimit) / (mouseIdleHighLimit - mouseIdleLowLimit) # from 0 to 1
@@ -269,10 +261,6 @@ func _on_resource_eaten(ressource):
 		meanResource = 0.5*(resource_counter_0 + resource_counter_1)
 		varianceResource = 0.5 * ((resource_counter_0 - meanResource)**2 + (resource_counter_1 - meanResource)**2)
 	
-#	if(level == 2):
-#		meanResource = 0.25*(resource_counter_2 + resource_counter_3 + resource_counter_4 + resource_counter_5)
-#		varianceResource = 0.25 * ((resource_counter_2 - meanResource)**2 + (resource_counter_3 - meanResource)**2 + (resource_counter_4 - meanResource)**2 + (resource_counter_5 - meanResource)**2)
-		
 	var standDeviationResource = sqrt(varianceResource)
 	coefficientOfVariationResource = standDeviationResource / meanResource
 	
@@ -295,22 +283,9 @@ func _on_resource_eaten(ressource):
 		balanceLevel = sign_level_1 * coefficientOfVariationResource
 		pointMade.emit(score, balanceLevel, balanceLevel)
 	
-#	print("Score gain : ", gain,
-#	"\n", "Res : ", resource_counter_0, ", ", resource_counter_1,
-#	"\n", "Mean (Var) : ", meanResource, " (", varianceResource, ")",
-#	"\n", "CV : ", coefficientOfVariationResource, " | Multi : x", pointMultiplier, " | Balance : ", round(balanceLevel * 100.0)*0.01)
-	
+
 	if(abs(balanceLevel) < CVresourceStep1 && resource_counter_tot >= minRessourceToBeBig):
 		setPlayerEvolution("BIG")
 	else:
 		setPlayerEvolution("LITTLE")
 		
-	
-#	var sign_level_2a = sign(resource_counter_3 - resource_counter_2)
-#	var sign_level_2b = sign(resource_counter_5 - resource_counter_4)
-		
-#	if(level == 2):
-#		var balanceLevel_2a = sign_level_2a * coefficientOfVariationResource
-#		var balanceLevel_2b = sign_level_2b * coefficientOfVariationResource
-#		pointMade.emit(score, balanceLevel_2a, balanceLevel_2b)
-	
