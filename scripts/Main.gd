@@ -8,6 +8,11 @@ enum mainStates {HOME, LEVEL1, LEVEL2, GAMEOVER}
 var mainState = mainStates.HOME
 var EndScene = preload("res://scenes/End.tscn")
 
+@onready var MusicTheme1 = $Audio/AudioStreamPlayer_theme_1
+@onready var MusicTheme2 = $Audio/AudioStreamPlayer_theme_2
+@onready var HUD = $CanvasLayer/HUD
+@onready var MCamera2D = $Player/Camera2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -25,19 +30,19 @@ func _process(delta):
 	processMusic()
 	
 	if(mainState == mainStates.LEVEL1 || mainState == mainStates.LEVEL2):
-		$CanvasLayer/HUD.setTimer($PlayTimer.time_left)
+		HUD.setTimer($PlayTimer.time_left)
 
 func startLevel(level):
 	print("level 1 start")
 	$Player.level = level
 	$PlayTimer.start()
-	$Audio/AudioStreamPlayer_theme_1.play()
-	$Audio/AudioStreamPlayer_theme_2.play()
+	MusicTheme1.play()
+	MusicTheme2.play()
 
 
 func _on_player_point_made(newScore, balanceLevel, balanceLevelBis):
-	$CanvasLayer/HUD.setScore(newScore)
-	$CanvasLayer/HUD.setColorStats(balanceLevel*100)
+	HUD.setScore(newScore)
+	HUD.setColorStats(balanceLevel*100)
 
 
 
@@ -48,11 +53,11 @@ func _on_player_change_evolution(playerEvolution, zoomMultiplier, shakeMultiplie
 		
 	if(playerEvolution == "LITTLE"):
 		$Player/Camera2D/TimerZoomSmoothing.start()
-		$Player/Camera2D.targetZoomX = $Player/Camera2D.refZoom.x
+		MCamera2D.targetZoomX = MCamera2D.refZoom.x
 		
 	if(playerEvolution == "BIG"):
 		$Player/Camera2D/TimerZoomSmoothing.start()
-		$Player/Camera2D.targetZoomX = $Player/Camera2D.refZoom.x * zoomMultiplier
+		MCamera2D.targetZoomX = MCamera2D.refZoom.x * zoomMultiplier
 
 func _input(event):
 
@@ -61,17 +66,7 @@ func _input(event):
 		angryMusic = !angryMusic
 		$Audio/TimerSwitchMusic.start()
 		
-#		if angryMusic:
-#			angryMusic = false
-#
-#			$Audio/AudioStreamPlayer_theme_1.set_volume_db(0)
-#			$Audio/AudioStreamPlayer_theme_2.set_volume_db(-60)
-#		else:
-#			angryMusic = true
-#			$Audio/AudioStreamPlayer_theme_1.set_volume_db(-60)
-#			$Audio/AudioStreamPlayer_theme_2.set_volume_db(0)
-
-
+		
 func processMusic():
 	# 0 to 1
 	var musicSwitchRelative = 1.0 - $Audio/TimerSwitchMusic.time_left / $Audio/TimerSwitchMusic.wait_time
@@ -82,8 +77,8 @@ func processMusic():
 	var vol_theme_1 = lerp(-80, volume_theme_1, (musicSwitchRelative)**0.05)
 	var vol_theme_2 = lerp(-80, volume_theme_2, (1 - musicSwitchRelative)**0.05)
 	
-	$Audio/AudioStreamPlayer_theme_1.set_volume_db(vol_theme_1)
-	$Audio/AudioStreamPlayer_theme_2.set_volume_db(vol_theme_2)
+	MusicTheme1.set_volume_db(vol_theme_1)
+	MusicTheme2.set_volume_db(vol_theme_2)
 	
 
 
