@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5hnkftc4pxgk"]
+[gd_scene load_steps=2 format=3 uid="uid://c5hnkftc4pxgk"]
 
-[ext_resource type="Script" path="res://scripts/Obstacles.gd" id="1_dg41r"]
 [ext_resource type="Texture2D" uid="uid://cq5b58fxqtqvl" path="res://assets/image/obstacles/House 1.png" id="1_qbn88"]
 
 [node name="House 1" type="Node2D"]
 visibility_layer = 7
-script = ExtResource("1_dg41r")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 7

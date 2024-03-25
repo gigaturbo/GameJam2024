@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc8cva03jy7kk"]
+[gd_scene load_steps=4 format=3 uid="uid://bc8cva03jy7kk"]
 
 [ext_resource type="Script" path="res://scripts/Credits.gd" id="1_fioyw"]
 [ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_nruy6"]
-[ext_resource type="AudioStream" uid="uid://bjsc47bjvkhye" path="res://assets/audio_new/musique/mp3/credits.wav.mp3" id="3_2cs58"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga1mf"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 0.733333)
