@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://c2ywp7hgxgdre"]
 
 [ext_resource type="Script" path="res://scripts/HomeMenu.gd" id="1_lfsv4"]
-[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_epnnq"]
+[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_wky51"]
 [ext_resource type="AudioStream" uid="uid://cqrd7hg1tosqb" path="res://assets/audio_new/musique/mp3/intro.wav.mp3" id="3_hsj58"]
 [ext_resource type="Script" path="res://scripts/BackgroundHome.gd" id="3_qgd8y"]
-[ext_resource type="Texture2D" uid="uid://vg56k200vuxc" path="res://assets/image/HUD/logo_cr.png" id="4_8au4b"]
+[ext_resource type="Texture2D" uid="uid://vg56k200vuxc" path="res://assets/image/HUD/logo_cr.png" id="4_s1umk"]
 [ext_resource type="Script" path="res://scripts/Logo.gd" id="4_vds6g"]
 [ext_resource type="Script" path="res://scripts/Panel.gd" id="5_8di6l"]
 [ext_resource type="Script" path="res://scripts/HBoxContainer2.gd" id="6_w68h6"]
@@ -22,13 +22,13 @@ script = ExtResource("1_lfsv4")
 [node name="BackgroundHome" type="Sprite2D" parent="."]
 position = Vector2(637.5, 357)
 scale = Vector2(0.670313, 0.67037)
-texture = ExtResource("2_epnnq")
+texture = ExtResource("2_wky51")
 script = ExtResource("3_qgd8y")
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(1021.1, 169.951)
 scale = Vector2(0.165994, 0.165994)
-texture = ExtResource("4_8au4b")
+texture = ExtResource("4_s1umk")
 script = ExtResource("4_vds6g")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
