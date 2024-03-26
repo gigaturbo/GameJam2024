@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2ywp7hgxgdre"]
+[gd_scene load_steps=10 format=3 uid="uid://c2ywp7hgxgdre"]
 
 [ext_resource type="Script" path="res://scripts/HomeMenu.gd" id="1_lfsv4"]
 [ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_epnnq"]
 [ext_resource type="AudioStream" uid="uid://o2n4orra4bte" path="res://assets/audio_new/musique/mp3/intro.wav.mp3" id="3_hsj58"]
+[ext_resource type="Script" path="res://scripts/BackgroundHome.gd" id="3_qgd8y"]
+[ext_resource type="Texture2D" uid="uid://vg56k200vuxc" path="res://assets/image/HUD/logo_cr.png" id="4_8au4b"]
+[ext_resource type="Script" path="res://scripts/Logo.gd" id="4_vds6g"]
+[ext_resource type="Script" path="res://scripts/Panel.gd" id="5_8di6l"]
+[ext_resource type="Script" path="res://scripts/HBoxContainer2.gd" id="6_w68h6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nswj"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 0.733333)
@@ -18,6 +23,13 @@ script = ExtResource("1_lfsv4")
 position = Vector2(637.5, 357)
 scale = Vector2(0.670313, 0.67037)
 texture = ExtResource("2_epnnq")
+script = ExtResource("3_qgd8y")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(1021.1, 169.951)
+scale = Vector2(0.165994, 0.165994)
+texture = ExtResource("4_8au4b")
+script = ExtResource("4_vds6g")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_top = 591.0
@@ -28,42 +40,44 @@ alignment = 1
 
 [node name="LaunchButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Commencer"
 
 [node name="CreditsButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Crédits"
 
 [node name="QuitButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Quitter"
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 62.0
-offset_top = 266.0
+offset_top = 279.0
 offset_right = 1227.0
-offset_bottom = 545.0
+offset_bottom = 558.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3nswj")
+script = ExtResource("5_8di6l")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-offset_left = 70.0
-offset_top = 280.0
-offset_right = 1213.0
-offset_bottom = 566.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel"]
+offset_left = 8.0
+offset_top = 14.0
+offset_right = 1151.0
+offset_bottom = 300.0
+script = ExtResource("6_w68h6")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 25
 theme_override_font_sizes/bold_font_size = 25
 theme_override_font_sizes/italics_font_size = 25
 bbcode_enabled = true
-text = "[center][b]Paris 2098[/b]. Le monde est désormais peuplé de [i]sl[ai]mes[/i]: des créatures gélatineuses intelligentes. Ces merveilles de la recherche en [b]intelligence artficielle[/b] sont toujours au centre de l'attention des chercheurs voulant améliorer sans cesse leurs capacités intellectuelles.
+text = "[center][b]Paris 2098[/b]. Le monde est désormais peuplé de [i]sl[ai]mes[/i] : des créatures gélatineuses intelligentes. Ces merveilles de la recherche en [b]intelligence artficielle[/b] sont au centre de l'attention des chercheurs voulant améliorer sans cesse leurs capacités intellectuelles.
 
-Un scientifique, Alan, a trouvé la solution révolutionnaire: fusionner des slaimes pour en produire des meilleurs. Alan envoie donc son meilleur spécimen [b]Globulus Prime[/b] à la quête d'autres slaimes avec lesquels fusionner...[/center]"
+Un scientifique, Alan, a trouvé la solution révolutionnaire : fusionner des [i]sl[ai]mes[/i] pour en produire de meilleurs. Alan envoie son meilleur spécimen, [b]Globulus Prime[/b], à la quête d'autres [i]sl[ai]mes[/i] avec lesquels fusionner...[/center]"
 
 [node name="AudioStreamPlayer_intro" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hsj58")

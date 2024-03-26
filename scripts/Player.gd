@@ -249,13 +249,19 @@ func _on_resource_eaten(ressource):
 		ressource.SlimeTypeEnum.POISON_BLUE:
 			resource_counter_2 += 1 
 			# COMBO BREAKER
-			resource_counter_0 /= 2 
+#			resource_counter_0 /= 2 
 		ressource.SlimeTypeEnum.POISON_PINK:
 			resource_counter_3 += 1 
 			# COMBO BREAKER  
+#			resource_counter_1 /= 2
+	
+	if ressource.isPoisonous:
+		$PlayerSounds/sound_poisoned.play()
+		# divide the shorter ressource
+		if resource_counter_1 > resource_counter_0:
+			resource_counter_0 /= 2
+		else:
 			resource_counter_1 /= 2
-	
-	
 	
 	var meanResource = 1.0
 	var varianceResource = 0.0

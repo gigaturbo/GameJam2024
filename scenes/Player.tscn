@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://dvqxplp2527yj"]
+[gd_scene load_steps=119 format=3 uid="uid://dvqxplp2527yj"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_kreaw"]
 [ext_resource type="Texture2D" uid="uid://djbn10gur4sg1" path="res://assets/image/player/slime_0.png" id="1_nugqk"]
@@ -111,6 +111,7 @@
 [ext_resource type="AudioStream" uid="uid://crkure6y3nr68" path="res://assets/audio_new/bruitages/player_shrink.wav" id="79_7cd43"]
 [ext_resource type="AudioStream" uid="uid://cdse3hf8b6k2v" path="res://assets/audio_new/bruitages/player_big_step_3.wav" id="79_g7lld"]
 [ext_resource type="AudioStream" uid="uid://ckcpfeg7wxkia" path="res://assets/audio_new/bruitages/player_big_step_4.wav" id="80_7k8e8"]
+[ext_resource type="AudioStream" uid="uid://dy6wa6u5mar4p" path="res://assets/audio_new/bruitages/slime_001_poison2.wav" id="112_sqqkg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgrv3"]
 animations = [{
@@ -497,7 +498,7 @@ offset = Vector2(-20, 0)
 position = Vector2(89.3516, -74.4619)
 scale = Vector2(0.914302, 1.96713)
 color = Color(0.137255, 1, 0.290196, 1)
-energy = 12.0
+energy = 0.0
 texture = ExtResource("71_4afsv")
 texture_scale = 25.0
 script = ExtResource("72_q4nx7")
@@ -572,6 +573,10 @@ pitch_scale = 1.2
 stream = ExtResource("80_7k8e8")
 volume_db = -6.0
 pitch_scale = 1.2
+
+[node name="sound_poisoned" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource("112_sqqkg")
+volume_db = 2.0
 
 [node name="TimerAppear" type="Timer" parent="."]
 one_shot = true

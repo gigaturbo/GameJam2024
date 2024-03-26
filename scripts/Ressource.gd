@@ -47,6 +47,9 @@ func start():
 
 	if (slimeType == SlimeTypeEnum.POISON_BLUE) or (slimeType == SlimeTypeEnum.POISON_PINK):
 		isPoisonous = true 
+		$CharacterEffects/PointLight2D_res/AnimationPlayer.play("i_am_poison")
+		$CharacterEffects/PointLight2D_res.texture_scale = 7
+		
 
 	# Add a bit of randomness in the direction changes
 	$TimerChangeDirection.wait_time = (randf() * 2.5) + 0.5 # 0.5 to 3
@@ -86,11 +89,10 @@ func _process(delta):
 	elif slimeState == SlimeState.EATEN:
 		$AnimatedSprite2D.speed_scale = 1
 		var targetDirection = targetBody.global_position - global_position
-		brakingSpeed = 0
-		var animScale = (timerEaten.wait_time - (timerEaten.wait_time - timerEaten.time_left))/timerEaten.wait_time	# 1 ->0
-		animScale = (animScale/2.0) + 0.5 # 1 -> 0.5
+		brakingSpeed /= 2
+		var animScale = timerEaten.time_left / timerEaten.wait_time # 1 ->0
 		self.scale = initScale * animScale
-		velocity = targetDirection.normalized() * maxSpeed * 1.5
+		velocity = targetDirection.normalized() * maxSpeed
 		move_and_collide(velocity)
 		if timerEaten.time_left <= 0 or targetDirection.length() < 5:
 			targetBody.resourceEaten.emit(self)
