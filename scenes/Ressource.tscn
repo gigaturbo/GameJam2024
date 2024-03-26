@@ -396,7 +396,6 @@ animation = &"0_eaten"
 
 [node name="CharacterEffects" type="CanvasGroup" parent="."]
 position = Vector2(3, -9)
-scale = Vector2(1, 1)
 
 [node name="PointLight2D_res" type="PointLight2D" parent="CharacterEffects"]
 color = Color(1, 0, 0.513726, 1)

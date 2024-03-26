@@ -62,6 +62,6 @@ des IA \"empoisonnées\", repérer ces modèles permet de garantir un apprentiss
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xmatj")
-volume_db = -10.0
+volume_db = -5.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
