@@ -15,6 +15,10 @@ run/main_scene="res://scenes/HomeMenu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://assets/image/HUD/logo.svg"
 
+[autoload]
+
+DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+
 [display]
 
 window/size/viewport_width=1280
@@ -26,6 +30,10 @@ window/size/always_on_top=true
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg")
 
 [input]
 
