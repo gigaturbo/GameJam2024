@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bpfyo43h74r54" path="res://scenes/HUD.tscn" id="3_naudc"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="4_nl5ry"]
 [ext_resource type="Script" path="res://scripts/Node2DCamera.gd" id="6_nnsdh"]
-[ext_resource type="AudioStream" uid="uid://c8vqm861t5kfp" path="res://assets/audio_new/musique/mp3/theme_1.wav.mp3" id="8_te4is"]
-[ext_resource type="AudioStream" uid="uid://db4s6u5aeiuo2" path="res://assets/audio_new/musique/mp3/theme_2.wav.mp3" id="9_sqt6e"]
+[ext_resource type="AudioStream" uid="uid://c8vqm861t5kfp" path="res://assets/audio/musique/mp3/theme_1.wav.mp3" id="8_te4is"]
+[ext_resource type="AudioStream" uid="uid://db4s6u5aeiuo2" path="res://assets/audio/musique/mp3/theme_2.wav.mp3" id="9_sqt6e"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_8hsnn")
