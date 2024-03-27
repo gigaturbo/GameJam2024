@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://c2ywp7hgxgdre"]
 
 [ext_resource type="Script" path="res://scripts/HomeMenu.gd" id="1_lfsv4"]
-[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_wky51"]
+[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image.backup/background_home.jpg" id="2_wky51"]
 [ext_resource type="AudioStream" uid="uid://cqrd7hg1tosqb" path="res://assets/audio_new/musique/mp3/intro.wav.mp3" id="3_hsj58"]
 [ext_resource type="Script" path="res://scripts/BackgroundHome.gd" id="3_qgd8y"]
-[ext_resource type="Texture2D" uid="uid://vg56k200vuxc" path="res://assets/image/HUD/logo_cr.png" id="4_s1umk"]
+[ext_resource type="Texture2D" uid="uid://vg56k200vuxc" path="res://assets/image.backup/HUD/logo_cr.png" id="4_s1umk"]
 [ext_resource type="Script" path="res://scripts/Logo.gd" id="4_vds6g"]
 [ext_resource type="Script" path="res://scripts/Panel.gd" id="5_8di6l"]
 [ext_resource type="Script" path="res://scripts/HBoxContainer2.gd" id="6_w68h6"]

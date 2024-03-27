@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="GameJam2024"
+config/name="SLAIME"
+config/description="	"
 run/main_scene="res://scenes/HomeMenu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
+boot_splash/image="res://assets/image/HUD/logo.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://assets/image/HUD/logo.svg"
 
 [autoload]
