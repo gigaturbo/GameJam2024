@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4.3.1
         with:
           name: windows
-          path: build/windows/$EXPORT_NAME.exe
+          path: build/windows/SLAIME.exe
 
   export-linux:
     name: Linux Export
@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4.3.1
         with:
           name: linux
-          path: build/linux/$EXPORT_NAME.x86_64
+          path: build/linux/SLAIME.x86_64
 
   # export-web:
   #   name: Web Export
