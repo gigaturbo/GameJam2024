@@ -25,14 +25,14 @@ jobs:
         run: |
           mkdir -v -p build/windows
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
+          godot --headless --verbose --export-release "Windows Desktop" ./build/windows/$EXPORT_NAME.exe
           ls ../build/windows
           ls build/windows
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
           name: windows
-          path: build/windows/*
+          path: build/windows/$EXPORT_NAME.exe
 
   export-linux:
     name: Linux Export
@@ -52,12 +52,12 @@ jobs:
         run: |
           mkdir -v -p build/linux
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Linux/X11" ../build/linux/$EXPORT_NAME.x86_64
+          godot --headless --verbose --export-release "Linux/X11" ./build/linux/$EXPORT_NAME.x86_64
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
           name: linux
-          path: ../build/linux/*
+          path: build/linux/$EXPORT_NAME.x86_64
 
   export-web:
     name: Web Export
@@ -77,7 +77,7 @@ jobs:
         run: |
           mkdir -v -p build/web
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "HTML5" ../build/web/index.html
+          godot --headless --verbose --export-release "HTML5" ./build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
@@ -110,9 +110,9 @@ jobs:
         run: |
           mkdir -v -p build/mac
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "macOS" ../build/mac/$EXPORT_NAME.zip
+          godot --headless --verbose --export-release "macOS" ./build/mac/$EXPORT_NAME.zip
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
           name: mac
-          path: build/mac/*
+          path: build/mac/$EXPORT_NAME.zip
