@@ -4,7 +4,7 @@ on: push
 env:
   GODOT_VERSION: 4.1.3
   EXPORT_NAME: SLAIME
-  PROJECT_PATH: "GameJam2024"
+  PROJECT_PATH: "./"
 
 jobs:
   export-windows:
