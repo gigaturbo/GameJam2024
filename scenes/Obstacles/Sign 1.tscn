@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5oqeqdjtwlyr"]
+[gd_scene load_steps=3 format=3 uid="uid://cnhhbrr4sa8ky"]
 
-[ext_resource type="Texture2D" uid="uid://npka0w4dgicm" path="res://assets/image/obstacles/Sign 1.png" id="1_af6lk"]
+[ext_resource type="Texture2D" uid="uid://npka0w4dgicm" path="res://assets/image/obstacles/Sign 1.png" id="1_fibcv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ls7"]
 size = Vector2(15, 42)
@@ -14,7 +14,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 z_index = 1
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_af6lk")
+texture = ExtResource("1_fibcv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-28.5, 40)

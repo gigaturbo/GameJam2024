@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtaxorkjqko3b"]
+[gd_scene load_steps=9 format=3 uid="uid://dtaxorkjqko3b"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_8hsnn"]
 [ext_resource type="PackedScene" uid="uid://dvqxplp2527yj" path="res://scenes/Player.tscn" id="1_hr5du"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bpfyo43h74r54" path="res://scenes/HUD.tscn" id="3_naudc"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="4_nl5ry"]
 [ext_resource type="Script" path="res://scripts/Node2DCamera.gd" id="6_nnsdh"]
-[ext_resource type="AudioStream" uid="uid://chcau3vn0jv0g" path="res://assets/audio/hit.wav" id="6_pnyct"]
 [ext_resource type="AudioStream" uid="uid://c8vqm861t5kfp" path="res://assets/audio_new/musique/mp3/theme_1.wav.mp3" id="8_te4is"]
 [ext_resource type="AudioStream" uid="uid://db4s6u5aeiuo2" path="res://assets/audio_new/musique/mp3/theme_2.wav.mp3" id="9_sqt6e"]
 
@@ -36,9 +35,6 @@ one_shot = true
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("3_naudc")]
 
 [node name="Audio" type="Node" parent="."]
-
-[node name="HitSound" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("6_pnyct")
 
 [node name="AudioStreamPlayer_theme_1" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("8_te4is")

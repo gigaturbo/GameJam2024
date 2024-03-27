@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://c2ywp7hgxgdre"]
 
 [ext_resource type="Script" path="res://scripts/HomeMenu.gd" id="1_lfsv4"]
-[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image.backup/background_home.jpg" id="2_wky51"]
-[ext_resource type="AudioStream" uid="uid://cqrd7hg1tosqb" path="res://assets/audio_new/musique/mp3/intro.wav.mp3" id="3_hsj58"]
+[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_rkw6x"]
 [ext_resource type="Script" path="res://scripts/BackgroundHome.gd" id="3_qgd8y"]
-[ext_resource type="Texture2D" uid="uid://vg56k200vuxc" path="res://assets/image.backup/HUD/logo_cr.png" id="4_s1umk"]
+[ext_resource type="Texture2D" uid="uid://vg56k200vuxc" path="res://assets/image/HUD/logo_cr.png" id="4_b5b0j"]
 [ext_resource type="Script" path="res://scripts/Logo.gd" id="4_vds6g"]
 [ext_resource type="Script" path="res://scripts/Panel.gd" id="5_8di6l"]
 [ext_resource type="Script" path="res://scripts/HBoxContainer2.gd" id="6_w68h6"]
+[ext_resource type="AudioStream" uid="uid://cqrd7hg1tosqb" path="res://assets/audio/musique/mp3/intro.wav.mp3" id="8_rec5k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nswj"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 0.733333)
@@ -22,13 +22,13 @@ script = ExtResource("1_lfsv4")
 [node name="BackgroundHome" type="Sprite2D" parent="."]
 position = Vector2(637.5, 357)
 scale = Vector2(0.670313, 0.67037)
-texture = ExtResource("2_wky51")
+texture = ExtResource("2_rkw6x")
 script = ExtResource("3_qgd8y")
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(1021.1, 169.951)
 scale = Vector2(0.165994, 0.165994)
-texture = ExtResource("4_s1umk")
+texture = ExtResource("4_b5b0j")
 script = ExtResource("4_vds6g")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -81,7 +81,7 @@ text = "[center][b]Paris 2098[/b]. Le monde est désormais peuplé de [i]sl[ai]m
 Un scientifique, Alan, a trouvé la solution révolutionnaire : fusionner des [i]sl[ai]mes[/i] pour en produire de meilleurs. Alan envoie son meilleur spécimen, [b]Globulus Prime[/b], à la quête d'autres [i]sl[ai]mes[/i] avec lesquels fusionner...[/center]"
 
 [node name="AudioStreamPlayer_intro" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_hsj58")
+stream = ExtResource("8_rec5k")
 volume_db = -20.0
 
 [connection signal="pressed" from="HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]

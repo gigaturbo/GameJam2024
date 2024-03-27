@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c5hnkftc4pxgk"]
 
-[ext_resource type="Texture2D" uid="uid://cq5b58fxqtqvl" path="res://assets/image/obstacles/House 1.png" id="1_qbn88"]
+[ext_resource type="Texture2D" uid="uid://cq5b58fxqtqvl" path="res://assets/image/obstacles/House 1.png" id="1_y4av0"]
 
 [node name="House 1" type="Node2D"]
 visibility_layer = 7
@@ -11,7 +11,7 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_qbn88")
+texture = ExtResource("1_y4av0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(257, 111, 122, 114, 5, 166, -233, 168, -244, -42, -88, -185, -66, -185, 96, -60, 258, -62)
