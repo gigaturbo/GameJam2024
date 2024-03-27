@@ -28,18 +28,18 @@ jobs:
         run: |
           mkdir -v -p build/windows
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop" ./build/windows/$EXPORT_NAME-${{github.ref}}.exe
+          godot --headless --verbose --export-release "Windows Desktop" ./build/windows/$EXPORT_NAME-${{github.ref_name}}.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
           name: windows
-          path: build/windows/${{ env.EXPORT_NAME }}-${{github.ref}}.exe
+          path: build/windows/${{ env.EXPORT_NAME }}-${{github.ref_name}}.exe
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            build/windows/${{ env.EXPORT_NAME }}-${{github.ref}}.exe
+            build/windows/${{ env.EXPORT_NAME }}-${{github.ref_name}}.exe
 
   # export-linux:
   #   name: Linux Export
