@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ero1q25ffs3g"]
 
 [ext_resource type="Script" path="res://scripts/End.gd" id="1_25scq"]
-[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image.backup/background_home.jpg" id="2_ducsc"]
-[ext_resource type="AudioStream" uid="uid://ccwkph62dhi73" path="res://assets/audio_new/musique/mp3/outro.wav.mp3" id="2_xmatj"]
+[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_o1gpj"]
+[ext_resource type="AudioStream" uid="uid://ccwkph62dhi73" path="res://assets/audio/musique/mp3/outro.wav.mp3" id="3_w2v6m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjkwo"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 0.733333)
@@ -17,7 +17,7 @@ script = ExtResource("1_25scq")
 [node name="BackgroundHome" type="Sprite2D" parent="."]
 position = Vector2(637.5, 357)
 scale = Vector2(0.670313, 0.67037)
-texture = ExtResource("2_ducsc")
+texture = ExtResource("2_o1gpj")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 869.0
@@ -61,7 +61,7 @@ des IA \"empoisonnées\", repérer ces modèles permet de garantir un apprentiss
 [/center]"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_xmatj")
+stream = ExtResource("3_w2v6m")
 volume_db = -5.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

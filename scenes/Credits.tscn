@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bc8cva03jy7kk"]
 
 [ext_resource type="Script" path="res://scripts/Credits.gd" id="1_fioyw"]
-[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image.backup/background_home.jpg" id="2_nruy6"]
+[ext_resource type="Texture2D" uid="uid://c8myfexdabxrt" path="res://assets/image/background_home.jpg" id="2_6hs1w"]
 [ext_resource type="AudioStream" uid="uid://bjsc47bjvkhye" path="res://assets/audio_new/musique/mp3/credits.wav.mp3" id="3_ukote"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga1mf"]
@@ -17,7 +17,7 @@ script = ExtResource("1_fioyw")
 [node name="BackgroundHome" type="Sprite2D" parent="."]
 position = Vector2(637.5, 357)
 scale = Vector2(0.670313, 0.67037)
-texture = ExtResource("2_nruy6")
+texture = ExtResource("2_6hs1w")
 
 [node name="ReturnButton" type="Button" parent="."]
 offset_left = 956.0

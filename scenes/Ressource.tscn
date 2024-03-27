@@ -49,7 +49,6 @@
 [ext_resource type="Texture2D" uid="uid://dkgwn0a4vrak5" path="res://assets/image/ressources/poison_blue_idle/frame_07.png" id="47_khkci"]
 [ext_resource type="Texture2D" uid="uid://eygq0bb5ws2s" path="res://assets/image/ressources/poison_blue_idle/frame_08.png" id="48_k1pwm"]
 [ext_resource type="Texture2D" uid="uid://d27si284it0u8" path="res://assets/image/ressources/poison_blue_idle/frame_09.png" id="49_npw7a"]
-[ext_resource type="Texture2D" uid="uid://dsrlfliemp3t8" path="res://assets/image.backup/textures/forme_rond_3.png" id="50_2yxxr"]
 [ext_resource type="Texture2D" uid="uid://d0t0yr48hda2q" path="res://assets/image/ressources/poison_blue_idle/frame_10.png" id="50_smux3"]
 [ext_resource type="Texture2D" uid="uid://cuwsn0odcv0ka" path="res://assets/image/ressources/poison_blue_idle/frame_11.png" id="51_jc1rg"]
 [ext_resource type="Texture2D" uid="uid://q6neuys7hw8i" path="res://assets/image/ressources/poison_blue_idle/frame_12.png" id="52_fmek4"]
@@ -70,6 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://bottcwtjk6yux" path="res://assets/image/ressources/poison_pink_idle/frame_10.png" id="67_vga2x"]
 [ext_resource type="Texture2D" uid="uid://cm2p4u4dck0e" path="res://assets/image/ressources/poison_pink_idle/frame_11.png" id="68_sb5jq"]
 [ext_resource type="Texture2D" uid="uid://c0bl8qk0c1xtc" path="res://assets/image/ressources/poison_pink_idle/frame_12.png" id="69_aplhn"]
+[ext_resource type="Texture2D" uid="uid://dsrlfliemp3t8" path="res://assets/image/textures/forme_rond_3.png" id="70_g8wws"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3000y"]
 animations = [{
@@ -361,14 +361,14 @@ metadata/_edit_group_ = true
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_3000y")
 animation = &"3_idle"
-frame_progress = 0.959661
+frame_progress = 0.837493
 
 [node name="CharacterEffects" type="CanvasGroup" parent="."]
 position = Vector2(3, -9)
 
 [node name="PointLight2D_res" type="PointLight2D" parent="CharacterEffects"]
 color = Color(1, 0, 0.513726, 1)
-texture = ExtResource("50_2yxxr")
+texture = ExtResource("70_g8wws")
 texture_scale = 5.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterEffects/PointLight2D_res"]

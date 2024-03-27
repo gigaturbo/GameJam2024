@@ -1,11 +1,10 @@
-[gd_scene load_steps=118 format=3 uid="uid://dvqxplp2527yj"]
+[gd_scene load_steps=117 format=3 uid="uid://dvqxplp2527yj"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_kreaw"]
 [ext_resource type="Texture2D" uid="uid://d2lja5d21ib0e" path="res://assets/image/player/small_appear/frame_001.png" id="2_ga4ww"]
 [ext_resource type="Texture2D" uid="uid://ctxjrjo4afkfv" path="res://assets/image/player/small_appear/frame_002.png" id="3_3g765"]
 [ext_resource type="Texture2D" uid="uid://b08e2i8q3hbhs" path="res://assets/image/player/small_appear/frame_003.png" id="4_b4lce"]
 [ext_resource type="Texture2D" uid="uid://bqf7agrx4fs6q" path="res://assets/image/player/small_appear/frame_004.png" id="5_7lyjk"]
-[ext_resource type="AudioStream" uid="uid://chcau3vn0jv0g" path="res://assets/audio/hit.wav" id="5_31068"]
 [ext_resource type="Texture2D" uid="uid://b1idiacx3v4ph" path="res://assets/image/player/small_appear/frame_005.png" id="6_61gd2"]
 [ext_resource type="Texture2D" uid="uid://doaqe4kfhxa21" path="res://assets/image/player/small_appear/frame_006.png" id="7_a0ttp"]
 [ext_resource type="Texture2D" uid="uid://cs07qp2ulmct2" path="res://assets/image/player/small_appear/frame_007.png" id="8_5h80g"]
@@ -71,7 +70,6 @@
 [ext_resource type="Texture2D" uid="uid://hdoopudcg2ik" path="res://assets/image/player/small_walk/frame_36.png" id="68_2n6tt"]
 [ext_resource type="Texture2D" uid="uid://bfp6fdc8dl0t2" path="res://assets/image/player/small_walk/frame_37.png" id="69_04jyy"]
 [ext_resource type="Texture2D" uid="uid://cl2lkgcfo0lkv" path="res://assets/image/player/small_walk/frame_38.png" id="70_5tc1h"]
-[ext_resource type="Texture2D" uid="uid://bl437vxot8ydu" path="res://assets/image.backup/textures/forme_rond2.png" id="71_4afsv"]
 [ext_resource type="Texture2D" uid="uid://cq7n2soixg13t" path="res://assets/image/player/small_walk/frame_39.png" id="71_6n0r8"]
 [ext_resource type="Texture2D" uid="uid://7casldc78xt" path="res://assets/image/player/small_walk/frame_40.png" id="72_0d4qw"]
 [ext_resource type="Script" path="res://scripts/PointLight2D_eat.gd" id="72_q4nx7"]
@@ -110,6 +108,7 @@
 [ext_resource type="Texture2D" uid="uid://b4k52ghcek53e" path="res://assets/image/player/big_walk/frame_22.png" id="96_i07hf"]
 [ext_resource type="Texture2D" uid="uid://4t7403u8diel" path="res://assets/image/player/big_walk/frame_23.png" id="97_8i7q2"]
 [ext_resource type="Texture2D" uid="uid://dynkwsuxam6cj" path="res://assets/image/player/big_walk/frame_24.png" id="98_ivqo0"]
+[ext_resource type="Texture2D" uid="uid://bl437vxot8ydu" path="res://assets/image/textures/forme_rond2.png" id="99_wp4j0"]
 [ext_resource type="AudioStream" uid="uid://dy6wa6u5mar4p" path="res://assets/audio_new/bruitages/slime_001_poison2.wav" id="112_sqqkg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tgrv3"]
@@ -475,8 +474,8 @@ metadata/_edit_group_ = true
 position = Vector2(35.443, -88.6076)
 scale = Vector2(1.05, 1.05)
 sprite_frames = SubResource("SpriteFrames_tgrv3")
-animation = &"F1_walk_lateral"
-frame_progress = 0.57765
+animation = &"F1_idle"
+frame_progress = 0.301677
 offset = Vector2(-20, 0)
 
 [node name="CharacterEffects" type="CanvasGroup" parent="AnimatedSprite2D"]
@@ -486,8 +485,8 @@ visible = false
 position = Vector2(4.82216, -62.6887)
 scale = Vector2(0.914302, 1.96713)
 color = Color(0.137255, 1, 0.290196, 1)
-energy = 0.0
-texture = ExtResource("71_4afsv")
+energy = 12.0
+texture = ExtResource("99_wp4j0")
 texture_scale = 25.0
 script = ExtResource("72_q4nx7")
 
@@ -510,9 +509,6 @@ shape = SubResource("CapsuleShape2D_25l4k")
 position = Vector2(10.1266, -75.9493)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("CapsuleShape2D_rwbqe")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_31068")
 
 [node name="PlayerSounds" type="Node" parent="."]
 
